@@ -13,37 +13,41 @@ logging.basicConfig(
 )
 iris = Iris()
 
-n_bits=5
+n_bits=10
+tamanho_tupla = 5
 termometro = Termometro(n_bits=n_bits)
 
 colunas_binarizadas = []
 
 for col in iris.atributos_numericos:
-    logging.info(f"Binarizando coluna '{col}' com {n_bits} bits (Termômetro).\n")
+    logging.info(f"Binarizando coluna '{col}' com {n_bits} bits (Termômetro).")
     colunas_binarizadas.append(termometro.codificador_termometro(iris.atributos[col].astype(float)))
-    logging.info(f"Coluna '{col}' binarizada")
+    logging.info(f"Coluna '{col}' binarizada\n")
 
 entradas_binarizadas = np.hstack(colunas_binarizadas)
 tamanho_entrada = entradas_binarizadas.shape[1]
 
 logging.info(f'Dimensão de cada entrada após a binarização: {tamanho_entrada} bits')
-wisard = WisardModel(tamanho_entrada, 5)
+wisard = WisardModel(tamanho_entrada, tamanho_tupla)
 
 classes = iris.classes['class'].values 
 
 entradas_treino, entradas_teste, classes_treino, classes_test = train_test_split(
     entradas_binarizadas, classes, test_size=0.3, random_state=42, stratify=iris.classes
 )
+logging.info(f'Amostras separadas em {classes_treino.size} para treino e {classes_test.size} para teste')
+logging.info("Treinamento da wisard iniciado")
 
-# Treinamento
-for entrada, classe in zip(entradas_treino, classes_treino):
+for k, (entrada, classe) in enumerate(zip(entradas_treino, classes_treino)):
     wisard.fit(entrada, classe)
+    print(f"\rTreinando amostras: {k+1}/{len(entradas_treino)}", end='', flush=True)
 
+print()
 logging.info("Treinamento concluído!")
 
 classes_reais = []
 classes_preditas = []
-# Exemplo de previsão
+
 for entrada, classe in zip(entradas_teste, classes_test):
     resultado = wisard.predict(entrada, classe)
     classes_reais.append(classe)
