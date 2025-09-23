@@ -11,16 +11,16 @@ class WisardModel:
 
         self.num_rams = self.tamanho_entrada // self.tamanho_tupla
 
-        self.descriminadores = [{}] 
+        self.descriminadores = {} 
 
+        self.indices = list(range(self.tamanho_entrada))
+        random.shuffle(self.indices)
 
     def buscar_enderecos_de_ativacao(self, entrada):
-        indices = list(range(self.tamanho_entrada))
-        random.shuffle(indices)
 
         enderecos = []
         for i in range(0, self.tamanho_entrada, self.tamanho_tupla):
-            tupla_indices = indices[i:i + self.tamanho_tupla]
+            tupla_indices = self.indices[i:i + self.tamanho_tupla]
             tupla = [entrada[j] for j in tupla_indices]    
             endereco = int("".join(map(str, tupla)), 2)
             enderecos.append(endereco)
@@ -33,7 +33,7 @@ class WisardModel:
         enderecos = self.buscar_enderecos_de_ativacao(entrada)
 
         for indice_ram, endereco in enumerate(enderecos):
-            self.memories[classe][indice_ram].add(endereco)
+            self.descriminadores[classe][indice_ram].add(endereco)
 
     
     def predict(self, entrada):
