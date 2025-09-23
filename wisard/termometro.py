@@ -19,5 +19,5 @@ class Termometro:
             # Cria o vetor binário do termômetro
             thermometer_vec = [1 if j < valor_normalizado else 0 for j in range(self.n_bits)]
             vetor_codificado.append(thermometer_vec)
-            print(f"{val} -> {thermometer_vec}")
+            #print(f"{val} -> {thermometer_vec}")
         return np.array(vetor_codificado, dtype=np.uint8)

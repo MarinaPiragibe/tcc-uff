@@ -1,5 +1,7 @@
 import random
 
+from utils.arquivo_utils import ArquivoUtils
+
 
 class WisardModel:
     def __init__(self, tamanho_entrada, tamanho_tupla):
@@ -36,18 +38,24 @@ class WisardModel:
             self.descriminadores[classe][indice_ram].add(endereco)
 
     
-    def predict(self, entrada):
+    def predict(self, entrada, classe):
         enderecos = self.buscar_enderecos_de_ativacao(entrada)
-
         pontuacoes = {}
-        for classe, rams in self.descriminadores.items():
+        
+        for discriminador, rams in self.descriminadores.items():
             score = 0
             for indice_ram, endereco in enumerate(enderecos):
                 if endereco in rams[indice_ram]:
                     score += 1
-            pontuacoes[classe] = score
+            pontuacoes[discriminador] = score
+        
+        resultado = max(pontuacoes, key=pontuacoes.get)
 
-        return max(pontuacoes, key=pontuacoes.get), pontuacoes
+        ArquivoUtils.salvar_no_arquivo(
+            nome_arquivo="arquivos_saida/saida_wisard.txt",
+            conteudo=f"Entrada: {entrada}, Classe: {classe}, Predição: {resultado}, Pontuações: {pontuacoes}\n"
+        )
+        return max(pontuacoes, key=pontuacoes.get)
 
 if __name__ == "__main__":
     model = WisardModel(8, 2)

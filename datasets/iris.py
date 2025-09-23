@@ -10,12 +10,6 @@ class Iris:
         iris = fetch_ucirepo(id=self.id) 
   
         self.atributos = iris.data.features 
-        self.classes = iris.data.targets 
-
-        print(type(self.classes), self.classes[:5])
-        
-        # print(iris.metadata) 
-        # print(iris.variables) 
- 
+        self.classes = iris.data.targets        
     def __init__(self):
         self.carregar_dataset()         
