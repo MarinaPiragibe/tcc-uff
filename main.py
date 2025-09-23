@@ -28,16 +28,19 @@ tamanho_entrada = entradas_binarizadas.shape[1]
 logging.info(f'Dimensão de cada entrada após a binarização: {tamanho_entrada} bits')
 wisard = WisardModel(tamanho_entrada, 5)
 
+classes = iris.classes['class'].values 
+
 entradas_treino, entradas_teste, classes_treino, classes_test = train_test_split(
-    entradas_binarizadas, iris.classes, test_size=0.3, random_state=42, stratify=iris.classes
+    entradas_binarizadas, classes, test_size=0.3, random_state=42, stratify=iris.classes
 )
 
-    # Treinamento
+# Treinamento
 for entrada, classe in zip(entradas_treino, classes_treino):
     wisard.fit(entrada, classe)
 
 logging.info("Treinamento concluído!")
 
 # Exemplo de previsão
-pred, scores = wisard.predict(entradas_teste[0])
-logging.info(f"Predição da primeira amostra de teste: {pred}, pontuações: {scores}")
+pred, pontuacoes = wisard.predict(entradas_teste[0])
+logging.info(f"Predição da primeira amostra de teste: {pred}, pontuações: {pontuacoes}")
+logging.info(f"Valor real da amostra: {classes_test[0]}")

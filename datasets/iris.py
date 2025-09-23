@@ -11,6 +11,8 @@ class Iris:
   
         self.atributos = iris.data.features 
         self.classes = iris.data.targets 
+
+        print(type(self.classes), self.classes[:5])
         
         # print(iris.metadata) 
         # print(iris.variables) 
