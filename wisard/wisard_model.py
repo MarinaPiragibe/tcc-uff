@@ -53,7 +53,7 @@ class WisardModel:
 
         ArquivoUtils.salvar_no_arquivo(
             nome_arquivo="arquivos_saida/saida_wisard.txt",
-            conteudo=f"Entrada: {entrada}, Classe: {classe}, Predição: {resultado}, Pontuações: {pontuacoes}\n"
+            conteudo=f'{"[ERRO] " if resultado != classe else ""}Entrada: {entrada}, Classe: {classe}, Predição: {resultado}, Pontuações: {pontuacoes}\n'
         )
         return max(pontuacoes, key=pontuacoes.get)
 
