@@ -8,8 +8,8 @@ class Iris:
 
     def carregar_dataset(self):
         iris = fetch_ucirepo(id=self.id) 
-  
         self.atributos = iris.data.features 
-        self.classes = iris.data.targets        
+        self.classes = iris.data.targets   
+             
     def __init__(self):
         self.carregar_dataset()         

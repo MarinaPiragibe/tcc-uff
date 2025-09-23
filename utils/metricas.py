@@ -1,6 +1,5 @@
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score, accuracy_score
 
-
 class Metricas:
 
     def __init__(self, classes_reais, classes_preditas):
@@ -8,6 +7,7 @@ class Metricas:
         self.classes_preditas = classes_preditas
 
     def imprimir_resultados(self):
+        print(f'\n{"-" * 10} Métricas {"-" * 10}')
         print("Accuracy:", self.acc)
         print("Precisão:", self.precisao)
         print("Recall:", self.recall)

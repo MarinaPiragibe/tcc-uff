@@ -9,7 +9,7 @@ class WisardModel:
         self.tamanho_tupla = tamanho_tupla
 
         if self.tamanho_entrada % self.tamanho_tupla != 0:
-            raise ValueError("O tamanho da entradad deve ser múltiplo do tamanho da tupla")
+            raise ValueError("O tamanho da entradada deve ser múltiplo do tamanho da tupla")
 
         self.num_rams = self.tamanho_entrada // self.tamanho_tupla
 
@@ -41,7 +41,7 @@ class WisardModel:
     def predict(self, entrada, classe):
         enderecos = self.buscar_enderecos_de_ativacao(entrada)
         pontuacoes = {}
-        
+
         for discriminador, rams in self.descriminadores.items():
             score = 0
             for indice_ram, endereco in enumerate(enderecos):
