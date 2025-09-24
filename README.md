@@ -7,3 +7,5 @@ Objetivo: Desenvolver e analisar modelos de Inteligência Artificial Verde, como
 ### Instalações necessárias
 - pip install ucimlrepo
 - pip install scikit-learn
+- pip install torch torchvision torchaudio
+- pip install matplotlib
