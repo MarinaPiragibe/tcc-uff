@@ -30,7 +30,7 @@ class Modelo:
             {'params': self.model.classifier.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
         ], lr=0)
 
-    def foward(self, lote, classes_preditas, classes_reais, erro_da_epoca):
+    def forward(self, lote, classes_preditas, classes_reais, erro_da_epoca):
         dado, classe = lote
 
         dado = dado.to(self.args['dispositivo'])
@@ -38,10 +38,10 @@ class Modelo:
 
         # Forward
         classe_predita = self.model(dado)
-        erro = self.criterio(classe, classe)
+        erro = self.criterio(classe_predita, classe)
         erro_da_epoca.append(erro.cpu().data)
 
-        _, pred = torch.max(classe_predita, axis=1)
+        _, pred = torch.max(classe_predita, dim=1)
         classes_preditas.extend(pred.cpu().numpy())
         classes_reais.extend(classe.cpu().numpy())
 
@@ -63,7 +63,7 @@ class Modelo:
 
         for k, lote in enumerate(self.train_loader):
             print(f'\r{k+1}/{len(self.train_loader)}', end='', flush=True) 
-            erro = self.foward(lote, classes_preditas, classes_reais, erro_da_epoca)            
+            erro = self.forward(lote, classes_preditas, classes_reais, erro_da_epoca)            
             self.backpropagation(erro)
 
         print()
@@ -81,10 +81,9 @@ class Modelo:
         classes_reais = []
 
         with torch.no_grad(): 
-            for k, lote in enumerate(self.train_loader):
-                print(f'\r{k+1}/{len(self.train_loader)}', end='', flush=True) 
-                erro = self.foward(lote, classes_preditas, classes_reais, erro_da_epoca)            
-                self.backpropagation(erro)
+            for k, lote in enumerate(self.test_loader):
+                print(f'\r{k+1}/{len(self.test_loader)}', end='', flush=True) 
+                erro = self.forward(lote, classes_preditas, classes_reais, erro_da_epoca)            
             print()
 
         end = time.time()
@@ -93,4 +92,4 @@ class Modelo:
         classes_reais_array = np.asarray(classes_reais)
         classes_preditas_array = np.asarray(classes_preditas)
         
-        return classes_preditas_array, classes_reais_array
+        return classes_reais_array, classes_preditas_array 

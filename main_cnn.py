@@ -1,4 +1,3 @@
-# Implementação e treinamento da rede
 import torch
 from torch import nn, optim
 
@@ -17,26 +16,37 @@ from cnn.modelo import Modelo
 from utils.imagem_utils import ImagemUtils
 from utils.metricas import Metricas
 
+import logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 args = {
     'num_epocas': 1,     
     'taxa_aprendizado': 1e-3,           
     'penalidade': 8e-4, 
     'tamanho_lote': 20,
-    'qtd_classe': 10     
+    'qtd_classes': 10     
 }
 
 if torch.cuda.is_available():
     args['dispositivo'] = torch.device('cuda')
+    logging.info("CUDA disponível. Usando GPU para treinamento.")
 else:
     args['dispositivo'] = torch.device('cpu')
+    logging.info("CUDA não disponível. Usando CPU para treinamento.")
 
+logging.info("Definindo transformações para imagens (ImageNet)")
 transform = ImagemUtils.opcoes_transformacao_imagenet()
 
+logging.info("Carregando conjunto de treino CIFAR10")
 train_set = datasets.CIFAR10('.',
                       train=True,
                       transform= transform, # transformação composta
                       download=True)
 
+logging.info("Carregando conjunto de teste CIFAR10")
 test_set = datasets.CIFAR10('.',
                       train=False,
                       transform= transform, # transformação composta
@@ -45,13 +55,16 @@ test_set = datasets.CIFAR10('.',
 train_loader = DataLoader(train_set,
                           batch_size=args['tamanho_lote'],
                           shuffle=True)
-
 test_loader = DataLoader(test_set,
                           batch_size=args['tamanho_lote'],
                           shuffle=True)
 
-criterio = nn.CrossEntropyLoss().to(args['device'])
+logging.info(f"Tamanho do lote: {args['tamanho_lote']}")
+logging.info(f"Número de classes: {args['qtd_classes']}")
 
+criterio = nn.CrossEntropyLoss().to(args['dispositivo'])
+
+logging.info("Inicializando modelo CNN (VGG16)")
 modelo = Modelo(
     train_loader=train_loader,
     test_loader=test_loader,
@@ -59,8 +72,14 @@ modelo = Modelo(
     criterio=criterio
 )
 
+logging.info("Iniciando treinamento do modelo CNN")
 modelo.treinar()
-classes_reais, classes_preditas = modelo.testar()
+logging.info("Treinamento concluído!")
+
+logging.info("Iniciando teste do modelo CNN")
+classes_preditas, classes_reais = modelo.testar()
+logging.info("Teste concluído!")
 
 metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
+logging.info("Calculando métricas de desempenho")
 metricas.calcular_e_imprimir_metricas()
