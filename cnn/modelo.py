@@ -10,11 +10,9 @@ class Modelo:
         self.test_loader = test_loader
         self.args = args
         self.criterio=criterio
-        self.iniciar_modelo()
-        self.iniciar_otimizador()
 
-    def iniciar_modelo(self):
-        self.model = models.vgg16_bn(pretrained=True).to('cpu')
+    def iniciar_modelo_vgg16(self):
+        self.model = models.vgg16_bn(pretrained=True).to(self.args['dispositivo'])
 
         atributos_de_entrada = list(self.model.children())[-1][-1].in_features
 
@@ -24,7 +22,25 @@ class Modelo:
         self.model.classifier = nn.Sequential(*novo_classificador).to(self.args['dispositivo'])        
         print(self.model)
 
-    def iniciar_otimizador(self):
+        self.iniciar_otimizador_vgg16()
+
+    def iniciar_modelo_resnet18(self):
+        self.model = models.resnet18(pretrained=True).to(self.args['dispositivo'])
+        atributos_de_entrada = self.model.fc.in_features
+
+        novo_classificador =  nn.Linear(atributos_de_entrada, self.args['qtd_classes']).to(self.args['dispositivo'])
+        self.model.fc = novo_classificador
+
+        self.iniciar_otimizador_resnet18()
+
+
+    def iniciar_otimizador_resnet18(self):
+        self.optimizer = optim.Adam([
+            {'params': [p for name, p in self.model.named_parameters() if 'fc' not in name], 'lr':self.args['taxa_aprendizado']*0.2, 'weight_decay': self.args['penalidade']*0.2},
+            {'params': self.model.fc.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
+        ], lr=0)
+
+    def iniciar_otimizador_vgg16(self):
         self.optimizer = optim.Adam([
             {'params': self.model.features.parameters(), 'lr':self.args['taxa_aprendizado']*0.2, 'weight_decay': self.args['penalidade']*0.2},
             {'params': self.model.classifier.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
