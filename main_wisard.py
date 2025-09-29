@@ -1,16 +1,17 @@
+from time import time
 import numpy as np
 from datasets.iris import Iris
+from utils.logger import Logger
 from utils.metricas import Metricas
 from wisard.termometro import Termometro
 from wisard.wisard_model import WisardModel
 import logging
 from sklearn.model_selection import train_test_split
 
+Logger.configurar_logger(nome_arquivo="wisard_application.log")
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logger = logging.getLogger(__name__)
+
 iris = Iris()
 
 n_bits=10
@@ -37,24 +38,26 @@ entradas_treino, entradas_teste, classes_treino, classes_test = train_test_split
 )
 logging.info(f'Amostras separadas em {classes_treino.size} para treino e {classes_test.size} para teste')
 logging.info("Treinamento da wisard iniciado")
-
+inicio = time()
 for k, (entrada, classe) in enumerate(zip(entradas_treino, classes_treino)):
     wisard.fit(entrada, classe)
     print(f"\rTreinando amostras: {k+1}/{len(entradas_treino)}", end='', flush=True)
 
 print()
-logging.info("Treinamento concluído!")
+fim = time()
+logging.info(f"Treinamento concluído em {fim-inicio}")
 
 classes_reais = []
 classes_preditas = []
 
+logging.info("Teste da wisard iniciado")
+start = time()
 for entrada, classe in zip(entradas_teste, classes_test):
     resultado = wisard.predict(entrada, classe)
     classes_reais.append(classe)
     classes_preditas.append(resultado)
+end = time()
+logging.info(f"Teste concluído em {fim-inicio}")
 
 metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
 metricas.calcular_e_imprimir_metricas()
-# pred, pontuacoes = wisard.predict(entradas_teste[0])
-# logging.info(f"Predição da primeira amostra de teste: {pred}, pontuações: {pontuacoes}")
-# logging.info(f"Valor real da amostra: {classes_test[0]}")
