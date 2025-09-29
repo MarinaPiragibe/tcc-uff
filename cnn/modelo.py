@@ -1,7 +1,6 @@
-from time import time
 import numpy as np
 import torch
-from torchvision import models, transforms
+from torchvision import models
 from torch import nn, optim
 
 class Modelo:
@@ -22,7 +21,7 @@ class Modelo:
         self.model.classifier = nn.Sequential(*novo_classificador).to(self.args['dispositivo'])        
         print(self.model)
 
-        self.iniciar_otimizador_vgg16()
+        self.iniciar_otimizador()
 
     def iniciar_modelo_resnet18(self):
         self.model = models.resnet18(pretrained=True).to(self.args['dispositivo'])
@@ -34,17 +33,25 @@ class Modelo:
         self.iniciar_otimizador_resnet18()
 
 
-    def iniciar_otimizador_resnet18(self):
-        self.optimizer = optim.Adam([
-            {'params': [p for name, p in self.model.named_parameters() if 'fc' not in name], 'lr':self.args['taxa_aprendizado']*0.2, 'weight_decay': self.args['penalidade']*0.2},
-            {'params': self.model.fc.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
-        ], lr=0)
+    def iniciar_modelo_convnext(self):
+        self.model = models.convnext_tiny(pretrained=True).to(self.args['dispositivo'])
+        
+        atributos_de_entrada = self.model.classifier[2].in_features
+        self.model.classifier[2] = nn.Linear(atributos_de_entrada, self.args['qtd_classes']).to(self.args['dispositivo'])
 
-    def iniciar_otimizador_vgg16(self):
+        self.iniciar_otimizador()
+
+    def iniciar_otimizador(self):
         self.optimizer = optim.Adam([
             {'params': self.model.features.parameters(), 'lr':self.args['taxa_aprendizado']*0.2, 'weight_decay': self.args['penalidade']*0.2},
             {'params': self.model.classifier.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
         ], lr=0)
+
+    def iniciar_otimizador_resnet18(self):
+            self.optimizer = optim.Adam([
+                {'params': [p for name, p in self.model.named_parameters() if 'fc' not in name], 'lr':self.args['taxa_aprendizado']*0.2, 'weight_decay': self.args['penalidade']*0.2},
+                {'params': self.model.fc.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
+            ], lr=0)
 
     def forward(self, lote, classes_preditas, classes_reais, erro_da_epoca):
         dado, classe = lote
@@ -71,8 +78,6 @@ class Modelo:
     def treinar(self):
         self.model.train()
 
-        start = time()
-
         erro_da_epoca = []
         classes_preditas = []
         classes_reais = []
@@ -81,16 +86,12 @@ class Modelo:
             print(f'\r{k+1}/{len(self.train_loader)}', end='', flush=True) 
             erro = self.forward(lote, classes_preditas, classes_reais, erro_da_epoca)            
             self.backpropagation(erro)
-
         print()
-        end = time.time()
         return
 
 
     def testar(self):
         self.model.eval() 
-
-        start = time.time()
 
         erro_da_epoca = []
         classes_preditas = []
@@ -101,8 +102,6 @@ class Modelo:
                 print(f'\r{k+1}/{len(self.test_loader)}', end='', flush=True) 
                 erro = self.forward(lote, classes_preditas, classes_reais, erro_da_epoca)            
             print()
-
-        end = time.time()
 
         erro_da_epoca_array = np.asarray(erro_da_epoca)
         classes_reais_array = np.asarray(classes_reais)
