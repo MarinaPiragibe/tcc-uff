@@ -1,0 +1,16 @@
+2025-09-29 17:07:31,640 - main_wisard - INFO - Binarizando coluna 'sepal length' com 10 bits (Termômetro).
+2025-09-29 17:07:31,643 - main_wisard - INFO - Coluna 'sepal length' binarizada
+
+2025-09-29 17:07:31,643 - main_wisard - INFO - Binarizando coluna 'sepal width' com 10 bits (Termômetro).
+2025-09-29 17:07:31,645 - main_wisard - INFO - Coluna 'sepal width' binarizada
+
+2025-09-29 17:07:31,645 - main_wisard - INFO - Binarizando coluna 'petal length' com 10 bits (Termômetro).
+2025-09-29 17:07:31,648 - main_wisard - INFO - Coluna 'petal length' binarizada
+
+2025-09-29 17:07:31,648 - main_wisard - INFO - Binarizando coluna 'petal width' com 10 bits (Termômetro).
+2025-09-29 17:07:31,651 - main_wisard - INFO - Coluna 'petal width' binarizada
+
+2025-09-29 17:07:31,651 - main_wisard - INFO - Dimensão de cada entrada após a binarização: 40 bits
+2025-09-29 17:07:31,667 - main_wisard - INFO - Amostras separadas em 105 para treino e 45 para teste
+2025-09-29 17:07:31,668 - main_wisard - INFO - Treinamento da wisard iniciado
+2025-09-29 17:07:31,683 - main_wisard - INFO - Treinamento concluído!
