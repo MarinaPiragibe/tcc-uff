@@ -1,8 +1,9 @@
+import random
 import torch
 from torch import nn, optim
 
 # Carregamento de Dados e Modelos
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 from torchvision import datasets, models
 from torchvision import transforms
 
@@ -14,20 +15,23 @@ import time, os
 
 from cnn.modelo import Modelo
 from utils.imagem_utils import ImagemUtils
+from utils.logger import Logger
 from utils.metricas import Metricas
 
 import logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+
+Logger.configurar_logger(nome_arquivo="cnn_application.log")
+
+logger = logging.getLogger(__name__)
 
 args = {
+    'modelo_base': "resnet18",
     'num_epocas': 1,     
     'taxa_aprendizado': 1e-3,           
     'penalidade': 8e-4, 
-    'tamanho_lote': 20,
-    'qtd_classes': 10     
+    'tamanho_lote': 16,
+    'qtd_classes': 10,
+    'debug': True     
 }
 
 if torch.cuda.is_available():
@@ -42,15 +46,24 @@ transform = ImagemUtils.opcoes_transformacao_imagenet()
 
 logging.info("Carregando conjunto de treino CIFAR10")
 train_set = datasets.CIFAR10('.',
-                      train=True,
-                      transform= transform, # transformação composta
-                      download=True)
+                    train=True,
+                    transform= transform, # transformação composta
+                    download=True)
 
 logging.info("Carregando conjunto de teste CIFAR10")
 test_set = datasets.CIFAR10('.',
-                      train=False,
-                      transform= transform, # transformação composta
-                      download=False)
+                    train=False,
+                    transform= transform, # transformação composta
+                    download=False)
+
+if args['debug']:
+    logging.info("Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste")
+    train_indices = random.sample(range(len(train_set)), 1000)
+    test_indices = random.sample(range(len(test_set)), 200)
+
+    train_set = Subset(train_set, train_indices)
+    test_set = Subset(test_set, test_indices)
+
 
 train_loader = DataLoader(train_set,
                           batch_size=args['tamanho_lote'],
@@ -71,15 +84,7 @@ modelo = Modelo(
     args=args,
     criterio=criterio
 )
-
-logging.info("Iniciando treinamento do modelo CNN")
-modelo.treinar()
-logging.info("Treinamento concluído!")
-
-logging.info("Iniciando teste do modelo CNN")
-classes_preditas, classes_reais = modelo.testar()
-logging.info("Teste concluído!")
-
-metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-logging.info("Calculando métricas de desempenho")
-metricas.calcular_e_imprimir_metricas()
+# modelo.iniciar_modelo_vgg16()
+# modelo.iniciar_modelo_vgg16()
+modelo.iniciar_modelo_resnet18()
+modelo.executar_modelo()

@@ -2,7 +2,6 @@ import logging
 
 class Logger:
     @staticmethod
-    # logger_config.py
     def configurar_logger(nome_arquivo="application.log", nivel=logging.DEBUG):
         logging.basicConfig(
             level=nivel,
