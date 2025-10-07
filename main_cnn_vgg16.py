@@ -1,11 +1,10 @@
+from datetime import datetime
 import random
 from sklearn import datasets
 import torch
 from torch import nn
 
-# Carregamento de Dados e Modelos
 from torch.utils.data import DataLoader, Subset
-
 
 from cnn.modelo import Modelo
 from utils.imagem_utils import ImagemUtils
@@ -13,12 +12,10 @@ from utils.logger import Logger
 
 import logging
 
-Logger.configurar_logger(nome_arquivo="cnn_application.log")
-
 logger = logging.getLogger(__name__)
 
 args = {
-    'modelo_base': "resnet18",
+    'modelo_base': "vgg16",
     'num_epocas': 1,     
     'taxa_aprendizado': 1e-3,           
     'penalidade': 8e-4, 
@@ -26,6 +23,8 @@ args = {
     'qtd_classes': 10,
     'debug': True     
 }
+
+Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{datetime.now()}.log")
 
 if torch.cuda.is_available():
     args['dispositivo'] = torch.device('cuda')
@@ -46,7 +45,7 @@ train_set = datasets.CIFAR10('.',
 logging.info("Carregando conjunto de teste CIFAR10")
 test_set = datasets.CIFAR10('.',
                     train=False,
-                    transform= transform,
+                    transform= transform, 
                     download=False)
 
 if args['debug']:
@@ -77,5 +76,5 @@ modelo = Modelo(
     args=args,
     criterio=criterio
 )
-modelo.iniciar_modelo_resnet18()
+modelo.iniciar_modelo_vgg16()
 modelo.executar_modelo()

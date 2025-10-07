@@ -118,7 +118,7 @@ class Modelo:
 		self.optimizer.step()
 		
 	def treinar(self, epoca=None):
-		logging.info("Iniciando treinamento do modelo CNN")
+		logging.info(f"[ÉPOCA {epoca+1}] Iniciando treinamento do modelo CNN")
 		start = time()
 
 		self.model.train()
@@ -137,29 +137,45 @@ class Modelo:
 
 		erro_da_epoca_array = np.asarray(erro_da_epoca)
 
-		logging.info(f"Treinamento da ÉPOCA [{epoca}] concluído em {end-start}")
-		logging.info(f"Erro do treino da época: {erro_da_epoca_array.mean()}")
-
-		return erro_da_epoca_array.mean()
+		tempo_execucao = end-start
+		return erro_da_epoca_array.mean(), tempo_execucao
 	
 	def executar_modelo(self):
 		lista_erro_treino, lista_erro_teste = [], []
+		lista_tempo_execucao_treino, lista_tempo_execucao_teste = [], []
 		for epoca in range(self.args['num_epocas']):
-			logging.info(f"Iniciando a execução do modelo (treino e teste) para a {epoca}a época")
+			logging.info(f"[ÉPOCA {{epoca+1}}] Iniciando a execução do modelo (treino e teste)")
 
-			erro_do_treino = self.treinar(epoca)
+			erro_do_treino, tempo_execucao_treino = self.treinar(epoca)
 			lista_erro_treino.append(erro_do_treino)
+			lista_tempo_execucao_treino.append(tempo_execucao_treino)
 
-			classes_reais, classes_preditas, erro_do_teste = self.testar(epoca)
+			logging.info(f"ÉPOCA [{epoca+1}] Treinamento concluído em {tempo_execucao_treino}")
+			logging.info(f"ÉPOCA [{epoca}] Erro do treino: {erro_do_treino}")
+
+			classes_reais, classes_preditas, erro_do_teste, tempo_execucao_teste = self.testar(epoca)
 			lista_erro_teste.append(erro_do_teste)
+			lista_tempo_execucao_teste.append(tempo_execucao_teste)
+
+			logging.info(f"ÉPOCA [{epoca+1}] Teste concluído em {tempo_execucao_teste}")
+			logging.info(f"ÉPOCA [{epoca+1}] Erro do teste: {erro_do_teste}")
 
 			metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-			logging.info("Calculando métricas de desempenho")
+			logging.info("[ÉPOCA {{epoca+1}}] Calculando métricas de desempenho")
 			metricas.calcular_e_imprimir_metricas()
+		
+		tempo_total_treino = sum(tempo for tempo in lista_tempo_execucao_treino)
+		tempo_total_teste = sum(tempo for tempo in lista_tempo_execucao_teste)
+
+		logging.info(f"Execução do modelo concluída em {tempo_total_treino + tempo_total_teste}")
+		logging.info(f"Tempo de execução do treino: {tempo_total_treino}")
+		logging.info(f"Tempo de execução do teste: {tempo_total_teste}")
+
+		return
 
 
 	def testar(self, epoca=None):
-		logging.info("Iniciando teste do modelo CNN")
+		logging.info(f"[ÉPOCA {epoca+1}] Iniciando teste do modelo CNN")
 		start = time()
 
 		self.model.eval() 
@@ -179,9 +195,9 @@ class Modelo:
 		classes_preditas_array = np.asarray(classes_preditas)
 		end = time()
 
-		logging.info(f"Teste da ÉPOCA [{epoca}] concluído em {end-start}")
-		logging.info(f"Erro do teste da época: {erro_da_epoca_array.mean()}")
-		return classes_reais_array, classes_preditas_array, erro_da_epoca_array.mean()
+		tempo_execucao = end-start
+
+		return classes_reais_array, classes_preditas_array, erro_da_epoca_array.mean(), tempo_execucao
 	
 	# def salvar_modelo(self, erro_teste_final):
 	# 	# Define o nome do arquivo, combinando informações para identificação

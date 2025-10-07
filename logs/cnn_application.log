@@ -1,0 +1,101 @@
+2025-10-05 17:13:20,547 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:13:20,547 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:13:20,548 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:13:29,678 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:13:30,189 - root - INFO - Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste
+2025-10-05 17:13:30,202 - root - INFO - Tamanho do lote: 2
+2025-10-05 17:13:30,202 - root - INFO - Número de classes: 10
+2025-10-05 17:13:30,234 - root - INFO - Inicializando modelo CNN (VGG16)
+2025-10-05 17:13:31,108 - root - INFO - Iniciando a execução do modelo (treino e teste) para a 0a época
+2025-10-05 17:13:31,108 - root - INFO - Iniciando treinamento do modelo CNN
+2025-10-05 17:13:57,941 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:13:57,941 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:13:57,942 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:14:00,763 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:14:12,499 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:14:12,499 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:14:12,500 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:14:14,552 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:14:15,200 - root - INFO - Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste
+2025-10-05 17:14:15,203 - root - INFO - Tamanho do lote: 16
+2025-10-05 17:14:15,203 - root - INFO - Número de classes: 10
+2025-10-05 17:14:15,205 - root - INFO - Inicializando modelo CNN (VGG16)
+2025-10-05 17:14:15,604 - root - INFO - Iniciando a execução do modelo (treino e teste) para a 0a época
+2025-10-05 17:14:15,604 - root - INFO - Iniciando treinamento do modelo CNN
+2025-10-05 17:15:09,908 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:15:09,909 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:15:09,909 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:15:11,694 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:15:12,077 - root - INFO - Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste
+2025-10-05 17:15:12,079 - root - INFO - Tamanho do lote: 16
+2025-10-05 17:15:12,079 - root - INFO - Número de classes: 10
+2025-10-05 17:15:12,080 - root - INFO - Inicializando modelo CNN (VGG16)
+2025-10-05 17:15:12,425 - root - INFO - Iniciando a execução do modelo (treino e teste) para a 0a época
+2025-10-05 17:15:12,426 - root - INFO - Iniciando treinamento do modelo CNN
+2025-10-05 17:15:14,758 - root - INFO - Treinamento da ÉPOCA [0] concluído em 2.3324472904205322
+2025-10-05 17:15:14,759 - root - INFO - Erro do treino da época: 2.51353120803833
+2025-10-05 17:15:14,760 - root - INFO - Iniciando teste do modelo CNN
+2025-10-05 17:15:14,903 - root - INFO - Teste da ÉPOCA [0] concluído em 0.14279794692993164
+2025-10-05 17:15:14,903 - root - INFO - Erro do teste da época: 1.849674940109253
+2025-10-05 17:15:14,904 - root - INFO - Calculando métricas de desempenho
+2025-10-05 17:15:14,937 - root - INFO - 
+---------- Métricas ----------
+2025-10-05 17:17:29,142 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:17:29,142 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:17:29,143 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:17:30,637 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:17:31,035 - root - INFO - Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste
+2025-10-05 17:17:31,035 - root - INFO - Tamanho do lote: 16
+2025-10-05 17:17:31,036 - root - INFO - Número de classes: 10
+2025-10-05 17:17:31,036 - root - INFO - Inicializando modelo CNN (VGG16)
+2025-10-05 17:17:31,388 - root - INFO - Iniciando a execução do modelo (treino e teste) para a 0a época
+2025-10-05 17:17:31,388 - root - INFO - Iniciando treinamento do modelo CNN
+2025-10-05 17:17:34,149 - root - INFO - Treinamento da ÉPOCA [0] concluído em 2.7609424591064453
+2025-10-05 17:17:34,150 - root - INFO - Erro do treino da época: 2.5506253242492676
+2025-10-05 17:17:34,150 - root - INFO - Iniciando teste do modelo CNN
+2025-10-05 17:17:34,312 - root - INFO - Teste da ÉPOCA [0] concluído em 0.1613330841064453
+2025-10-05 17:17:34,312 - root - INFO - Erro do teste da época: 1.7631080150604248
+2025-10-05 17:17:34,313 - root - INFO - Calculando métricas de desempenho
+2025-10-05 17:17:34,329 - root - INFO - 
+---------- Métricas ----------
+2025-10-05 17:17:34,330 - root - INFO - Accuracy: 0.5
+2025-10-05 17:17:34,330 - root - INFO - Precisão: 0.3333333333333333
+2025-10-05 17:17:34,330 - root - INFO - Recall: 0.3333333333333333
+2025-10-05 17:17:34,330 - root - INFO - F1: 0.3333333333333333
+2025-10-05 17:17:34,331 - root - INFO - Matriz de confusão:
+[[1 0 0]
+ [0 0 0]
+ [0 1 0]]
+2025-10-05 17:24:42,919 - root - INFO - CUDA não disponível. Usando CPU para treinamento.
+2025-10-05 17:24:42,919 - root - INFO - Definindo transformações para imagens (ImageNet)
+2025-10-05 17:24:42,920 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-05 17:24:55,767 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-05 17:24:56,443 - root - INFO - Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste
+2025-10-05 17:24:56,446 - root - INFO - Tamanho do lote: 16
+2025-10-05 17:24:56,447 - root - INFO - Número de classes: 10
+2025-10-05 17:24:56,452 - root - INFO - Inicializando modelo CNN (VGG16)
+2025-10-05 17:24:57,792 - root - INFO - Iniciando a execução do modelo (treino e teste) para a 0a época
+2025-10-05 17:24:57,793 - root - INFO - Iniciando treinamento do modelo CNN
+2025-10-05 17:27:54,073 - root - INFO - Treinamento da ÉPOCA [0] concluído em 176.27882409095764
+2025-10-05 17:27:54,080 - root - INFO - Erro do treino da época: 1.252213790303185
+2025-10-05 17:27:54,081 - root - INFO - Iniciando teste do modelo CNN
+2025-10-05 17:28:04,713 - root - INFO - Teste da ÉPOCA [0] concluído em 10.631626605987549
+2025-10-05 17:28:04,714 - root - INFO - Erro do teste da época: 0.8140986126202804
+2025-10-05 17:28:04,714 - root - INFO - Calculando métricas de desempenho
+2025-10-05 17:28:04,745 - root - INFO - 
+---------- Métricas ----------
+2025-10-05 17:28:04,745 - root - INFO - Accuracy: 0.71
+2025-10-05 17:28:04,746 - root - INFO - Precisão: 0.7584982863140758
+2025-10-05 17:28:04,746 - root - INFO - Recall: 0.7084523631184222
+2025-10-05 17:28:04,747 - root - INFO - F1: 0.7102920051995263
+2025-10-05 17:28:04,748 - root - INFO - Matriz de confusão:
+[[14  0  4  0  0  2  0  0  0  0]
+ [ 0 16  0  0  0  2  0  0  0  2]
+ [ 0  0  9  1  2  3  0  0  0  0]
+ [ 0  0  1 13  0  5  0  0  2  0]
+ [ 1  0  2  0 25  1  0  2  0  0]
+ [ 0  0  0  1  0 15  0  0  0  0]
+ [ 0  0  4  2  0  2 13  0  0  0]
+ [ 0  0  1  1  0  6  0 12  0  0]
+ [ 1  0  1  1  0  0  0  0 14  0]
+ [ 2  3  3  0  0  0  0  0  0 11]]
