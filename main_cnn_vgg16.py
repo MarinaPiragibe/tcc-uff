@@ -1,6 +1,6 @@
 from datetime import datetime
 import random
-from sklearn import datasets
+from torchvision import datasets
 import torch
 from torch import nn
 
@@ -33,6 +33,8 @@ else:
     args['dispositivo'] = torch.device('cpu')
     logging.info("CUDA não disponível. Usando CPU para treinamento.")
 
+logging.info(f"Iniciando o modelo com os serguintes argumentos: {args}")
+
 logging.info("Definindo transformações para imagens (ImageNet)")
 transform = ImagemUtils.opcoes_transformacao_imagenet()
 
@@ -62,7 +64,7 @@ train_loader = DataLoader(train_set,
                           shuffle=True)
 test_loader = DataLoader(test_set,
                           batch_size=args['tamanho_lote'],
-                          shuffle=True)
+                          shuffle=False)
 
 logging.info(f"Tamanho do lote: {args['tamanho_lote']}")
 logging.info(f"Número de classes: {args['qtd_classes']}")

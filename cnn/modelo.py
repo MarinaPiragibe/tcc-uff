@@ -7,6 +7,9 @@ from torchvision import models
 from torch import nn, optim
 
 from utils.metricas import Metricas
+from utils.modelos_base_enum import ModeloBase
+from utils.arquivo_utils import ArquivoUtils
+
 
 class Modelo:
 	def __init__(self, train_loader, test_loader, args, criterio):
@@ -14,6 +17,20 @@ class Modelo:
 		self.test_loader = test_loader
 		self.args = args
 		self.criterio=criterio
+
+	def iniciar_modelo(self, modelo_base):
+		match modelo_base:
+			case ModeloBase.VGG16:
+				self.iniciar_modelo_vgg16()
+			case ModeloBase.INCEPTION_V3:
+				self.iniciar_modelo_inception_v3()
+			case ModeloBase.RESNET18:
+				self.iniciar_modelo_resnet18()
+			case ModeloBase.RESNET50:
+				self.iniciar_modelo_resnet50()
+			case ModeloBase.CONVNEXT:
+				self.iniciar_modelo_convnext()
+
 
 	def iniciar_modelo_vgg16(self):
 		self.model = models.vgg16_bn(pretrained=True).to(self.args['dispositivo'])
@@ -144,7 +161,7 @@ class Modelo:
 		lista_erro_treino, lista_erro_teste = [], []
 		lista_tempo_execucao_treino, lista_tempo_execucao_teste = [], []
 		for epoca in range(self.args['num_epocas']):
-			logging.info(f"[ÉPOCA {{epoca+1}}] Iniciando a execução do modelo (treino e teste)")
+			logging.info(f"[ÉPOCA {epoca+1}] Iniciando a execução do modelo (treino e teste)")
 
 			erro_do_treino, tempo_execucao_treino = self.treinar(epoca)
 			lista_erro_treino.append(erro_do_treino)
@@ -161,7 +178,7 @@ class Modelo:
 			logging.info(f"ÉPOCA [{epoca+1}] Erro do teste: {erro_do_teste}")
 
 			metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-			logging.info("[ÉPOCA {{epoca+1}}] Calculando métricas de desempenho")
+			logging.info(f"[ÉPOCA {epoca+1}] Calculando métricas de desempenho")
 			metricas.calcular_e_imprimir_metricas()
 		
 		tempo_total_treino = sum(tempo for tempo in lista_tempo_execucao_treino)
@@ -170,6 +187,12 @@ class Modelo:
 		logging.info(f"Execução do modelo concluída em {tempo_total_treino + tempo_total_teste}")
 		logging.info(f"Tempo de execução do treino: {tempo_total_treino}")
 		logging.info(f"Tempo de execução do teste: {tempo_total_teste}")
+
+		ArquivoUtils.salvar_modelo(
+			args=self.args,
+    		estado_modelo=self.model.state_dict(),
+    		estado_otimizador=self.optimizer.state_dict(),
+		)
 
 		return
 
@@ -199,27 +222,28 @@ class Modelo:
 
 		return classes_reais_array, classes_preditas_array, erro_da_epoca_array.mean(), tempo_execucao
 	
-	# def salvar_modelo(self, erro_teste_final):
-	# 	# Define o nome do arquivo, combinando informações para identificação
-	# 	nome_modelo = self.args.get('modelo_base', 'modelo_treinado') 
-	# 	nome_arquivo = f"{nome_modelo}_erro_{erro_teste_final:.4f}.pth"
+	def salvar_modelo(self, erro_teste_final):
+		try:
+			nome_modelo = self.args.get('modelo_base', 'modelo_treinado')
+			erro_teste_final = float(erro_teste_final or 0.0)
+			nome_arquivo = f"{nome_modelo}_erro_{erro_teste_final:.4f}.pth"
 
-	# 	# Define o caminho de salvamento (pode ser um argumento nos 'args')
-	# 	caminho_salvamento = self.args.get('caminho_salvamento', 'checkpoints/')
-	# 	os.makedirs(caminho_salvamento, exist_ok=True) # Cria a pasta se não existir
-	# 	caminho_completo = os.path.join(caminho_salvamento, nome_arquivo)
+			caminho_salvamento = self.args.get('caminho_salvamento', 'checkpoints/')
+			os.makedirs(caminho_salvamento, exist_ok=True)
+			caminho_completo = os.path.join(caminho_salvamento, nome_arquivo)
 
-	# 	# Dados a serem salvos
-	# 	estado = {
-	# 		'epoca': self.args['num_epocas'],
-	# 		'estado_modelo': self.model.state_dict(),
-	# 		'estado_otimizador': self.optimizer.state_dict(),
-	# 		'erro_teste': erro_teste_final,
-	# 		'args': self.args 
-	# 	}
+			estado = {
+				'epoca': self.args['num_epocas'],
+				'estado_modelo': self.model.state_dict(),
+				'estado_otimizador': self.optimizer.state_dict(),
+				'erro_teste': erro_teste_final,
+				'args': self.args
+			}
 
-	# 	try:
-	# 		torch.save(estado, modelos_treinados)
-	# 		logging.info(f"Modelo salvo com sucesso em: {caminho_completo}")
-	# 	except Exception as e:
-	# 		logging.error(f"Erro ao salvar o modelo: {e}")
+			torch.save(estado, caminho_completo)
+			logging.info(f"✅ Modelo salvo com sucesso em: {caminho_completo}")
+			return caminho_completo
+
+		except Exception as e:
+			logging.error(f"❌ Erro ao salvar o modelo: {e}")
+			return None

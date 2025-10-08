@@ -1,25 +1,14 @@
-import random
-from sklearn import datasets
-import torch
-from torch import nn
+from datetime import datetime
 
-# Carregamento de Dados e Modelos
-from torch.utils.data import DataLoader, Subset
-
-
-from cnn.modelo import Modelo
+from cnn.cnn_utils import criar_modelo_cnn
 from utils.imagem_utils import ImagemUtils
-from utils.logger import Logger
 
-import logging
 
-Logger.configurar_logger(nome_arquivo="cnn_application.log")
+from utils.modelos_base_enum import ModeloBase
 
-logger = logging.getLogger(__name__)
 
 args = {
-    'modelo_base': "resnet18",
-    'num_epocas': 1,     
+    'num_epocas': 5,     
     'taxa_aprendizado': 1e-3,           
     'penalidade': 8e-4, 
     'tamanho_lote': 16,
@@ -27,55 +16,13 @@ args = {
     'debug': True     
 }
 
-if torch.cuda.is_available():
-    args['dispositivo'] = torch.device('cuda')
-    logging.info("CUDA disponível. Usando GPU para treinamento.")
-else:
-    args['dispositivo'] = torch.device('cpu')
-    logging.info("CUDA não disponível. Usando CPU para treinamento.")
-
-logging.info("Definindo transformações para imagens (ImageNet)")
-transform = ImagemUtils.opcoes_transformacao_imagenet()
-
-logging.info("Carregando conjunto de treino CIFAR10")
-train_set = datasets.CIFAR10('.',
-                    train=True,
-                    transform= transform,
-                    download=True)
-
-logging.info("Carregando conjunto de teste CIFAR10")
-test_set = datasets.CIFAR10('.',
-                    train=False,
-                    transform= transform,
-                    download=False)
-
-if args['debug']:
-    logging.info("Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste")
-    train_indices = random.sample(range(len(train_set)), 1000)
-    test_indices = random.sample(range(len(test_set)), 200)
-
-    train_set = Subset(train_set, train_indices)
-    test_set = Subset(test_set, test_indices)
-
-
-train_loader = DataLoader(train_set,
-                          batch_size=args['tamanho_lote'],
-                          shuffle=True)
-test_loader = DataLoader(test_set,
-                          batch_size=args['tamanho_lote'],
-                          shuffle=True)
-
-logging.info(f"Tamanho do lote: {args['tamanho_lote']}")
-logging.info(f"Número de classes: {args['qtd_classes']}")
-
-criterio = nn.CrossEntropyLoss().to(args['dispositivo'])
-
-logging.info("Inicializando modelo CNN (VGG16)")
-modelo = Modelo(
-    train_loader=train_loader,
-    test_loader=test_loader,
-    args=args,
-    criterio=criterio
-)
-modelo.iniciar_modelo_resnet18()
-modelo.executar_modelo()
+for modelo_base in ModeloBase:
+    transform = ImagemUtils.opcoes_transformacao_inceptionv3() if modelo_base == ModeloBase.INCEPTION_V3 else ImagemUtils.opcoes_transformacao_imagenet()
+    args['modelo_base'] = modelo_base.value
+    args['data_execucao'] = datetime.now()
+    modelo = criar_modelo_cnn(
+        args=args,
+        transform=transform,
+    )
+    modelo.iniciar_modelo(modelo_base=modelo_base)
+    modelo.executar_modelo()
