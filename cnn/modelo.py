@@ -221,29 +221,3 @@ class Modelo:
 		tempo_execucao = end-start
 
 		return classes_reais_array, classes_preditas_array, erro_da_epoca_array.mean(), tempo_execucao
-	
-	def salvar_modelo(self, erro_teste_final):
-		try:
-			nome_modelo = self.args.get('modelo_base', 'modelo_treinado')
-			erro_teste_final = float(erro_teste_final or 0.0)
-			nome_arquivo = f"{nome_modelo}_erro_{erro_teste_final:.4f}.pth"
-
-			caminho_salvamento = self.args.get('caminho_salvamento', 'checkpoints/')
-			os.makedirs(caminho_salvamento, exist_ok=True)
-			caminho_completo = os.path.join(caminho_salvamento, nome_arquivo)
-
-			estado = {
-				'epoca': self.args['num_epocas'],
-				'estado_modelo': self.model.state_dict(),
-				'estado_otimizador': self.optimizer.state_dict(),
-				'erro_teste': erro_teste_final,
-				'args': self.args
-			}
-
-			torch.save(estado, caminho_completo)
-			logging.info(f"✅ Modelo salvo com sucesso em: {caminho_completo}")
-			return caminho_completo
-
-		except Exception as e:
-			logging.error(f"❌ Erro ao salvar o modelo: {e}")
-			return None

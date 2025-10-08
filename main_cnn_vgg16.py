@@ -24,7 +24,7 @@ args = {
     'debug': True     
 }
 
-Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{datetime.now()}.log")
+Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 
 if torch.cuda.is_available():
     args['dispositivo'] = torch.device('cuda')

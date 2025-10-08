@@ -12,7 +12,7 @@ from torchvision import datasets
 
 def criar_modelo_cnn(args, transform):
 
-    Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{args['data_execucao']}.log")
+    # Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{args['data_execucao']}.log")
 
     logging.info(f"Utilizando como base do fine tuning o modelo: {args['modelo_base']}")
 
@@ -29,10 +29,10 @@ def criar_modelo_cnn(args, transform):
     logging.info("Carregando conjunto de teste CIFAR10")
     test_set = datasets.CIFAR10('.', train=False, transform=transform, download=False)
 
-    if args.get('debug', False):
+    if args['debug']:
         logging.info("Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste")
-        train_indices = random.sample(range(len(train_set)), 1000)
-        test_indices = random.sample(range(len(test_set)), 200)
+        train_indices = random.sample(range(len(train_set)), 10)
+        test_indices = random.sample(range(len(test_set)), 2)
         train_set = Subset(train_set, train_indices)
         test_set = Subset(test_set, test_indices)
 
