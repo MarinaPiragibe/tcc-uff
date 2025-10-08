@@ -167,15 +167,15 @@ class Modelo:
 			lista_erro_treino.append(erro_do_treino)
 			lista_tempo_execucao_treino.append(tempo_execucao_treino)
 
-			logging.info(f"ÉPOCA [{epoca+1}] Treinamento concluído em {tempo_execucao_treino}")
-			logging.info(f"ÉPOCA [{epoca}] Erro do treino: {erro_do_treino}")
+			logging.info(f"[ÉPOCA {epoca+1}] Treinamento concluído em {tempo_execucao_treino}")
+			logging.info(f"[ÉPOCA {epoca+1}] Erro do treino: {erro_do_treino}")
 
 			classes_reais, classes_preditas, erro_do_teste, tempo_execucao_teste = self.testar(epoca)
 			lista_erro_teste.append(erro_do_teste)
 			lista_tempo_execucao_teste.append(tempo_execucao_teste)
 
-			logging.info(f"ÉPOCA [{epoca+1}] Teste concluído em {tempo_execucao_teste}")
-			logging.info(f"ÉPOCA [{epoca+1}] Erro do teste: {erro_do_teste}")
+			logging.info(f"[ÉPOCA {epoca+1}] Teste concluído em {tempo_execucao_teste}")
+			logging.info(f"[ÉPOCA {epoca+1}] Erro do teste: {erro_do_teste}")
 
 			metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
 			logging.info(f"[ÉPOCA {epoca+1}] Calculando métricas de desempenho")
