@@ -15,7 +15,7 @@ class ArquivoUtils:
     def salvar_modelo(args, estado_modelo, estado_otimizador):
         try:
             logging.info(f"Salvando modelo executado")
-            nome_arquivo = f"{args['nome_modelo']}_{args['data_execucao']}.pth"
+            nome_arquivo = f"{args['modelo_base']}_{args['data_execucao']}.pth"
 
             caminho_salvamento = "checkpoints"
             os.makedirs(caminho_salvamento, exist_ok=True)
