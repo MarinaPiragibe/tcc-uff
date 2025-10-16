@@ -9,3 +9,7 @@ Objetivo: Desenvolver e analisar modelos de Inteligência Artificial Verde, como
 - pip install scikit-learn
 - pip install torch torchvision torchaudio
 - pip install matplotlib
+- pip install pybind11
+- pip install wisardpkg --no-build-isolation
+- pip install torchwnn --no-build-isolation
+
