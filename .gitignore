@@ -204,3 +204,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+datasets/cifar-10-batches-py
+cifar-10-python.tar.gz
+
