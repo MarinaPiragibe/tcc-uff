@@ -16,6 +16,14 @@
             "program": "${workspaceFolder}/main_cnn.py",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Debug Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }
