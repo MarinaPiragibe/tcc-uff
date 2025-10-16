@@ -21,7 +21,7 @@ args = {
 	"dataset":"cifar-10-3-thresholds",
 	"debug": False,
 	"tipo_transformacao": TiposDeTransformacao.BASICA,
-	"debug": True
+	"debug": False
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
@@ -87,7 +87,7 @@ for tupple_size in adress_list:
 	inicio_teste = time()
 
 	for k, (x_batch, y_batch) in enumerate(test_loader):
-		print(f"\r{k+1}/{len(train_loader)}", end="", flush=True)
+		print(f"\r{k+1}/{len(test_loader)}", end="", flush=True)
 		x_batch_bin = thermometer.binarize(x_batch).flatten(start_dim=1).numpy()
 		y_batch = y_batch.numpy().astype(str)
 		preds = model.classify(x_batch_bin)
