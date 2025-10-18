@@ -41,14 +41,20 @@ class ArquivoUtils:
 
     @staticmethod
     def salvar_csv(args, dados):
-        caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(f"resultados_gerais_{args['data_execucao']}", "results")
+        try:
+            logging.info(f"Salvando informações da época no arquivo CSV")
 
-        arquivo_existe = os.path.exists(caminho_completo)
-        with open(caminho_completo, mode='a', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=dados.keys())
-            if not arquivo_existe:
-                writer.writeheader()
-            writer.writerow(dados)
+            caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(f"resultados_gerais_{args['data_execucao']}", "results")
+
+            arquivo_existe = os.path.exists(caminho_completo)
+            with open(caminho_completo, mode='a', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=dados.keys())
+                if not arquivo_existe:
+                    writer.writeheader()
+                writer.writerow(dados)
+        except Exception as e:
+            logging.error(f"Erro ao salvar o modelo no arquivo csv: {e}")
+            return None
 
     @staticmethod
     def gerar_caminho_do_arquivo(nome_arquivo, diretorio):

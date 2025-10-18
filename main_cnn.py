@@ -16,7 +16,7 @@ args = {
     'penalidade': 8e-4, 
     'tamanho_lote': 128,
     'qtd_classes': 10,
-    'debug': True     
+    'debug': False     
 }
 args['data_execucao'] = datetime.now().strftime('%Y-%m-%d_%H_%M_%S')
 
