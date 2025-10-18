@@ -32,11 +32,8 @@ Logger.configurar_logger(
 logging.info(f"Inicializando o modelo da wisard com os seguintes argumentos: {args}")
 torch.set_num_threads(1)
 
-valid_set_size = 0
-
 batch_size = 128 
 adress_list = [16, 20, 32, 64]
-
 
 logging.info(f"Carregando dataset do cifar10 com dowload:False e transform: {args['tipo_transformacao'].value}")
 train_set = torchvision.datasets.CIFAR10('./', train=True, download=False, transform=WisardImageTransform.get_image_transformation(args["tipo_transformacao"]))
