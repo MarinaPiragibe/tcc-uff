@@ -24,7 +24,7 @@ def criar_modelo_cnn(args, transform):
         logging.info("CUDA não disponível. Usando CPU para treinamento.")
 
     logging.info("Carregando conjunto de treino CIFAR10")
-    train_set = datasets.CIFAR10('.', train=True, transform=transform, download=True)
+    train_set = datasets.CIFAR10('.', train=True, transform=transform, download=False)
 
     logging.info("Carregando conjunto de teste CIFAR10")
     test_set = datasets.CIFAR10('.', train=False, transform=transform, download=False)

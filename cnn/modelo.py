@@ -157,7 +157,7 @@ class Modelo:
 		tempo_execucao = end-start
 		return erro_da_epoca_array.mean(), tempo_execucao
 	
-	def executar_modelo(self):
+	def executar_modelo(self, num_execucao):
 		lista_erro_treino, lista_erro_teste = [], []
 		lista_tempo_execucao_treino, lista_tempo_execucao_teste = [], []
 		for epoca in range(self.args['num_epocas']):
@@ -180,6 +180,23 @@ class Modelo:
 			metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
 			logging.info(f"[ÉPOCA {epoca+1}] Calculando métricas de desempenho")
 			metricas.calcular_e_imprimir_metricas()
+
+			dados_execucao = {
+				"execucao": num_execucao,
+				"modelo_base": self.args['modelo_base'],
+				"epoca": epoca+1,
+				"acuracia": metricas.acc,
+				"precisao": metricas.precisao,
+				"recall": metricas.recall,
+				"f1": metricas.f1,
+				"erro_treino": erro_do_treino,
+				"erro_teste": erro_do_teste,
+				"tempo_treino": tempo_execucao_treino,
+				"tempo_teste": tempo_execucao_teste,
+				"tempo_total": tempo_execucao_treino + tempo_execucao_teste
+			}
+
+			ArquivoUtils.salvar_csv(self.args, dados_execucao)
 		
 		tempo_total_treino = sum(tempo for tempo in lista_tempo_execucao_treino)
 		tempo_total_teste = sum(tempo for tempo in lista_tempo_execucao_teste)
