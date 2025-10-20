@@ -10,11 +10,11 @@ from utils.logger import Logger
 import logging
 from torchvision import datasets
 
-def criar_modelo_cnn(args, transform):
+def criar_modelo_cnn(args, transform, num_execucao):
 
     # Logger.configurar_logger(nome_arquivo=f"cnn_application_{args['modelo_base']}_{args['data_execucao']}.log")
 
-    logging.info(f"Utilizando como base do fine tuning o modelo: {args['modelo_base']}")
+    logging.info(f"[EXECUCAO {num_execucao}] Utilizando como base do fine tuning o modelo: {args['modelo_base']}")
 
     if torch.cuda.is_available():
         args['dispositivo'] = torch.device('cuda')
@@ -31,8 +31,8 @@ def criar_modelo_cnn(args, transform):
 
     if args['debug']:
         logging.info("Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste")
-        train_indices = random.sample(range(len(train_set)), 10)
-        test_indices = random.sample(range(len(test_set)), 2)
+        train_indices = random.sample(range(len(train_set)), 5)
+        test_indices = random.sample(range(len(test_set)), 1)
         train_set = Subset(train_set, train_indices)
         test_set = Subset(test_set, test_indices)
 

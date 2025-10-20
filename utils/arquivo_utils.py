@@ -44,7 +44,7 @@ class ArquivoUtils:
         try:
             logging.info(f"Salvando informações da época no arquivo CSV")
 
-            caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(f"resultados_gerais_{args['data_execucao']}", "results")
+            caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(f"resultados_gerais_{args['modelo_base']}_{args['data_execucao']}", "results")
 
             arquivo_existe = os.path.exists(caminho_completo)
             with open(caminho_completo, mode='a', newline='') as f:

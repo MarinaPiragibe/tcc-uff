@@ -6,8 +6,8 @@ import torch
 from torchvision import models
 from torch import nn, optim
 
+from utils.enums.modelos_base_enum import ModeloBase
 from utils.metricas import Metricas
-from utils.modelos_base_enum import ModeloBase
 from utils.arquivo_utils import ArquivoUtils
 
 
