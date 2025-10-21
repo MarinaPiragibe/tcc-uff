@@ -1,0 +1,54 @@
+2025-10-18 22:31:52,812 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-18 22:31:52,928 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-18 22:31:52,928 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-18 22:31:53,385 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-18 22:31:53,615 - root - INFO - Tamanho do lote: 128
+2025-10-18 22:31:53,615 - root - INFO - Número de classes: 10
+2025-10-18 22:32:13,834 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:32:13,835 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-18 22:32:14,499 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 22.88 MiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 196.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 00:11:08,178 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-19 00:11:08,179 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 00:11:08,179 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 00:11:08,490 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 00:11:08,718 - root - INFO - Tamanho do lote: 128
+2025-10-19 00:11:08,719 - root - INFO - Número de classes: 10
+2025-10-19 00:11:09,073 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:11:09,073 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 00:11:09,535 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 110.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 80.88 MiB is free. Including non-PyTorch memory, this process has 11.54 GiB memory in use. Of the allocated memory 11.21 GiB is allocated by PyTorch, and 183.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 01:49:30,180 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-19 01:49:30,181 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 01:49:30,181 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 01:49:30,517 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 01:49:30,740 - root - INFO - Tamanho do lote: 128
+2025-10-19 01:49:30,740 - root - INFO - Número de classes: 10
+2025-10-19 01:49:31,869 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:49:31,869 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 01:49:32,032 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 110.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 94.88 MiB is free. Including non-PyTorch memory, this process has 11.52 GiB memory in use. Of the allocated memory 11.18 GiB is allocated by PyTorch, and 210.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 03:27:25,940 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-19 03:27:25,941 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 03:27:25,941 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 03:27:26,240 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 03:27:26,459 - root - INFO - Tamanho do lote: 128
+2025-10-19 03:27:26,459 - root - INFO - Número de classes: 10
+2025-10-19 03:27:26,732 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:27:26,732 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 03:27:27,154 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 28.88 MiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 204.05 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 05:05:16,767 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-19 05:05:16,767 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 05:05:16,768 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 05:05:17,100 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 05:05:17,323 - root - INFO - Tamanho do lote: 128
+2025-10-19 05:05:17,323 - root - INFO - Número de classes: 10
+2025-10-19 05:05:17,533 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:05:17,533 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 05:05:18,026 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 110.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 18.88 MiB is free. Including non-PyTorch memory, this process has 11.60 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 208.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 06:43:05,315 - root - INFO - Utilizando como base do fine tuning o modelo: inception_v3
+2025-10-19 06:43:05,315 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 06:43:05,316 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 06:43:05,634 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 06:43:05,857 - root - INFO - Tamanho do lote: 128
+2025-10-19 06:43:05,857 - root - INFO - Número de classes: 10
+2025-10-19 06:43:06,068 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:43:06,068 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 06:43:06,231 - root - ERROR - Failed to run fine tuning for model inception_v3: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 10.88 MiB is free. Including non-PyTorch memory, this process has 11.60 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 207.13 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

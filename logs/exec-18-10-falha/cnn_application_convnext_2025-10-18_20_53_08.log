@@ -1,0 +1,54 @@
+2025-10-18 22:31:31,405 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-18 22:31:31,504 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-18 22:31:31,505 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-18 22:31:34,612 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-18 22:31:34,849 - root - INFO - Tamanho do lote: 128
+2025-10-18 22:31:34,849 - root - INFO - Número de classes: 10
+2025-10-18 22:31:50,154 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:31:50,155 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-18 22:31:52,695 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 124.88 MiB is free. Including non-PyTorch memory, this process has 11.49 GiB memory in use. Of the allocated memory 11.26 GiB is allocated by PyTorch, and 93.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 00:11:06,336 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-19 00:11:06,339 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 00:11:06,340 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 00:11:06,729 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 00:11:06,962 - root - INFO - Tamanho do lote: 128
+2025-10-19 00:11:06,962 - root - INFO - Número de classes: 10
+2025-10-19 00:11:07,332 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:11:07,332 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 00:11:08,017 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 2.88 MiB is free. Including non-PyTorch memory, this process has 11.61 GiB memory in use. Of the allocated memory 11.20 GiB is allocated by PyTorch, and 273.03 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 01:49:27,654 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-19 01:49:27,657 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 01:49:27,657 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 01:49:27,971 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 01:49:28,194 - root - INFO - Tamanho do lote: 128
+2025-10-19 01:49:28,195 - root - INFO - Número de classes: 10
+2025-10-19 01:49:29,698 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:49:29,698 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 01:49:30,042 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 120.88 MiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 10.90 GiB is allocated by PyTorch, and 461.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 03:27:24,640 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-19 03:27:24,642 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 03:27:24,643 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 03:27:24,947 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 03:27:25,167 - root - INFO - Tamanho do lote: 128
+2025-10-19 03:27:25,167 - root - INFO - Número de classes: 10
+2025-10-19 03:27:25,536 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:27:25,537 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 03:27:25,814 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 112.88 MiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 11.02 GiB is allocated by PyTorch, and 347.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 05:05:15,459 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-19 05:05:15,462 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 05:05:15,462 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 05:05:15,774 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 05:05:15,997 - root - INFO - Tamanho do lote: 128
+2025-10-19 05:05:15,997 - root - INFO - Número de classes: 10
+2025-10-19 05:05:16,359 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:05:16,359 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 05:05:16,645 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 134.88 MiB is free. Including non-PyTorch memory, this process has 11.48 GiB memory in use. Of the allocated memory 11.08 GiB is allocated by PyTorch, and 266.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-10-19 06:43:03,998 - root - INFO - Utilizando como base do fine tuning o modelo: convnext
+2025-10-19 06:43:04,000 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 06:43:04,001 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 06:43:04,326 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 06:43:04,549 - root - INFO - Tamanho do lote: 128
+2025-10-19 06:43:04,549 - root - INFO - Número de classes: 10
+2025-10-19 06:43:04,914 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:43:04,914 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 06:43:05,197 - root - ERROR - Failed to run fine tuning for model convnext: CUDA out of memory. Tried to allocate 148.00 MiB. GPU 0 has a total capacity of 11.62 GiB of which 68.88 MiB is free. Including non-PyTorch memory, this process has 11.55 GiB memory in use. Of the allocated memory 11.04 GiB is allocated by PyTorch, and 371.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

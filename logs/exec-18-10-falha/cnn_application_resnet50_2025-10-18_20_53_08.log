@@ -1,0 +1,2752 @@
+2025-10-18 21:20:08,598 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-18 21:20:08,698 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-18 21:20:08,698 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-18 21:20:09,025 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-18 21:20:09,254 - root - INFO - Tamanho do lote: 128
+2025-10-18 21:20:09,254 - root - INFO - Número de classes: 10
+2025-10-18 21:20:28,251 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:20:28,252 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-18 21:24:47,203 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.9480812549591
+2025-10-18 21:24:47,204 - root - INFO - [ÉPOCA 1] Erro do treino: 0.31094518067586757
+2025-10-18 21:24:47,204 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-18 21:25:10,497 - root - INFO - [ÉPOCA 1] Teste concluído em 23.293161153793335
+2025-10-18 21:25:10,497 - root - INFO - [ÉPOCA 1] Erro do teste: 0.25870352408176733
+2025-10-18 21:25:10,497 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-18 21:25:10,503 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:25:10,504 - root - INFO - Accuracy: 0.9157
+2025-10-18 21:25:10,504 - root - INFO - Precisão: 0.9195444981224735
+2025-10-18 21:25:10,504 - root - INFO - Recall: 0.9157
+2025-10-18 21:25:10,504 - root - INFO - F1: 0.9161389656156821
+2025-10-18 21:25:10,504 - root - INFO - Matriz de confusão:
+[[964   1   9   5   4   0   1   2  11   3]
+ [ 17 949   4   3   0   0   0   1   2  24]
+ [ 19   0 924  16  19  14   2   4   1   1]
+ [  4   2  18 864  15  83   5   7   2   0]
+ [  5   0  15  19 941  15   1   4   0   0]
+ [  0   0  11  51   8 925   0   5   0   0]
+ [  7   0  32  99  13  25 819   2   2   1]
+ [  9   1  14  11  41  15   0 908   1   0]
+ [ 54   8   3   6   2   0   0   2 922   3]
+ [ 16  31   1   1   2   1   0   0   7 941]]
+2025-10-18 21:25:10,504 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:25:10,616 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:25:10,616 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-18 21:29:29,466 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.8468337059021
+2025-10-18 21:29:29,467 - root - INFO - [ÉPOCA 2] Erro do treino: 0.13862617090916085
+2025-10-18 21:29:29,467 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-18 21:29:52,774 - root - INFO - [ÉPOCA 2] Teste concluído em 23.3065402507782
+2025-10-18 21:29:52,774 - root - INFO - [ÉPOCA 2] Erro do teste: 0.21256393665754342
+2025-10-18 21:29:52,774 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-18 21:29:52,780 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:29:52,780 - root - INFO - Accuracy: 0.9313
+2025-10-18 21:29:52,780 - root - INFO - Precisão: 0.9319941984655371
+2025-10-18 21:29:52,780 - root - INFO - Recall: 0.9312999999999999
+2025-10-18 21:29:52,780 - root - INFO - F1: 0.9310725035369247
+2025-10-18 21:29:52,780 - root - INFO - Matriz de confusão:
+[[919  19  31   3   0   0   0   0  12  16]
+ [  0 985   1   0   0   0   0   0   2  12]
+ [ 13   0 943  13   8   5  10   2   3   3]
+ [  6  10  20 840   5  61  30  14   2  12]
+ [  6   4   7  20 897  14   6  38   1   7]
+ [  0   3  13  47   3 913   4  13   1   3]
+ [  2   2  24   4   1   2 959   1   1   4]
+ [  4   1   9   4   3   7   2 968   0   2]
+ [ 21  10   4   1   0   0   0   1 946  17]
+ [  3  50   0   0   0   0   0   0   4 943]]
+2025-10-18 21:29:52,780 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:29:52,993 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:29:52,994 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-18 21:34:11,849 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.8528542518616
+2025-10-18 21:34:11,850 - root - INFO - [ÉPOCA 3] Erro do treino: 0.09893351821395595
+2025-10-18 21:34:11,850 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-18 21:34:35,161 - root - INFO - [ÉPOCA 3] Teste concluído em 23.31130576133728
+2025-10-18 21:34:35,162 - root - INFO - [ÉPOCA 3] Erro do teste: 0.23593755028670346
+2025-10-18 21:34:35,162 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-18 21:34:35,168 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:34:35,168 - root - INFO - Accuracy: 0.9282
+2025-10-18 21:34:35,168 - root - INFO - Precisão: 0.9313625710127
+2025-10-18 21:34:35,168 - root - INFO - Recall: 0.9282
+2025-10-18 21:34:35,168 - root - INFO - F1: 0.9277762724749504
+2025-10-18 21:34:35,168 - root - INFO - Matriz de confusão:
+[[959   2  10   3   1   1   0   6  15   3]
+ [  5 975   0   0   0   0   1   2   4  13]
+ [ 12   0 911  10  14  31  11  10   1   0]
+ [  5   2  20 738  18 192  12  10   3   0]
+ [  2   0   6   6 947  13   6  20   0   0]
+ [  2   0   5  23  16 948   2   3   0   1]
+ [  0   0  23   9   2   5 960   1   0   0]
+ [  1   0   1   3   9  16   1 968   1   0]
+ [ 28   2   2   3   0   0   2   1 961   1]
+ [ 22  37   1   1   0   0   1   0  23 915]]
+2025-10-18 21:34:35,168 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:34:35,383 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:34:35,383 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-18 21:38:54,238 - root - INFO - [ÉPOCA 4] Treinamento concluído em 258.85240030288696
+2025-10-18 21:38:54,239 - root - INFO - [ÉPOCA 4] Erro do treino: 0.08100283194376189
+2025-10-18 21:38:54,239 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-18 21:39:17,552 - root - INFO - [ÉPOCA 4] Teste concluído em 23.312625885009766
+2025-10-18 21:39:17,552 - root - INFO - [ÉPOCA 4] Erro do teste: 0.23320811779438694
+2025-10-18 21:39:17,552 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-18 21:39:17,558 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:39:17,558 - root - INFO - Accuracy: 0.9301
+2025-10-18 21:39:17,558 - root - INFO - Precisão: 0.9336728769513647
+2025-10-18 21:39:17,558 - root - INFO - Recall: 0.9300999999999998
+2025-10-18 21:39:17,558 - root - INFO - F1: 0.9304224999467164
+2025-10-18 21:39:17,559 - root - INFO - Matriz de confusão:
+[[957   0   9   6   3   0   1   1  21   2]
+ [  5 944   0   0   0   0   0   0  11  40]
+ [ 21   1 899  39  20   5   7   1   6   1]
+ [  8   2  10 926  13  23   8   1   4   5]
+ [  3   0   8  16 965   1   2   2   1   2]
+ [  1   0  15 140  14 811   2  17   0   0]
+ [  6   3  24  24   9   1 930   1   2   0]
+ [  9   0  12  21  22   3   0 929   4   0]
+ [ 13   1   0   4   0   0   0   0 974   8]
+ [ 11  17   0   1   0   0   0   0   5 966]]
+2025-10-18 21:39:17,559 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:39:17,702 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:39:17,702 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-18 21:43:36,554 - root - INFO - [ÉPOCA 5] Treinamento concluído em 258.848913192749
+2025-10-18 21:43:36,555 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06844388613777469
+2025-10-18 21:43:36,555 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-18 21:43:59,863 - root - INFO - [ÉPOCA 5] Teste concluído em 23.307863235473633
+2025-10-18 21:43:59,863 - root - INFO - [ÉPOCA 5] Erro do teste: 0.21937420304063
+2025-10-18 21:43:59,863 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-18 21:43:59,869 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:43:59,869 - root - INFO - Accuracy: 0.9328
+2025-10-18 21:43:59,869 - root - INFO - Precisão: 0.933740436933385
+2025-10-18 21:43:59,869 - root - INFO - Recall: 0.9328
+2025-10-18 21:43:59,869 - root - INFO - F1: 0.9325711784882657
+2025-10-18 21:43:59,869 - root - INFO - Matriz de confusão:
+[[922  11   4   6   3   0   7   2  41   4]
+ [  1 988   0   0   0   0   1   0   5   5]
+ [ 26   3 883  17  17  22  14   9   9   0]
+ [  1   3  10 851  27  82  15   5   4   2]
+ [  2   2  13   5 954  10   1  11   2   0]
+ [  0   3   3  36  12 936   2   7   1   0]
+ [  0   0  29  21  16   1 931   0   1   1]
+ [  0   1   3   6   7  10   0 971   2   0]
+ [  4   5   2   2   0   0   2   0 984   1]
+ [  8  61   1   0   0   0   0   0  22 908]]
+2025-10-18 21:43:59,869 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:44:00,072 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:44:00,072 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-18 21:48:18,933 - root - INFO - [ÉPOCA 6] Treinamento concluído em 258.85812544822693
+2025-10-18 21:48:18,934 - root - INFO - [ÉPOCA 6] Erro do treino: 0.06058138252957664
+2025-10-18 21:48:18,934 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-18 21:48:42,264 - root - INFO - [ÉPOCA 6] Teste concluído em 23.330259323120117
+2025-10-18 21:48:42,264 - root - INFO - [ÉPOCA 6] Erro do teste: 0.19645919669655304
+2025-10-18 21:48:42,264 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-18 21:48:42,271 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:48:42,271 - root - INFO - Accuracy: 0.9413
+2025-10-18 21:48:42,271 - root - INFO - Precisão: 0.9413771210631465
+2025-10-18 21:48:42,271 - root - INFO - Recall: 0.9413
+2025-10-18 21:48:42,271 - root - INFO - F1: 0.9411747672806585
+2025-10-18 21:48:42,271 - root - INFO - Matriz de confusão:
+[[967   1   9   6   3   0   0   2  10   2]
+ [  1 962   1   2   1   0   0   1   7  25]
+ [ 18   0 924   9  16  10   8  14   1   0]
+ [  4   0  32 864  26  34  17  15   7   1]
+ [  2   0   6  12 959   3   3  14   1   0]
+ [  0   0  10  70  10 896   1  12   1   0]
+ [  3   0  13   6   7   2 962   5   2   0]
+ [  1   0   5   4  10   6   0 973   1   0]
+ [ 26   4   4   2   1   1   2   0 958   2]
+ [ 12  21   2   4   0   0   1   0  12 948]]
+2025-10-18 21:48:42,271 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:48:42,430 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:48:42,430 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-18 21:53:01,256 - root - INFO - [ÉPOCA 7] Treinamento concluído em 258.8224699497223
+2025-10-18 21:53:01,257 - root - INFO - [ÉPOCA 7] Erro do treino: 0.054643347502097754
+2025-10-18 21:53:01,257 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-18 21:53:24,555 - root - INFO - [ÉPOCA 7] Teste concluído em 23.297971725463867
+2025-10-18 21:53:24,555 - root - INFO - [ÉPOCA 7] Erro do teste: 0.2842363585965543
+2025-10-18 21:53:24,555 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-18 21:53:24,561 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:53:24,561 - root - INFO - Accuracy: 0.9207
+2025-10-18 21:53:24,561 - root - INFO - Precisão: 0.9236418314057577
+2025-10-18 21:53:24,561 - root - INFO - Recall: 0.9206999999999999
+2025-10-18 21:53:24,561 - root - INFO - F1: 0.920408775796334
+2025-10-18 21:53:24,561 - root - INFO - Matriz de confusão:
+[[855   4  25   5   3   1  16   3  67  21]
+ [  1 940   0   2   0   1   4   0   1  51]
+ [  5   0 894  15   7  18  50   9   1   1]
+ [  8   0   7 841   4  73  45   7   6   9]
+ [  5   1  12  12 860  20  28  58   3   1]
+ [  1   0   5  41   2 923  10  12   0   6]
+ [  2   0   3   4   0   1 989   0   0   1]
+ [  0   0   3   9   1  19   7 961   0   0]
+ [  2   8   1   2   0   1   8   1 969   8]
+ [  2  16   1   0   0   0   4   0   2 975]]
+2025-10-18 21:53:24,561 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:53:24,728 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:53:24,728 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-18 21:57:43,590 - root - INFO - [ÉPOCA 8] Treinamento concluído em 258.8593547344208
+2025-10-18 21:57:43,597 - root - INFO - [ÉPOCA 8] Erro do treino: 0.05653124990518136
+2025-10-18 21:57:43,597 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-18 21:58:06,898 - root - INFO - [ÉPOCA 8] Teste concluído em 23.3003249168396
+2025-10-18 21:58:06,898 - root - INFO - [ÉPOCA 8] Erro do teste: 0.20083863684270956
+2025-10-18 21:58:06,898 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-18 21:58:06,904 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 21:58:06,904 - root - INFO - Accuracy: 0.9411
+2025-10-18 21:58:06,904 - root - INFO - Precisão: 0.9419079627185578
+2025-10-18 21:58:06,904 - root - INFO - Recall: 0.9411000000000002
+2025-10-18 21:58:06,904 - root - INFO - F1: 0.9412091786993099
+2025-10-18 21:58:06,904 - root - INFO - Matriz de confusão:
+[[981   0   2   4   3   0   1   0   9   0]
+ [  8 971   2   2   0   0   0   1   3  13]
+ [ 31   0 927  13  15   4   4   5   1   0]
+ [  8   2   9 893   9  57  13   6   2   1]
+ [  5   0  15  11 935  15   5  11   3   0]
+ [  2   0  14  60  13 903   5   3   0   0]
+ [  3   0  21  16   0   2 958   0   0   0]
+ [  4   0   3   9   5  14   2 963   0   0]
+ [ 32   4   2   3   0   0   2   1 951   5]
+ [ 19  41   0   3   0   0   1   0   7 929]]
+2025-10-18 21:58:06,904 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 21:58:07,046 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-18 21:58:07,047 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-18 22:02:25,879 - root - INFO - [ÉPOCA 9] Treinamento concluído em 258.829656124115
+2025-10-18 22:02:25,880 - root - INFO - [ÉPOCA 9] Erro do treino: 0.050539659801870584
+2025-10-18 22:02:25,880 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-18 22:02:49,180 - root - INFO - [ÉPOCA 9] Teste concluído em 23.300198554992676
+2025-10-18 22:02:49,180 - root - INFO - [ÉPOCA 9] Erro do teste: 0.27515847132175786
+2025-10-18 22:02:49,180 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-18 22:02:49,186 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:02:49,186 - root - INFO - Accuracy: 0.9198
+2025-10-18 22:02:49,186 - root - INFO - Precisão: 0.9246695494043393
+2025-10-18 22:02:49,186 - root - INFO - Recall: 0.9198000000000001
+2025-10-18 22:02:49,186 - root - INFO - F1: 0.9203706479653239
+2025-10-18 22:02:49,187 - root - INFO - Matriz de confusão:
+[[931   2  15   7   1   0   2   4  15  23]
+ [  1 941   2   1   0   0   7   0   9  39]
+ [ 17   0 963   9   5   2   1   2   0   1]
+ [  1   1  76 869  11  19   3   9   1  10]
+ [  3   0  25  28 898  12   6  27   0   1]
+ [  3   0  31 104   5 827   3  25   0   2]
+ [  1   0  75  35  11   0 876   1   1   0]
+ [  1   0   9  10   4   3   0 971   0   2]
+ [ 14   4  11   3   4   0   1   1 951  11]
+ [  4  11   1   1   1   0   3   0   8 971]]
+2025-10-18 22:02:49,187 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:02:49,496 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:02:49,497 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-18 22:07:08,358 - root - INFO - [ÉPOCA 10] Treinamento concluído em 258.8587119579315
+2025-10-18 22:07:08,359 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04049353176594504
+2025-10-18 22:07:08,359 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-18 22:07:31,639 - root - INFO - [ÉPOCA 10] Teste concluído em 23.280359745025635
+2025-10-18 22:07:31,639 - root - INFO - [ÉPOCA 10] Erro do teste: 0.2459746625604509
+2025-10-18 22:07:31,639 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-18 22:07:31,646 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:07:31,646 - root - INFO - Accuracy: 0.9306
+2025-10-18 22:07:31,646 - root - INFO - Precisão: 0.9312973973597962
+2025-10-18 22:07:31,646 - root - INFO - Recall: 0.9305999999999999
+2025-10-18 22:07:31,646 - root - INFO - F1: 0.9302695940538426
+2025-10-18 22:07:31,646 - root - INFO - Matriz de confusão:
+[[927   3   7   5   4   1   2   2  31  18]
+ [  2 969   0   0   0   0   0   2   6  21]
+ [  9   1 894  17  37   9  17   8   8   0]
+ [  2   3  13 815  34  93  14  19   5   2]
+ [  2   0  10   7 960   6   4   4   7   0]
+ [  1   1  17  37  13 914   1  15   0   1]
+ [  0   0   5   9  13   4 962   6   0   1]
+ [  5   0   2   3  25  12   0 952   0   1]
+ [  4   6   1   2   1   0   1   2 979   4]
+ [  1  34   0   1   0   0   1   1  28 934]]
+2025-10-18 22:07:31,646 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:07:31,854 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:07:31,854 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-18 22:11:50,690 - root - INFO - [ÉPOCA 11] Treinamento concluído em 258.83278489112854
+2025-10-18 22:11:50,690 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04898191021893488
+2025-10-18 22:11:50,690 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-18 22:12:13,972 - root - INFO - [ÉPOCA 11] Teste concluído em 23.28230381011963
+2025-10-18 22:12:13,972 - root - INFO - [ÉPOCA 11] Erro do teste: 0.23053915430850622
+2025-10-18 22:12:13,972 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-18 22:12:13,978 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:12:13,978 - root - INFO - Accuracy: 0.9322
+2025-10-18 22:12:13,978 - root - INFO - Precisão: 0.9341504559062047
+2025-10-18 22:12:13,978 - root - INFO - Recall: 0.9321999999999999
+2025-10-18 22:12:13,978 - root - INFO - F1: 0.9319502244224381
+2025-10-18 22:12:13,979 - root - INFO - Matriz de confusão:
+[[939   7   6   1   0   1   1   7  24  14]
+ [  2 959   0   0   0   0   0   0   2  37]
+ [ 24   0 910   6   7  24  22   3   3   1]
+ [  6   1  15 789  11 137  26   6   3   6]
+ [  5   0  27  14 916  12  12  13   1   0]
+ [  0   0   6  28  12 944   2   7   0   1]
+ [  4   0   6   4   1   4 981   0   0   0]
+ [  4   0   3   3  11  26   1 952   0   0]
+ [ 17   5   2   1   0   2   1   0 954  18]
+ [  1  16   1   0   0   2   1   0   1 978]]
+2025-10-18 22:12:13,979 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:12:14,135 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:12:14,136 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-18 22:16:32,888 - root - INFO - [ÉPOCA 12] Treinamento concluído em 258.7495927810669
+2025-10-18 22:16:32,889 - root - INFO - [ÉPOCA 12] Erro do treino: 0.047837242218510954
+2025-10-18 22:16:32,889 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-18 22:16:56,163 - root - INFO - [ÉPOCA 12] Teste concluído em 23.273625135421753
+2025-10-18 22:16:56,163 - root - INFO - [ÉPOCA 12] Erro do teste: 0.2663211854104
+2025-10-18 22:16:56,163 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-18 22:16:56,169 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:16:56,169 - root - INFO - Accuracy: 0.9239
+2025-10-18 22:16:56,169 - root - INFO - Precisão: 0.926353691788964
+2025-10-18 22:16:56,169 - root - INFO - Recall: 0.9238999999999999
+2025-10-18 22:16:56,169 - root - INFO - F1: 0.9237387035339207
+2025-10-18 22:16:56,169 - root - INFO - Matriz de confusão:
+[[941   4   4   8   1   1   1   3  32   5]
+ [  3 982   0   0   0   0   2   0   6   7]
+ [ 34   0 859  28  17  22  34   0   6   0]
+ [  5   0   7 812  17 115  34   5   4   1]
+ [  5   0  13  10 933  21  11   6   1   0]
+ [  2   0  14  27   9 939   6   2   1   0]
+ [  3   0   6   2   0   3 985   0   1   0]
+ [  5   1   5  12   9  44   1 922   1   0]
+ [ 16   4   2   2   1   0   1   1 971   2]
+ [  4  58   1   6   0   5   4   0  27 895]]
+2025-10-18 22:16:56,169 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:16:56,335 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:16:56,336 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-18 22:21:15,063 - root - INFO - [ÉPOCA 13] Treinamento concluído em 258.72432017326355
+2025-10-18 22:21:15,063 - root - INFO - [ÉPOCA 13] Erro do treino: 0.03816278662372981
+2025-10-18 22:21:15,064 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-18 22:21:38,356 - root - INFO - [ÉPOCA 13] Teste concluído em 23.29191756248474
+2025-10-18 22:21:38,356 - root - INFO - [ÉPOCA 13] Erro do teste: 0.24337643465097947
+2025-10-18 22:21:38,356 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-18 22:21:38,362 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:21:38,362 - root - INFO - Accuracy: 0.9301
+2025-10-18 22:21:38,362 - root - INFO - Precisão: 0.9313610585068723
+2025-10-18 22:21:38,362 - root - INFO - Recall: 0.9301
+2025-10-18 22:21:38,362 - root - INFO - F1: 0.9300774446255289
+2025-10-18 22:21:38,362 - root - INFO - Matriz de confusão:
+[[867   3  72  18   4   2  10   4  18   2]
+ [  1 969   2   1   0   0   0   0   5  22]
+ [  5   1 853  26  27  20  66   2   0   0]
+ [  0   1   8 904  10  43  23   4   5   2]
+ [  0   1   4  20 960   4   7   4   0   0]
+ [  0   1   5  69  12 903   5   4   0   1]
+ [  0   0   2  14   3   5 975   0   0   1]
+ [  3   0   4   7  12  10   4 960   0   0]
+ [ 12   5   4   5   0   0   3   1 967   3]
+ [  8  21   3   1   0   0   2   0  22 943]]
+2025-10-18 22:21:38,362 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:21:38,488 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:21:38,488 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-18 22:25:57,673 - root - INFO - [ÉPOCA 14] Treinamento concluído em 259.18188524246216
+2025-10-18 22:25:57,673 - root - INFO - [ÉPOCA 14] Erro do treino: 0.03940679630338479
+2025-10-18 22:25:57,673 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-18 22:26:20,951 - root - INFO - [ÉPOCA 14] Teste concluído em 23.27712917327881
+2025-10-18 22:26:20,951 - root - INFO - [ÉPOCA 14] Erro do teste: 0.25916461288174497
+2025-10-18 22:26:20,951 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-18 22:26:20,957 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:26:20,957 - root - INFO - Accuracy: 0.9255
+2025-10-18 22:26:20,957 - root - INFO - Precisão: 0.9264577384066657
+2025-10-18 22:26:20,957 - root - INFO - Recall: 0.9254999999999999
+2025-10-18 22:26:20,957 - root - INFO - F1: 0.9253640908855475
+2025-10-18 22:26:20,957 - root - INFO - Matriz de confusão:
+[[890   3  28   4  12   1   2  10  32  18]
+ [  1 967   2   0   2   0   0   2   4  22]
+ [ 10   0 883  21  48   9  13  13   3   0]
+ [  3   1  30 858  36  36  11  17   4   4]
+ [  0   0   7   8 968   7   2   7   1   0]
+ [  0   0  18  84  21 857   2  17   0   1]
+ [  1   0  17  15  13   3 945   3   1   2]
+ [  2   0   4   9  12   9   0 963   0   1]
+ [ 14   4   1   3   1   0   2   2 969   4]
+ [  3  29   1   2   1   0   0   1   8 955]]
+2025-10-18 22:26:20,957 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:26:21,126 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-18 22:26:21,126 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-18 22:30:40,257 - root - INFO - [ÉPOCA 15] Treinamento concluído em 259.1280994415283
+2025-10-18 22:30:40,258 - root - INFO - [ÉPOCA 15] Erro do treino: 0.0433205891486324
+2025-10-18 22:30:40,258 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-18 22:31:03,488 - root - INFO - [ÉPOCA 15] Teste concluído em 23.229492902755737
+2025-10-18 22:31:03,488 - root - INFO - [ÉPOCA 15] Erro do teste: 0.2825419292608394
+2025-10-18 22:31:03,488 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-18 22:31:03,494 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 22:31:03,494 - root - INFO - Accuracy: 0.9207
+2025-10-18 22:31:03,494 - root - INFO - Precisão: 0.9233756904659088
+2025-10-18 22:31:03,494 - root - INFO - Recall: 0.9207000000000001
+2025-10-18 22:31:03,494 - root - INFO - F1: 0.9202677365417925
+2025-10-18 22:31:03,494 - root - INFO - Matriz de confusão:
+[[964   2  10   4   2   0   1   0  16   1]
+ [  3 990   0   1   0   0   0   0   4   2]
+ [ 15   0 890  23  19  14  31   4   4   0]
+ [  9   2  12 863  21  46  35   5   7   0]
+ [  5   0  23  13 937   3  15   4   0   0]
+ [  2   0   5  81  21 865  14  10   0   2]
+ [  2   0   8   8   1   1 979   0   1   0]
+ [ 10   0   9   6   9  13   5 948   0   0]
+ [ 16  11   2   1   0   0   1   1 964   4]
+ [ 28 154   1   6   0   1   1   0   2 807]]
+2025-10-18 22:31:03,494 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 22:31:03,660 - root - INFO - Execução do modelo concluída em 4232.5891625881195
+2025-10-18 22:31:03,660 - root - INFO - Tempo de execução do treino: 3883.1940834522247
+2025-10-18 22:31:03,661 - root - INFO - Tempo de execução do teste: 349.3950791358948
+2025-10-18 22:31:03,665 - root - INFO - Salvando modelo executado
+2025-10-18 22:31:31,270 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-18 23:00:05,206 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-18 23:00:05,209 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-18 23:00:05,209 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-18 23:00:05,521 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-18 23:00:05,759 - root - INFO - Tamanho do lote: 128
+2025-10-18 23:00:05,760 - root - INFO - Número de classes: 10
+2025-10-18 23:00:06,012 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:00:06,012 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-18 23:04:24,982 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.967084646225
+2025-10-18 23:04:24,983 - root - INFO - [ÉPOCA 1] Erro do treino: 0.3093421309805282
+2025-10-18 23:04:24,983 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-18 23:04:48,217 - root - INFO - [ÉPOCA 1] Teste concluído em 23.233802318572998
+2025-10-18 23:04:48,217 - root - INFO - [ÉPOCA 1] Erro do teste: 0.23655418749851517
+2025-10-18 23:04:48,217 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-18 23:04:48,223 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:04:48,223 - root - INFO - Accuracy: 0.9183
+2025-10-18 23:04:48,223 - root - INFO - Precisão: 0.9208031423883533
+2025-10-18 23:04:48,223 - root - INFO - Recall: 0.9183
+2025-10-18 23:04:48,223 - root - INFO - F1: 0.9184477940942399
+2025-10-18 23:04:48,223 - root - INFO - Matriz de confusão:
+[[952   2  16   6   5   1   2   2   9   5]
+ [  4 965   1   2   0   3   0   1   4  20]
+ [ 14   0 930  11  10  16  14   3   2   0]
+ [  1   1  17 786  15 160  10   8   1   1]
+ [  0   0  22  15 940   8   2  12   1   0]
+ [  1   1  11  25  10 935   1  16   0   0]
+ [  2   1  14  29  11  17 925   0   0   1]
+ [  1   0  13   2  19  31   1 933   0   0]
+ [ 40  12   8  10   0   5   4   0 918   3]
+ [ 13  36   1   6   1   3   0   0  41 899]]
+2025-10-18 23:04:48,224 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:04:48,329 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:04:48,329 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-18 23:09:07,200 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.86766147613525
+2025-10-18 23:09:07,203 - root - INFO - [ÉPOCA 2] Erro do treino: 0.1460213620129906
+2025-10-18 23:09:07,203 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-18 23:09:30,421 - root - INFO - [ÉPOCA 2] Teste concluído em 23.217506647109985
+2025-10-18 23:09:30,421 - root - INFO - [ÉPOCA 2] Erro do teste: 0.23104388563881947
+2025-10-18 23:09:30,421 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-18 23:09:30,427 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:09:30,427 - root - INFO - Accuracy: 0.922
+2025-10-18 23:09:30,427 - root - INFO - Precisão: 0.9259505520171674
+2025-10-18 23:09:30,427 - root - INFO - Recall: 0.922
+2025-10-18 23:09:30,427 - root - INFO - F1: 0.9225058632351699
+2025-10-18 23:09:30,427 - root - INFO - Matriz de confusão:
+[[921   1  43  11   2   2   5   3   9   3]
+ [  8 928   8   1   0   3   2   1  26  23]
+ [  3   0 963   9   6  12   7   0   0   0]
+ [  1   1  36 814   7 117  16   5   2   1]
+ [  1   0  53  19 904   8  10   5   0   0]
+ [  0   0  18  41   8 927   2   4   0   0]
+ [  1   0  21   3   1   1 969   0   4   0]
+ [  1   0  23   3  17  48   1 907   0   0]
+ [ 17   2   9   2   0   0   2   2 961   5]
+ [ 16  25   7   1   1   8   4   0  12 926]]
+2025-10-18 23:09:30,427 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:09:30,573 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:09:30,573 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-18 23:13:49,384 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.8076183795929
+2025-10-18 23:13:49,385 - root - INFO - [ÉPOCA 3] Erro do treino: 0.102691407694155
+2025-10-18 23:13:49,385 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-18 23:14:12,623 - root - INFO - [ÉPOCA 3] Teste concluído em 23.237916469573975
+2025-10-18 23:14:12,623 - root - INFO - [ÉPOCA 3] Erro do teste: 0.21899329314503488
+2025-10-18 23:14:12,623 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-18 23:14:12,629 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:14:12,629 - root - INFO - Accuracy: 0.9315
+2025-10-18 23:14:12,629 - root - INFO - Precisão: 0.9325345517196629
+2025-10-18 23:14:12,629 - root - INFO - Recall: 0.9315
+2025-10-18 23:14:12,629 - root - INFO - F1: 0.9314282393616734
+2025-10-18 23:14:12,629 - root - INFO - Matriz de confusão:
+[[872   1  19   5   7   0   2   5  49  40]
+ [  2 937   1   0   0   0   0   0   6  54]
+ [ 16   0 919  14  11  15  14   3   7   1]
+ [  2   0  22 873  11  65  15   5   3   4]
+ [  0   0  19  17 945   4  10   3   2   0]
+ [  2   2  13  61  14 897   6   4   0   1]
+ [  2   0  16  13   2   2 964   0   0   1]
+ [  1   0   5   6  20  13   0 951   2   2]
+ [  4   3   0   1   1   0   1   0 978  12]
+ [  1  11   1   0   0   0   0   0   8 979]]
+2025-10-18 23:14:12,629 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:14:12,806 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:14:12,807 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-18 23:18:31,629 - root - INFO - [ÉPOCA 4] Treinamento concluído em 258.8191714286804
+2025-10-18 23:18:31,658 - root - INFO - [ÉPOCA 4] Erro do treino: 0.07729592453212003
+2025-10-18 23:18:31,658 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-18 23:18:54,867 - root - INFO - [ÉPOCA 4] Teste concluído em 23.20835256576538
+2025-10-18 23:18:54,867 - root - INFO - [ÉPOCA 4] Erro do teste: 0.27032537654608113
+2025-10-18 23:18:54,867 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-18 23:18:54,873 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:18:54,873 - root - INFO - Accuracy: 0.9221
+2025-10-18 23:18:54,873 - root - INFO - Precisão: 0.9269343075690392
+2025-10-18 23:18:54,873 - root - INFO - Recall: 0.9221
+2025-10-18 23:18:54,873 - root - INFO - F1: 0.9225196935505243
+2025-10-18 23:18:54,873 - root - INFO - Matriz de confusão:
+[[967   0   7   1   4   2   3   1  14   1]
+ [ 38 913   2   0   0   4   2   1   1  39]
+ [ 12   1 883  19  42  27   7   4   5   0]
+ [  9   0   9 821  25 125   5   3   2   1]
+ [  0   0   3   5 988   4   0   0   0   0]
+ [  1   0   4  28  24 937   1   5   0   0]
+ [  0   0  10  32  47  28 882   0   0   1]
+ [  5   0   1   6  49  16   0 922   1   0]
+ [ 37   5   0   1   1   2   2   0 946   6]
+ [ 13  14   0   1   0   3   0   2   5 962]]
+2025-10-18 23:18:54,873 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:18:55,053 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:18:55,054 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-18 23:23:13,929 - root - INFO - [ÉPOCA 5] Treinamento concluído em 258.87424492836
+2025-10-18 23:23:13,930 - root - INFO - [ÉPOCA 5] Erro do treino: 0.07221451650380784
+2025-10-18 23:23:13,930 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-18 23:23:37,166 - root - INFO - [ÉPOCA 5] Teste concluído em 23.235735416412354
+2025-10-18 23:23:37,166 - root - INFO - [ÉPOCA 5] Erro do teste: 0.2044173353646375
+2025-10-18 23:23:37,166 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-18 23:23:37,172 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:23:37,172 - root - INFO - Accuracy: 0.9388
+2025-10-18 23:23:37,172 - root - INFO - Precisão: 0.9405040707142842
+2025-10-18 23:23:37,172 - root - INFO - Recall: 0.9388
+2025-10-18 23:23:37,172 - root - INFO - F1: 0.9390077238163743
+2025-10-18 23:23:37,172 - root - INFO - Matriz de confusão:
+[[901   1  18   7   3   1   1   8  28  32]
+ [  3 945   0   0   0   0   0   2  13  37]
+ [  6   0 925  24  12  12  16   3   1   1]
+ [  2   2  13 933  13  22   5   4   3   3]
+ [  2   0   7  11 946   9   8  16   1   0]
+ [  0   0   6  80   9 889   3   9   3   1]
+ [  0   0  10  33   1   4 938   2   2  10]
+ [  1   0   5  10   7   7   0 970   0   0]
+ [ 11   4   2   3   1   0   0   0 961  18]
+ [  1  10   1   2   0   0   0   2   4 980]]
+2025-10-18 23:23:37,172 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:23:37,315 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:23:37,315 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-18 23:27:56,201 - root - INFO - [ÉPOCA 6] Treinamento concluído em 258.8834035396576
+2025-10-18 23:27:56,202 - root - INFO - [ÉPOCA 6] Erro do treino: 0.06379190693630854
+2025-10-18 23:27:56,202 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-18 23:28:19,438 - root - INFO - [ÉPOCA 6] Teste concluído em 23.236127853393555
+2025-10-18 23:28:19,438 - root - INFO - [ÉPOCA 6] Erro do teste: 0.20693335342633573
+2025-10-18 23:28:19,438 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-18 23:28:19,444 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:28:19,444 - root - INFO - Accuracy: 0.9369
+2025-10-18 23:28:19,444 - root - INFO - Precisão: 0.9376225654424284
+2025-10-18 23:28:19,444 - root - INFO - Recall: 0.9369
+2025-10-18 23:28:19,444 - root - INFO - F1: 0.9367947952950949
+2025-10-18 23:28:19,445 - root - INFO - Matriz de confusão:
+[[938   4   4   6   3   0   2   1  35   7]
+ [  4 974   1   0   0   0   0   0   2  19]
+ [ 25   1 914   8  27  12   7   5   1   0]
+ [  5   2  11 851  37  69   8  11   5   1]
+ [  0   0   7   1 978   6   4   4   0   0]
+ [  1   0   6  50  22 907   0  14   0   0]
+ [  2   0  21  10  17   5 944   0   0   1]
+ [  3   0  10   6  27  13   1 938   1   1]
+ [  9   8   2   2   1   0   0   0 976   2]
+ [  9  31   0   0   0   0   0   1  10 949]]
+2025-10-18 23:28:19,445 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:28:19,608 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:28:19,608 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-18 23:32:38,418 - root - INFO - [ÉPOCA 7] Treinamento concluído em 258.8082184791565
+2025-10-18 23:32:38,427 - root - INFO - [ÉPOCA 7] Erro do treino: 0.0515316952867886
+2025-10-18 23:32:38,427 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-18 23:33:01,678 - root - INFO - [ÉPOCA 7] Teste concluído em 23.25029683113098
+2025-10-18 23:33:01,678 - root - INFO - [ÉPOCA 7] Erro do teste: 0.23303650574216359
+2025-10-18 23:33:01,678 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-18 23:33:01,684 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:33:01,684 - root - INFO - Accuracy: 0.9387
+2025-10-18 23:33:01,684 - root - INFO - Precisão: 0.9389475500708737
+2025-10-18 23:33:01,684 - root - INFO - Recall: 0.9386999999999999
+2025-10-18 23:33:01,684 - root - INFO - F1: 0.9384960447486685
+2025-10-18 23:33:01,684 - root - INFO - Matriz de confusão:
+[[925   1   3   4   1   0   3   6  44  13]
+ [  2 946   1   3   0   1   0   2  20  25]
+ [ 13   0 903  14  26   4  22  14   3   1]
+ [  2   1  26 872  15  51  19   7   2   5]
+ [  1   0   8   8 953   6  13   6   2   3]
+ [  1   1   8  60  17 894   4  15   0   0]
+ [  0   0   7  11   4   0 973   2   2   1]
+ [  1   0   2   5  12   8   2 970   0   0]
+ [  5   0   2   1   1   0   1   1 982   7]
+ [  2  17   2   1   0   0   0   1   8 969]]
+2025-10-18 23:33:01,684 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:33:01,883 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:33:01,883 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-18 23:37:20,696 - root - INFO - [ÉPOCA 8] Treinamento concluído em 258.8099715709686
+2025-10-18 23:37:20,696 - root - INFO - [ÉPOCA 8] Erro do treino: 0.05761686705119546
+2025-10-18 23:37:20,697 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-18 23:37:43,946 - root - INFO - [ÉPOCA 8] Teste concluído em 23.249022245407104
+2025-10-18 23:37:43,946 - root - INFO - [ÉPOCA 8] Erro do teste: 0.23228234684542765
+2025-10-18 23:37:43,946 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-18 23:37:43,952 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:37:43,952 - root - INFO - Accuracy: 0.9339
+2025-10-18 23:37:43,952 - root - INFO - Precisão: 0.9351987954572317
+2025-10-18 23:37:43,952 - root - INFO - Recall: 0.9338999999999998
+2025-10-18 23:37:43,952 - root - INFO - F1: 0.9339696683464197
+2025-10-18 23:37:43,952 - root - INFO - Matriz de confusão:
+[[949   6  12   2   2   1   1   7  20   0]
+ [  2 989   2   0   0   1   0   1   2   3]
+ [  6   0 943  23  12   8   3   4   1   0]
+ [  9   4  11 878   9  64   8  15   2   0]
+ [  3   0  10  18 940   1   7  21   0   0]
+ [  0   1   9  72   8 887   3  20   0   0]
+ [  1   0  27  24   4   4 939   1   0   0]
+ [  1   0   3   9   4  14   0 967   1   1]
+ [ 22   5   5   2   0   1   2   1 959   3]
+ [ 10  85   1   2   0   3   0   1  10 888]]
+2025-10-18 23:37:43,952 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:37:44,130 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:37:44,130 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-18 23:42:02,945 - root - INFO - [ÉPOCA 9] Treinamento concluído em 258.81303000450134
+2025-10-18 23:42:02,990 - root - INFO - [ÉPOCA 9] Erro do treino: 0.04934688215799001
+2025-10-18 23:42:02,990 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-18 23:42:26,184 - root - INFO - [ÉPOCA 9] Teste concluído em 23.19322896003723
+2025-10-18 23:42:26,184 - root - INFO - [ÉPOCA 9] Erro do teste: 0.261253121344349
+2025-10-18 23:42:26,184 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-18 23:42:26,190 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:42:26,190 - root - INFO - Accuracy: 0.9289
+2025-10-18 23:42:26,190 - root - INFO - Precisão: 0.9334704025295288
+2025-10-18 23:42:26,190 - root - INFO - Recall: 0.9289
+2025-10-18 23:42:26,190 - root - INFO - F1: 0.9296338760347866
+2025-10-18 23:42:26,190 - root - INFO - Matriz de confusão:
+[[942   2   7   9   1   1   0   0  33   5]
+ [  5 976   0   0   0   0   0   0  11   8]
+ [ 18   1 881  55  14   8  15   3   5   0]
+ [  6   1   6 943   8  23   6   0   4   3]
+ [  7   0   4  36 925  15   6   5   2   0]
+ [  2   0   3 117   3 865   2   6   0   2]
+ [  5   1   5  34   1   0 949   0   0   5]
+ [  3   1   5  22  10  24   1 930   2   2]
+ [  9   2   1   2   0   0   1   0 982   3]
+ [ 10  69   0   2   0   0   0   1  22 896]]
+2025-10-18 23:42:26,190 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:42:26,406 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:42:26,406 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-18 23:46:45,226 - root - INFO - [ÉPOCA 10] Treinamento concluído em 258.8181767463684
+2025-10-18 23:46:45,245 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04651447863060781
+2025-10-18 23:46:45,245 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-18 23:47:08,460 - root - INFO - [ÉPOCA 10] Teste concluído em 23.21439552307129
+2025-10-18 23:47:08,460 - root - INFO - [ÉPOCA 10] Erro do teste: 0.27303304617540747
+2025-10-18 23:47:08,460 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-18 23:47:08,466 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:47:08,466 - root - INFO - Accuracy: 0.9248
+2025-10-18 23:47:08,466 - root - INFO - Precisão: 0.9278788663415938
+2025-10-18 23:47:08,466 - root - INFO - Recall: 0.9248
+2025-10-18 23:47:08,466 - root - INFO - F1: 0.9250253860487547
+2025-10-18 23:47:08,466 - root - INFO - Matriz de confusão:
+[[984   1   2   5   0   1   0   1   4   2]
+ [  5 984   0   0   0   0   0   0   2   9]
+ [ 28   1 856  44  23  28   9  10   1   0]
+ [  5   3   2 858   8 104   7   4   2   7]
+ [  9   1   5  21 938  10   4  11   0   1]
+ [  3   2   5  35   7 925   1  21   0   1]
+ [  2   0   8  66   3   9 906   1   0   5]
+ [  4   0   0   7   6   7   0 975   0   1]
+ [ 44   8   3   3   0   3   1   0 933   5]
+ [ 12  91   0   1   0   1   0   1   5 889]]
+2025-10-18 23:47:08,466 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:47:08,571 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:47:08,571 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-18 23:51:27,395 - root - INFO - [ÉPOCA 11] Treinamento concluído em 258.822865486145
+2025-10-18 23:51:27,396 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04794480927083689
+2025-10-18 23:51:27,396 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-18 23:51:50,666 - root - INFO - [ÉPOCA 11] Teste concluído em 23.269137859344482
+2025-10-18 23:51:50,666 - root - INFO - [ÉPOCA 11] Erro do teste: 0.3086132801409009
+2025-10-18 23:51:50,666 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-18 23:51:50,672 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:51:50,672 - root - INFO - Accuracy: 0.913
+2025-10-18 23:51:50,672 - root - INFO - Precisão: 0.9215368991825816
+2025-10-18 23:51:50,672 - root - INFO - Recall: 0.9129999999999999
+2025-10-18 23:51:50,672 - root - INFO - F1: 0.9143368704579288
+2025-10-18 23:51:50,672 - root - INFO - Matriz de confusão:
+[[909   1   6  23   3   1   3   0  37  17]
+ [  4 927   0   5   0   0   0   0  10  54]
+ [ 19   0 848  51  27  13  30   3   9   0]
+ [  0   2   4 956   5  19   8   1   4   1]
+ [  3   0   0  36 917  13  17  12   1   1]
+ [  0   0   4 156   5 829   5   1   0   0]
+ [  1   0   3  32   0   2 960   0   0   2]
+ [  7   0   3  59  11  45   7 862   5   1]
+ [ 10   3   1   8   0   1   9   0 963   5]
+ [  1  14   0   6   1   0   3   0  16 959]]
+2025-10-18 23:51:50,672 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:51:50,798 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:51:50,799 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-18 23:56:09,619 - root - INFO - [ÉPOCA 12] Treinamento concluído em 258.81720757484436
+2025-10-18 23:56:09,620 - root - INFO - [ÉPOCA 12] Erro do treino: 0.04365819588820438
+2025-10-18 23:56:09,620 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-18 23:56:32,865 - root - INFO - [ÉPOCA 12] Teste concluído em 23.245025396347046
+2025-10-18 23:56:32,865 - root - INFO - [ÉPOCA 12] Erro do teste: 0.2856118919540055
+2025-10-18 23:56:32,865 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-18 23:56:32,871 - root - INFO - 
+---------- Métricas ----------
+2025-10-18 23:56:32,871 - root - INFO - Accuracy: 0.9238
+2025-10-18 23:56:32,871 - root - INFO - Precisão: 0.9281391484553343
+2025-10-18 23:56:32,871 - root - INFO - Recall: 0.9238000000000002
+2025-10-18 23:56:32,871 - root - INFO - F1: 0.9244536462294679
+2025-10-18 23:56:32,872 - root - INFO - Matriz de confusão:
+[[939   1   9  13   3   0   6   4  24   1]
+ [  6 968   0   0   0   0   1   0  11  14]
+ [ 15   0 904  23   9   8  35   2   4   0]
+ [  4   1   8 939   5  20  17   3   2   1]
+ [  3   0  12  44 888   9  27  13   4   0]
+ [  3   0   9 133   8 840   4   2   1   0]
+ [  1   0  14  23   2   2 958   0   0   0]
+ [  5   0  15  30   9  15  10 916   0   0]
+ [ 23   0   2   2   0   0   5   1 964   3]
+ [ 19  44   1   5   0   0   4   0   5 922]]
+2025-10-18 23:56:32,872 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-18 23:56:32,998 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-18 23:56:32,998 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 00:00:51,818 - root - INFO - [ÉPOCA 13] Treinamento concluído em 258.8182141780853
+2025-10-19 00:00:51,819 - root - INFO - [ÉPOCA 13] Erro do treino: 0.039034604379559495
+2025-10-19 00:00:51,819 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 00:01:15,140 - root - INFO - [ÉPOCA 13] Teste concluído em 23.321505784988403
+2025-10-19 00:01:15,140 - root - INFO - [ÉPOCA 13] Erro do teste: 0.2332321133794664
+2025-10-19 00:01:15,140 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 00:01:15,146 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:01:15,146 - root - INFO - Accuracy: 0.9328
+2025-10-19 00:01:15,146 - root - INFO - Precisão: 0.9328875617298584
+2025-10-19 00:01:15,146 - root - INFO - Recall: 0.9328
+2025-10-19 00:01:15,147 - root - INFO - F1: 0.9325927432667118
+2025-10-19 00:01:15,147 - root - INFO - Matriz de confusão:
+[[925   4   6   5   1   0   2   9  43   5]
+ [  1 982   0   2   0   0   1   1   1  12]
+ [ 19   0 901   8  22  10  29   6   4   1]
+ [  6   2  23 880  18  38  20   9   4   0]
+ [  1   0  11  13 928   8  19  14   6   0]
+ [  3   0  11  77  22 868   8   9   1   1]
+ [  1   0   8   7   6   5 970   1   1   1]
+ [  1   0   6   3  16  20   1 953   0   0]
+ [  9   6   2   2   0   0   1   0 975   5]
+ [  4  35   1   5   0   0   0   1   8 946]]
+2025-10-19 00:01:15,147 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:01:15,289 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:01:15,289 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-19 00:05:34,075 - root - INFO - [ÉPOCA 14] Treinamento concluído em 258.78307342529297
+2025-10-19 00:05:34,076 - root - INFO - [ÉPOCA 14] Erro do treino: 0.044315787399654534
+2025-10-19 00:05:34,076 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-19 00:05:57,332 - root - INFO - [ÉPOCA 14] Teste concluído em 23.256065368652344
+2025-10-19 00:05:57,332 - root - INFO - [ÉPOCA 14] Erro do teste: 0.3000557251934764
+2025-10-19 00:05:57,332 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-19 00:05:57,338 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:05:57,338 - root - INFO - Accuracy: 0.9154
+2025-10-19 00:05:57,338 - root - INFO - Precisão: 0.9191918927547155
+2025-10-19 00:05:57,338 - root - INFO - Recall: 0.9154
+2025-10-19 00:05:57,338 - root - INFO - F1: 0.9151028043099533
+2025-10-19 00:05:57,338 - root - INFO - Matriz de confusão:
+[[885  23  22   9   5   1   9  25  16   5]
+ [  1 983   1   0   0   0   3   3   1   8]
+ [  8   0 942   7   2   1  29   9   2   0]
+ [  0   3  34 804   8  82  37  26   4   2]
+ [  0   1  52  13 869   9  11  44   1   0]
+ [  1   1  42  40   4 870  10  32   0   0]
+ [  0   1   7   0   1   1 986   2   1   1]
+ [  0   0   4   2   1   4   1 987   1   0]
+ [ 17  32   6   1   0   0   6  10 925   3]
+ [  5  61   2   5   0   0   1  16   7 903]]
+2025-10-19 00:05:57,338 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:05:57,471 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:05:57,471 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-19 00:10:16,252 - root - INFO - [ÉPOCA 15] Treinamento concluído em 258.77725410461426
+2025-10-19 00:10:16,252 - root - INFO - [ÉPOCA 15] Erro do treino: 0.03885513296186486
+2025-10-19 00:10:16,252 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-19 00:10:39,514 - root - INFO - [ÉPOCA 15] Teste concluído em 23.26159906387329
+2025-10-19 00:10:39,514 - root - INFO - [ÉPOCA 15] Erro do teste: 0.2616545111884045
+2025-10-19 00:10:39,514 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-19 00:10:39,520 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:10:39,520 - root - INFO - Accuracy: 0.9223
+2025-10-19 00:10:39,520 - root - INFO - Precisão: 0.9267981079813474
+2025-10-19 00:10:39,520 - root - INFO - Recall: 0.9223000000000001
+2025-10-19 00:10:39,520 - root - INFO - F1: 0.9227143310642599
+2025-10-19 00:10:39,520 - root - INFO - Matriz de confusão:
+[[928   2   5   6   4   2   1   2  43   7]
+ [  0 958   0   2   1   1   0   0  15  23]
+ [ 18   0 875  22  22  34  17   5   6   1]
+ [  3   2  11 789  15 153  11   5   4   7]
+ [  4   0   7  12 944  17   5  11   0   0]
+ [  1   2   8  23  11 951   1   3   0   0]
+ [  3   0   6  16   4  16 954   0   1   0]
+ [  3   0   3   9  14  73   4 891   1   2]
+ [ 10   3   1   1   0   2   1   1 977   4]
+ [  2  28   0   2   0   1   0   0  11 956]]
+2025-10-19 00:10:39,521 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:10:39,662 - root - INFO - Execução do modelo concluída em 4231.116914272308
+2025-10-19 00:10:39,663 - root - INFO - Tempo de execução do treino: 3882.487195968628
+2025-10-19 00:10:39,663 - root - INFO - Tempo de execução do teste: 348.6297183036804
+2025-10-19 00:10:39,667 - root - INFO - Salvando modelo executado
+2025-10-19 00:11:06,235 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-19 00:38:23,948 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-19 00:38:23,951 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 00:38:23,951 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 00:38:24,256 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 00:38:24,478 - root - INFO - Tamanho do lote: 128
+2025-10-19 00:38:24,479 - root - INFO - Número de classes: 10
+2025-10-19 00:38:25,852 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:38:25,852 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 00:42:44,741 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.88783740997314
+2025-10-19 00:42:44,742 - root - INFO - [ÉPOCA 1] Erro do treino: 0.31193042439801616
+2025-10-19 00:42:44,742 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-19 00:43:08,059 - root - INFO - [ÉPOCA 1] Teste concluído em 23.316865921020508
+2025-10-19 00:43:08,059 - root - INFO - [ÉPOCA 1] Erro do teste: 0.2575041302774526
+2025-10-19 00:43:08,059 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-19 00:43:08,065 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:43:08,065 - root - INFO - Accuracy: 0.9146
+2025-10-19 00:43:08,065 - root - INFO - Precisão: 0.9195733627381311
+2025-10-19 00:43:08,065 - root - INFO - Recall: 0.9146000000000001
+2025-10-19 00:43:08,065 - root - INFO - F1: 0.9129412985173962
+2025-10-19 00:43:08,065 - root - INFO - Matriz de confusão:
+[[970   0  10   1   2   0   0   0  14   3]
+ [ 15 938   0   0   0   0   3   1  13  30]
+ [ 27   0 922  11   9   1  19   5   4   2]
+ [ 11   1  17 907  22  10  15  10   4   3]
+ [  2   0  28  10 939   0   9   9   2   1]
+ [  7   0  29 210  51 651   9  43   0   0]
+ [  3   0   9  15   4   0 967   1   1   0]
+ [ 12   0   8   7  18   1   1 951   2   0]
+ [ 26   2   6   0   0   0   6   0 957   3]
+ [ 17  20   1   2   0   0   2   0  14 944]]
+2025-10-19 00:43:08,065 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:43:08,247 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:43:08,248 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-19 00:47:27,157 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.90851736068726
+2025-10-19 00:47:27,158 - root - INFO - [ÉPOCA 2] Erro do treino: 0.14280909573292488
+2025-10-19 00:47:27,158 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-19 00:47:50,496 - root - INFO - [ÉPOCA 2] Teste concluído em 23.33721351623535
+2025-10-19 00:47:50,496 - root - INFO - [ÉPOCA 2] Erro do teste: 0.2157291878439203
+2025-10-19 00:47:50,496 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-19 00:47:50,502 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:47:50,502 - root - INFO - Accuracy: 0.9318
+2025-10-19 00:47:50,502 - root - INFO - Precisão: 0.9324656605744203
+2025-10-19 00:47:50,502 - root - INFO - Recall: 0.9318
+2025-10-19 00:47:50,502 - root - INFO - F1: 0.9316492660613456
+2025-10-19 00:47:50,502 - root - INFO - Matriz de confusão:
+[[968   1   4   0   2   0   1   0  12  12]
+ [  8 970   0   0   0   0   0   1   4  17]
+ [ 34   0 907  11  23   2   7   8   8   0]
+ [  4   5  18 892   7  36  13   7  13   5]
+ [  4   0   9  12 935   8   3  27   2   0]
+ [  3   2  17  99   9 839   5  21   4   1]
+ [  7   1  14  12   1   1 959   0   3   2]
+ [ 12   0   3  17   3  10   0 953   1   1]
+ [ 32  10   1   0   0   0   0   1 943  13]
+ [  4  37   1   0   0   0   1   0   5 952]]
+2025-10-19 00:47:50,502 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:47:50,629 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:47:50,630 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-19 00:52:09,601 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.9697844982147
+2025-10-19 00:52:09,602 - root - INFO - [ÉPOCA 3] Erro do treino: 0.10282001292804623
+2025-10-19 00:52:09,602 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-19 00:52:32,914 - root - INFO - [ÉPOCA 3] Teste concluído em 23.312076091766357
+2025-10-19 00:52:32,914 - root - INFO - [ÉPOCA 3] Erro do teste: 0.22298076574372339
+2025-10-19 00:52:32,914 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-19 00:52:32,920 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:52:32,920 - root - INFO - Accuracy: 0.9318
+2025-10-19 00:52:32,920 - root - INFO - Precisão: 0.9341411459622833
+2025-10-19 00:52:32,920 - root - INFO - Recall: 0.9318
+2025-10-19 00:52:32,920 - root - INFO - F1: 0.93186102235461
+2025-10-19 00:52:32,921 - root - INFO - Matriz de confusão:
+[[939   0  20   4   0   2   0   1  25   9]
+ [  3 847   1   3   0   0   0   3  44  99]
+ [  9   0 941  25   3  10   9   3   0   0]
+ [  2   0  13 908   7  50   9   5   2   4]
+ [  2   0  32  17 920   6   5  16   2   0]
+ [  0   0   9  82  17 887   0   5   0   0]
+ [  3   0  10  18   0   1 966   0   2   0]
+ [  1   0   7   8   8  17   2 955   2   0]
+ [ 11   0   4   1   0   1   0   1 980   2]
+ [  3   3   0   3   0   0   0   0  16 975]]
+2025-10-19 00:52:32,921 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:52:33,059 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:52:33,059 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-19 00:56:51,989 - root - INFO - [ÉPOCA 4] Treinamento concluído em 258.9286892414093
+2025-10-19 00:56:51,990 - root - INFO - [ÉPOCA 4] Erro do treino: 0.08222839548764631
+2025-10-19 00:56:51,990 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-19 00:57:15,329 - root - INFO - [ÉPOCA 4] Teste concluído em 23.339083433151245
+2025-10-19 00:57:15,330 - root - INFO - [ÉPOCA 4] Erro do teste: 0.2000397201391715
+2025-10-19 00:57:15,330 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-19 00:57:15,336 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 00:57:15,336 - root - INFO - Accuracy: 0.9357
+2025-10-19 00:57:15,336 - root - INFO - Precisão: 0.936225814369752
+2025-10-19 00:57:15,336 - root - INFO - Recall: 0.9357000000000001
+2025-10-19 00:57:15,336 - root - INFO - F1: 0.9355446877638343
+2025-10-19 00:57:15,336 - root - INFO - Matriz de confusão:
+[[950   2   2   1   4   0   2   5  25   9]
+ [  5 964   1   2   0   0   2   1   4  21]
+ [ 18   1 885  41  16  16  13   9   1   0]
+ [ 10   1   3 835   8 110  14  12   6   1]
+ [  4   0  11  15 929   7  11  22   1   0]
+ [  4   0   5  37  10 921   3  20   0   0]
+ [  3   0   3  14   3   2 974   1   0   0]
+ [  2   0   6   4   5  12   0 971   0   0]
+ [ 13   2   1   1   0   0   2   2 977   2]
+ [  6  23   1   3   0   1   0   1  14 951]]
+2025-10-19 00:57:15,336 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 00:57:15,473 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-19 00:57:15,473 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-19 01:01:34,401 - root - INFO - [ÉPOCA 5] Treinamento concluído em 258.92647433280945
+2025-10-19 01:01:34,402 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06446176980291028
+2025-10-19 01:01:34,402 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-19 01:01:57,722 - root - INFO - [ÉPOCA 5] Teste concluído em 23.31950068473816
+2025-10-19 01:01:57,722 - root - INFO - [ÉPOCA 5] Erro do teste: 0.24725794509241852
+2025-10-19 01:01:57,722 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-19 01:01:57,727 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:01:57,728 - root - INFO - Accuracy: 0.9239
+2025-10-19 01:01:57,728 - root - INFO - Precisão: 0.9266643569104369
+2025-10-19 01:01:57,728 - root - INFO - Recall: 0.9239
+2025-10-19 01:01:57,728 - root - INFO - F1: 0.9239277767832382
+2025-10-19 01:01:57,728 - root - INFO - Matriz de confusão:
+[[914   5  18  12   1   2   7   9  15  17]
+ [  1 959   0   3   0   0   0   0   0  37]
+ [ 13   0 844  20  20  39  50   9   1   4]
+ [  2   0   4 874  10  63  28   8   3   8]
+ [  1   0   4  16 858  66  25  16   2  12]
+ [  0   0   1  56   4 931   4   3   0   1]
+ [  0   0   3   9   2   2 978   2   1   3]
+ [  1   0   1   1   6  24   1 963   0   3]
+ [ 15  11   5   3   0   1   4   3 942  16]
+ [  2  13   1   1   0   1   0   1   5 976]]
+2025-10-19 01:01:57,728 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:01:57,863 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:01:57,863 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-19 01:06:16,804 - root - INFO - [ÉPOCA 6] Treinamento concluído em 258.939168214798
+2025-10-19 01:06:16,805 - root - INFO - [ÉPOCA 6] Erro do treino: 0.06423343281330698
+2025-10-19 01:06:16,805 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-19 01:06:40,122 - root - INFO - [ÉPOCA 6] Teste concluído em 23.317195653915405
+2025-10-19 01:06:40,122 - root - INFO - [ÉPOCA 6] Erro do teste: 0.2848189906983436
+2025-10-19 01:06:40,122 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-19 01:06:40,128 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:06:40,128 - root - INFO - Accuracy: 0.9174
+2025-10-19 01:06:40,128 - root - INFO - Precisão: 0.9212645246382236
+2025-10-19 01:06:40,128 - root - INFO - Recall: 0.9174000000000001
+2025-10-19 01:06:40,128 - root - INFO - F1: 0.917362834819133
+2025-10-19 01:06:40,129 - root - INFO - Matriz de confusão:
+[[919   0  16   9   7   2  10   0  25  12]
+ [ 10 945   0   1   0   0   2   0   3  39]
+ [  4   0 944  18   5  13  13   0   3   0]
+ [  4   0  27 903  13  40  10   0   2   1]
+ [  0   0  35  17 925   5  16   2   0   0]
+ [  2   0   7  83  14 882  10   1   1   0]
+ [  1   0  12  21   0   1 965   0   0   0]
+ [  4   1  17  71  52  80   2 770   3   0]
+ [ 24   2   2   2   0   0   8   0 954   8]
+ [  5  12   1   5   0   0   2   0   8 967]]
+2025-10-19 01:06:40,129 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:06:40,270 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:06:40,270 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-19 01:10:59,203 - root - INFO - [ÉPOCA 7] Treinamento concluído em 258.93226742744446
+2025-10-19 01:10:59,204 - root - INFO - [ÉPOCA 7] Erro do treino: 0.0578458034207144
+2025-10-19 01:10:59,204 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-19 01:11:22,534 - root - INFO - [ÉPOCA 7] Teste concluído em 23.329496145248413
+2025-10-19 01:11:22,534 - root - INFO - [ÉPOCA 7] Erro do teste: 0.2751436993668351
+2025-10-19 01:11:22,534 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-19 01:11:22,540 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:11:22,540 - root - INFO - Accuracy: 0.9246
+2025-10-19 01:11:22,540 - root - INFO - Precisão: 0.9283099999127169
+2025-10-19 01:11:22,540 - root - INFO - Recall: 0.9245999999999999
+2025-10-19 01:11:22,540 - root - INFO - F1: 0.9240437108629239
+2025-10-19 01:11:22,540 - root - INFO - Matriz de confusão:
+[[952   1  13   1   1   1   3   6  21   1]
+ [  4 967   1   1   0   0   0   1  14  12]
+ [ 18   0 886   9  14  19  44   9   1   0]
+ [ 10   1  12 736  10 182  29  16   2   2]
+ [  7   1  10   8 902  27  26  19   0   0]
+ [  2   0   6  21   5 953   5   8   0   0]
+ [  5   0   7   5   1   9 970   2   0   1]
+ [  3   0   6   1   3  11   0 975   1   0]
+ [ 21   0   5   0   1   0   2   1 968   2]
+ [ 12  28   2   1   0   1   2   3  14 937]]
+2025-10-19 01:11:22,541 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:11:22,677 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:11:22,677 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-19 01:15:41,620 - root - INFO - [ÉPOCA 8] Treinamento concluído em 258.94133710861206
+2025-10-19 01:15:41,621 - root - INFO - [ÉPOCA 8] Erro do treino: 0.044534096083439445
+2025-10-19 01:15:41,621 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-19 01:16:04,976 - root - INFO - [ÉPOCA 8] Teste concluído em 23.354585647583008
+2025-10-19 01:16:04,976 - root - INFO - [ÉPOCA 8] Erro do teste: 0.2195295410442956
+2025-10-19 01:16:04,976 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-19 01:16:04,982 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:16:04,982 - root - INFO - Accuracy: 0.9364
+2025-10-19 01:16:04,982 - root - INFO - Precisão: 0.9381411391027108
+2025-10-19 01:16:04,982 - root - INFO - Recall: 0.9364000000000001
+2025-10-19 01:16:04,982 - root - INFO - F1: 0.9367103048032499
+2025-10-19 01:16:04,982 - root - INFO - Matriz de confusão:
+[[942   0  22   4   0   0   3   1  27   1]
+ [  4 940   0   0   0   0   0   0  39  17]
+ [  3   0 932  16  12  19  13   2   3   0]
+ [  5   1   9 890   9  60  15   1   8   2]
+ [  3   0   8  11 953  13   9   2   1   0]
+ [  4   0   1  69   8 912   4   1   0   1]
+ [  0   0   7  17   1   1 973   0   1   0]
+ [  4   0   3  14  22  56   1 899   1   0]
+ [ 10   0   2   2   1   1   4   0 979   1]
+ [  7  22   1   1   0   1   1   0  23 944]]
+2025-10-19 01:16:04,983 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:16:05,159 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:16:05,160 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-19 01:20:24,097 - root - INFO - [ÉPOCA 9] Treinamento concluído em 258.9361946582794
+2025-10-19 01:20:24,098 - root - INFO - [ÉPOCA 9] Erro do treino: 0.04891491204838428
+2025-10-19 01:20:24,098 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-19 01:20:47,428 - root - INFO - [ÉPOCA 9] Teste concluído em 23.329648971557617
+2025-10-19 01:20:47,428 - root - INFO - [ÉPOCA 9] Erro do teste: 0.24288493941856337
+2025-10-19 01:20:47,428 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-19 01:20:47,434 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:20:47,434 - root - INFO - Accuracy: 0.9316
+2025-10-19 01:20:47,434 - root - INFO - Precisão: 0.9336545788772719
+2025-10-19 01:20:47,434 - root - INFO - Recall: 0.9315999999999999
+2025-10-19 01:20:47,434 - root - INFO - F1: 0.9319663349057317
+2025-10-19 01:20:47,434 - root - INFO - Matriz de confusão:
+[[964   0  24   4   1   1   1   0   5   0]
+ [  5 958   2   5   0   0   1   1   6  22]
+ [  4   1 942  19  20   5   3   5   1   0]
+ [  3   1  17 898  20  47   4   7   1   2]
+ [  3   0  23  11 935  12   1  15   0   0]
+ [  1   0  13  57  10 909   0  10   0   0]
+ [  4   0  31  53  10  18 883   0   0   1]
+ [  2   0  11   7   7  10   1 962   0   0]
+ [ 53   3  10   3   3   3   2   1 919   3]
+ [ 17  23   3   3   0   1   1   0   6 946]]
+2025-10-19 01:20:47,434 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:20:47,575 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:20:47,575 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-19 01:25:06,511 - root - INFO - [ÉPOCA 10] Treinamento concluído em 258.9339244365692
+2025-10-19 01:25:06,512 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04982015713120399
+2025-10-19 01:25:06,512 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-19 01:25:29,850 - root - INFO - [ÉPOCA 10] Teste concluído em 23.338310956954956
+2025-10-19 01:25:29,850 - root - INFO - [ÉPOCA 10] Erro do teste: 0.30496523086028765
+2025-10-19 01:25:29,850 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-19 01:25:29,856 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:25:29,856 - root - INFO - Accuracy: 0.915
+2025-10-19 01:25:29,856 - root - INFO - Precisão: 0.9190730626629111
+2025-10-19 01:25:29,856 - root - INFO - Recall: 0.915
+2025-10-19 01:25:29,856 - root - INFO - F1: 0.9137959297828908
+2025-10-19 01:25:29,857 - root - INFO - Matriz de confusão:
+[[929   2   7   1   3   2   5   9  42   0]
+ [  2 977   3   0   0   0   3   4   7   4]
+ [ 27   0 880  13  14  18  40   5   3   0]
+ [  7   2  14 731  24 138  53  28   3   0]
+ [  4   0   3   3 927  14  23  24   2   0]
+ [  1   0   4  29  10 943   5   8   0   0]
+ [  1   0   7   1   1   4 986   0   0   0]
+ [  3   0   5   0   4  19   2 966   1   0]
+ [  6   3   2   0   0   0   6   1 982   0]
+ [ 14 112   2   2   1   4   4   7  25 829]]
+2025-10-19 01:25:29,857 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:25:30,000 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:25:30,000 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-19 01:29:48,941 - root - INFO - [ÉPOCA 11] Treinamento concluído em 258.93959379196167
+2025-10-19 01:29:48,942 - root - INFO - [ÉPOCA 11] Erro do treino: 0.044181597747785205
+2025-10-19 01:29:48,942 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-19 01:30:12,258 - root - INFO - [ÉPOCA 11] Teste concluído em 23.315669775009155
+2025-10-19 01:30:12,258 - root - INFO - [ÉPOCA 11] Erro do teste: 0.2689933279835725
+2025-10-19 01:30:12,258 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-19 01:30:12,264 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:30:12,264 - root - INFO - Accuracy: 0.9272
+2025-10-19 01:30:12,264 - root - INFO - Precisão: 0.9285406447249605
+2025-10-19 01:30:12,264 - root - INFO - Recall: 0.9272
+2025-10-19 01:30:12,264 - root - INFO - F1: 0.9271856015851103
+2025-10-19 01:30:12,264 - root - INFO - Matriz de confusão:
+[[950   3   2   4   2   2   2   4  25   6]
+ [  1 967   0   1   0   1   0   1   3  26]
+ [ 32   4 868  17  10  17  27  18   7   0]
+ [  7   4  10 871   5  58  10  21   6   8]
+ [  4   0   6  21 891  22   4  49   2   1]
+ [  1   1   5  74   6 886   2  25   0   0]
+ [  3   2   5  36   4   4 935   4   4   3]
+ [  4   0   1   9   0  10   2 972   1   1]
+ [ 15   6   1   0   1   1   1   0 970   5]
+ [  7  19   0   0   0   1   0   0  11 962]]
+2025-10-19 01:30:12,264 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:30:12,399 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:30:12,400 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-19 01:34:31,341 - root - INFO - [ÉPOCA 12] Treinamento concluído em 258.9401285648346
+2025-10-19 01:34:31,342 - root - INFO - [ÉPOCA 12] Erro do treino: 0.04548865582739167
+2025-10-19 01:34:31,342 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-19 01:34:54,656 - root - INFO - [ÉPOCA 12] Teste concluído em 23.313453674316406
+2025-10-19 01:34:54,656 - root - INFO - [ÉPOCA 12] Erro do teste: 0.24057761994721014
+2025-10-19 01:34:54,656 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-19 01:34:54,662 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:34:54,662 - root - INFO - Accuracy: 0.9337
+2025-10-19 01:34:54,662 - root - INFO - Precisão: 0.9340337574976887
+2025-10-19 01:34:54,662 - root - INFO - Recall: 0.9337
+2025-10-19 01:34:54,662 - root - INFO - F1: 0.9335820594145133
+2025-10-19 01:34:54,662 - root - INFO - Matriz de confusão:
+[[920  14   3   2   2   0   6   7  33  13]
+ [  1 987   0   1   1   0   0   1   2   7]
+ [ 33   1 919  16  11   5   8   7   0   0]
+ [  5   1  27 882  11  48   8   9   4   5]
+ [  5   2  20  19 919  11   9  15   0   0]
+ [  1   1  20  66   9 884   3  16   0   0]
+ [  2   3  18  11   5   3 955   0   1   2]
+ [  0   0   8   3   5   9   1 974   0   0]
+ [ 10   9   3   1   0   0   0   3 968   6]
+ [  2  58   2   2   0   0   1   1   5 929]]
+2025-10-19 01:34:54,662 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:34:54,807 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:34:54,807 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 01:39:13,748 - root - INFO - [ÉPOCA 13] Treinamento concluído em 258.93943905830383
+2025-10-19 01:39:13,749 - root - INFO - [ÉPOCA 13] Erro do treino: 0.04205181160965539
+2025-10-19 01:39:13,749 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 01:39:37,055 - root - INFO - [ÉPOCA 13] Teste concluído em 23.30573797225952
+2025-10-19 01:39:37,055 - root - INFO - [ÉPOCA 13] Erro do teste: 0.25065651130449923
+2025-10-19 01:39:37,055 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 01:39:37,061 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:39:37,061 - root - INFO - Accuracy: 0.9275
+2025-10-19 01:39:37,061 - root - INFO - Precisão: 0.9286161588949827
+2025-10-19 01:39:37,061 - root - INFO - Recall: 0.9275
+2025-10-19 01:39:37,061 - root - INFO - F1: 0.927048020229947
+2025-10-19 01:39:37,061 - root - INFO - Matriz de confusão:
+[[963   2   3   1   5   2   1   3  11   9]
+ [  3 968   0   2   0   0   5   1   1  20]
+ [ 21   0 902   8  13   5  43   5   3   0]
+ [ 13   1  15 806  17  88  31  23   3   3]
+ [  7   0   9   2 922  12  15  31   2   0]
+ [  2   0   8  36  15 914   7  18   0   0]
+ [  3   0   6   3   2   1 982   1   0   2]
+ [  2   0   5   3   6  12   2 970   0   0]
+ [ 53   6   3   5   1   3   3   3 911  12]
+ [  7  41   0   1   0   2   1   2   9 937]]
+2025-10-19 01:39:37,061 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:39:37,240 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:39:37,240 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-19 01:43:56,185 - root - INFO - [ÉPOCA 14] Treinamento concluído em 258.9433491230011
+2025-10-19 01:43:56,186 - root - INFO - [ÉPOCA 14] Erro do treino: 0.03878250821372089
+2025-10-19 01:43:56,186 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-19 01:44:19,460 - root - INFO - [ÉPOCA 14] Teste concluído em 23.273641109466553
+2025-10-19 01:44:19,460 - root - INFO - [ÉPOCA 14] Erro do teste: 0.27763212472200394
+2025-10-19 01:44:19,460 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-19 01:44:19,466 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:44:19,466 - root - INFO - Accuracy: 0.9286
+2025-10-19 01:44:19,466 - root - INFO - Precisão: 0.9325705586086285
+2025-10-19 01:44:19,466 - root - INFO - Recall: 0.9286000000000001
+2025-10-19 01:44:19,466 - root - INFO - F1: 0.9283146631091563
+2025-10-19 01:44:19,466 - root - INFO - Matriz de confusão:
+[[922   0  32   5   8   1   6   1  18   7]
+ [  4 969   2   0   1   0   0   1   5  18]
+ [  6   0 962  12  12   2   3   1   1   1]
+ [  3   0  41 901  18  14  10   7   4   2]
+ [  1   0  22  11 956   0   5   4   1   0]
+ [  0   0  57 120  53 748  13   5   2   2]
+ [  1   0  24   9   4   1 959   0   1   1]
+ [  1   0  19  14  19   7   2 938   0   0]
+ [  6   4   6   1   2   0   2   1 973   5]
+ [  6  24   2   1   0   0   1   1   7 958]]
+2025-10-19 01:44:19,466 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:44:19,605 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-19 01:44:19,606 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-19 01:48:38,541 - root - INFO - [ÉPOCA 15] Treinamento concluído em 258.9343068599701
+2025-10-19 01:48:38,542 - root - INFO - [ÉPOCA 15] Erro do treino: 0.03916351554100699
+2025-10-19 01:48:38,542 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-19 01:49:01,844 - root - INFO - [ÉPOCA 15] Teste concluído em 23.301867961883545
+2025-10-19 01:49:01,844 - root - INFO - [ÉPOCA 15] Erro do teste: 0.23210583363152756
+2025-10-19 01:49:01,844 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-19 01:49:01,850 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 01:49:01,850 - root - INFO - Accuracy: 0.9347
+2025-10-19 01:49:01,850 - root - INFO - Precisão: 0.9357484650711777
+2025-10-19 01:49:01,850 - root - INFO - Recall: 0.9347
+2025-10-19 01:49:01,850 - root - INFO - F1: 0.9345550950394212
+2025-10-19 01:49:01,850 - root - INFO - Matriz de confusão:
+[[949   6   2   2   5   3   4   5  15   9]
+ [  0 985   1   0   0   0   1   1   3   9]
+ [ 24   0 887  13  34  18  17   5   1   1]
+ [  1   1  12 833  11 107  18   8   4   5]
+ [  1   0   5  14 941  25   6   7   0   1]
+ [  1   0   7  34  10 935   1  10   0   2]
+ [  2   0   6  11   5   9 964   3   0   0]
+ [  1   0   2   4   5   9   0 978   0   1]
+ [ 23  10   6   4   1   1   2   1 948   4]
+ [  2  57   1   1   0   0   2   1   9 927]]
+2025-10-19 01:49:01,851 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 01:49:01,988 - root - INFO - Execução do modelo concluída em 4233.8053596019745
+2025-10-19 01:49:01,988 - root - INFO - Tempo de execução do treino: 3884.0010120868683
+2025-10-19 01:49:01,989 - root - INFO - Tempo de execução do teste: 349.8043475151062
+2025-10-19 01:49:01,993 - root - INFO - Salvando modelo executado
+2025-10-19 01:49:27,555 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-19 02:16:21,841 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-19 02:16:21,844 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 02:16:21,844 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 02:16:22,152 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 02:16:22,371 - root - INFO - Tamanho do lote: 128
+2025-10-19 02:16:22,371 - root - INFO - Número de classes: 10
+2025-10-19 02:16:22,612 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:16:22,612 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 02:20:41,408 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.7946174144745
+2025-10-19 02:20:41,409 - root - INFO - [ÉPOCA 1] Erro do treino: 0.30994096750874656
+2025-10-19 02:20:41,409 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-19 02:21:04,654 - root - INFO - [ÉPOCA 1] Teste concluído em 23.244096040725708
+2025-10-19 02:21:04,654 - root - INFO - [ÉPOCA 1] Erro do teste: 0.2365391367598425
+2025-10-19 02:21:04,654 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-19 02:21:04,660 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:21:04,660 - root - INFO - Accuracy: 0.9234
+2025-10-19 02:21:04,660 - root - INFO - Precisão: 0.9261294980365535
+2025-10-19 02:21:04,660 - root - INFO - Recall: 0.9234
+2025-10-19 02:21:04,660 - root - INFO - F1: 0.9237357611835098
+2025-10-19 02:21:04,660 - root - INFO - Matriz de confusão:
+[[932   1  32   6   3   0   1   0  23   2]
+ [  7 951   0   0   0   0   0   0   9  33]
+ [  8   0 927  19  24   3  11   2   6   0]
+ [  5   2  24 901  19  28   7   6   4   4]
+ [  1   0  18  14 943   3  12   8   1   0]
+ [  1   0  23 115  29 817   3  11   1   0]
+ [  2   0  13  44   9   2 928   0   2   0]
+ [  6   0  31  16  20  13   0 914   0   0]
+ [ 15   3   4   1   2   0   1   0 969   5]
+ [ 14  25   2   3   0   0   0   0   4 952]]
+2025-10-19 02:21:04,660 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:21:04,774 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:21:04,775 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-19 02:25:23,589 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.8134837150574
+2025-10-19 02:25:23,590 - root - INFO - [ÉPOCA 2] Erro do treino: 0.14571610510425495
+2025-10-19 02:25:23,590 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-19 02:25:46,827 - root - INFO - [ÉPOCA 2] Teste concluído em 23.23605728149414
+2025-10-19 02:25:46,827 - root - INFO - [ÉPOCA 2] Erro do teste: 0.20268432597948027
+2025-10-19 02:25:46,827 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-19 02:25:46,833 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:25:46,833 - root - INFO - Accuracy: 0.9335
+2025-10-19 02:25:46,833 - root - INFO - Precisão: 0.9344577634415382
+2025-10-19 02:25:46,833 - root - INFO - Recall: 0.9334999999999999
+2025-10-19 02:25:46,833 - root - INFO - F1: 0.9335902881722526
+2025-10-19 02:25:46,833 - root - INFO - Matriz de confusão:
+[[903   0  10   2   1   1   2   3  71   7]
+ [  5 959   0   2   0   0   0   0  15  19]
+ [ 25   0 932   8  15   8   9   1   2   0]
+ [  5   1  31 874   8  51  10   5  10   5]
+ [  2   0   9  12 951   7   3  14   2   0]
+ [  1   0  19  67  13 895   1   3   1   0]
+ [  4   0  17  18   4   5 949   0   3   0]
+ [  5   0   8  13  12  17   2 942   1   0]
+ [  4   1   3   2   0   0   0   1 984   5]
+ [  1  26   2   1   0   1   0   0  23 946]]
+2025-10-19 02:25:46,833 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:25:46,948 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:25:46,948 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-19 02:30:05,718 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.7684841156006
+2025-10-19 02:30:05,719 - root - INFO - [ÉPOCA 3] Erro do treino: 0.09898616753213699
+2025-10-19 02:30:05,719 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-19 02:30:28,959 - root - INFO - [ÉPOCA 3] Teste concluído em 23.239760160446167
+2025-10-19 02:30:28,959 - root - INFO - [ÉPOCA 3] Erro do teste: 0.31536180082755755
+2025-10-19 02:30:28,959 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-19 02:30:28,965 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:30:28,965 - root - INFO - Accuracy: 0.9093
+2025-10-19 02:30:28,965 - root - INFO - Precisão: 0.9149290386583926
+2025-10-19 02:30:28,966 - root - INFO - Recall: 0.9093000000000002
+2025-10-19 02:30:28,966 - root - INFO - F1: 0.9090271097597048
+2025-10-19 02:30:28,966 - root - INFO - Matriz de confusão:
+[[827   2  48   7  24   2   4   2  68  16]
+ [  0 950   0   0   0   0   0   0  18  32]
+ [  3   0 851  21  65  15  31   9   3   2]
+ [  2   0   6 750  73 142   8  12   3   4]
+ [  0   0   2   2 967  11   7   9   2   0]
+ [  0   0   1  22  39 930   1   4   2   1]
+ [  3   0   3  16  19   8 946   1   2   2]
+ [  2   0   1   5  40  25   0 924   0   3]
+ [  7   0   1   4   2   1   1   1 981   2]
+ [  1  20   0   0   0   0   0   0  12 967]]
+2025-10-19 02:30:28,966 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:30:29,072 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:30:29,072 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-19 02:34:47,880 - root - INFO - [ÉPOCA 4] Treinamento concluído em 258.8057415485382
+2025-10-19 02:34:47,880 - root - INFO - [ÉPOCA 4] Erro do treino: 0.08041761670132999
+2025-10-19 02:34:47,881 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-19 02:35:11,114 - root - INFO - [ÉPOCA 4] Teste concluído em 23.23369312286377
+2025-10-19 02:35:11,115 - root - INFO - [ÉPOCA 4] Erro do teste: 0.22534226352655434
+2025-10-19 02:35:11,115 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-19 02:35:11,120 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:35:11,121 - root - INFO - Accuracy: 0.9303
+2025-10-19 02:35:11,121 - root - INFO - Precisão: 0.9309795735186794
+2025-10-19 02:35:11,121 - root - INFO - Recall: 0.9302999999999999
+2025-10-19 02:35:11,121 - root - INFO - F1: 0.9298809516015721
+2025-10-19 02:35:11,121 - root - INFO - Matriz de confusão:
+[[947   4   2   2   2   1   1   0  37   4]
+ [  2 966   0   0   0   0   0   1   5  26]
+ [ 28   0 866  19  23  10  29  15  10   0]
+ [ 11   3  10 862  22  46  16  24   5   1]
+ [  6   0   6   7 961   2   5   9   4   0]
+ [  3   0   5  73  28 854   6  30   1   0]
+ [  7   3   5  13   3   1 958   0   8   2]
+ [  6   0   2   2  12   2   3 971   2   0]
+ [ 12   6   0   0   0   0   0   0 979   3]
+ [  6  23   0   1   0   0   0   0  31 939]]
+2025-10-19 02:35:11,121 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:35:11,246 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:35:11,246 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-19 02:39:30,227 - root - INFO - [ÉPOCA 5] Treinamento concluído em 258.9798219203949
+2025-10-19 02:39:30,228 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06778236649111104
+2025-10-19 02:39:30,228 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-19 02:39:53,463 - root - INFO - [ÉPOCA 5] Teste concluído em 23.233976364135742
+2025-10-19 02:39:53,463 - root - INFO - [ÉPOCA 5] Erro do teste: 0.286404522442365
+2025-10-19 02:39:53,463 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-19 02:39:53,469 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:39:53,469 - root - INFO - Accuracy: 0.9193
+2025-10-19 02:39:53,469 - root - INFO - Precisão: 0.9231309412788707
+2025-10-19 02:39:53,469 - root - INFO - Recall: 0.9193
+2025-10-19 02:39:53,469 - root - INFO - F1: 0.9194992696623375
+2025-10-19 02:39:53,469 - root - INFO - Matriz de confusão:
+[[940  14   9   7   0   1   1   8  14   6]
+ [  2 992   0   0   0   2   0   0   0   4]
+ [ 17   2 844  44  30  35  15  11   2   0]
+ [  2   3   5 867  19  73   7  19   3   2]
+ [  1   0   4  13 935  22   2  20   2   1]
+ [  0   1   2  55   6 927   1   6   0   2]
+ [  1   1  10   9  16  15 941   5   2   0]
+ [  2   0   6   3   4  16   0 969   0   0]
+ [ 13  51   2   1   1   0   0   2 919  11]
+ [  2 129   1   1   1   0   3   2   2 859]]
+2025-10-19 02:39:53,469 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:39:53,628 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:39:53,629 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-19 02:44:12,709 - root - INFO - [ÉPOCA 6] Treinamento concluído em 259.07903265953064
+2025-10-19 02:44:12,710 - root - INFO - [ÉPOCA 6] Erro do treino: 0.0715074482828836
+2025-10-19 02:44:12,710 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-19 02:44:35,926 - root - INFO - [ÉPOCA 6] Teste concluído em 23.21609330177307
+2025-10-19 02:44:35,926 - root - INFO - [ÉPOCA 6] Erro do teste: 0.21048838899859898
+2025-10-19 02:44:35,926 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-19 02:44:35,932 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:44:35,932 - root - INFO - Accuracy: 0.9374
+2025-10-19 02:44:35,932 - root - INFO - Precisão: 0.9384238830381803
+2025-10-19 02:44:35,932 - root - INFO - Recall: 0.9374
+2025-10-19 02:44:35,932 - root - INFO - F1: 0.9370326225594079
+2025-10-19 02:44:35,933 - root - INFO - Matriz de confusão:
+[[957   4   3   4   2   1   3   7  19   0]
+ [  2 972   0   0   0   0   1   2   5  18]
+ [ 23   0 861  13  42  26  25   9   1   0]
+ [  3   2   8 833  24  80  35   8   4   3]
+ [  2   0   3   5 976   2   6   5   1   0]
+ [  1   0   4  37  21 926   4   6   0   1]
+ [  5   1   4   3   9   1 977   0   0   0]
+ [  2   0   4   3  15  18   1 957   0   0]
+ [ 12   6   2   1   1   1   3   2 970   2]
+ [  7  27   2   4   0   1   2   2  10 945]]
+2025-10-19 02:44:35,933 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:44:36,053 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:44:36,053 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-19 02:48:55,204 - root - INFO - [ÉPOCA 7] Treinamento concluído em 259.1504211425781
+2025-10-19 02:48:55,205 - root - INFO - [ÉPOCA 7] Erro do treino: 0.05153843918172142
+2025-10-19 02:48:55,205 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-19 02:49:18,421 - root - INFO - [ÉPOCA 7] Teste concluído em 23.215617656707764
+2025-10-19 02:49:18,421 - root - INFO - [ÉPOCA 7] Erro do teste: 0.2531584070736094
+2025-10-19 02:49:18,421 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-19 02:49:18,427 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:49:18,427 - root - INFO - Accuracy: 0.9317
+2025-10-19 02:49:18,427 - root - INFO - Precisão: 0.9340830629505359
+2025-10-19 02:49:18,427 - root - INFO - Recall: 0.9317
+2025-10-19 02:49:18,427 - root - INFO - F1: 0.9317489298486828
+2025-10-19 02:49:18,428 - root - INFO - Matriz de confusão:
+[[920   7  27   3  22   0   8   1   8   4]
+ [  2 984   1   0   0   0   0   0   1  12]
+ [  5   0 954   7  17   6  11   0   0   0]
+ [  4   2  39 843  48  50   9   3   1   1]
+ [  0   0   9   2 982   1   5   1   0   0]
+ [  0   2  18  53  34 887   3   3   0   0]
+ [  0   0   9  12   5   2 972   0   0   0]
+ [  1   0   9   5  42  13   2 928   0   0]
+ [ 28  12  12   2   3   0   6   0 927  10]
+ [  5  55   6   3   0   0   3   0   8 920]]
+2025-10-19 02:49:18,428 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:49:18,543 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:49:18,544 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-19 02:53:37,584 - root - INFO - [ÉPOCA 8] Treinamento concluído em 259.03903126716614
+2025-10-19 02:53:37,585 - root - INFO - [ÉPOCA 8] Erro do treino: 0.059095708286518334
+2025-10-19 02:53:37,585 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-19 02:54:00,819 - root - INFO - [ÉPOCA 8] Teste concluído em 23.233757972717285
+2025-10-19 02:54:00,819 - root - INFO - [ÉPOCA 8] Erro do teste: 0.288891129761557
+2025-10-19 02:54:00,819 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-19 02:54:00,825 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:54:00,825 - root - INFO - Accuracy: 0.9202
+2025-10-19 02:54:00,825 - root - INFO - Precisão: 0.9226657597878637
+2025-10-19 02:54:00,825 - root - INFO - Recall: 0.9202
+2025-10-19 02:54:00,825 - root - INFO - F1: 0.9192523723619479
+2025-10-19 02:54:00,825 - root - INFO - Matriz de confusão:
+[[950   6   4   1   0   1   5   3  25   5]
+ [  2 988   0   0   0   0   0   0   1   9]
+ [ 30   0 913   6   4  14  11  16   4   2]
+ [ 11   7  22 777   5  83  30  52   3  10]
+ [  5   3  53  14 817  23  34  50   0   1]
+ [  0   5  11  28   6 908   8  29   1   4]
+ [  2   1  20   4   0   3 968   0   0   2]
+ [  0   0   6   1   1   3   0 989   0   0]
+ [ 14  14   0   0   0   0   3   3 960   6]
+ [  5  57   0   0   0   0   1   0   5 932]]
+2025-10-19 02:54:00,825 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:54:00,934 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:54:00,935 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-19 02:58:20,090 - root - INFO - [ÉPOCA 9] Treinamento concluído em 259.1541976928711
+2025-10-19 02:58:20,091 - root - INFO - [ÉPOCA 9] Erro do treino: 0.04800614541934808
+2025-10-19 02:58:20,091 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-19 02:58:43,317 - root - INFO - [ÉPOCA 9] Teste concluído em 23.225449323654175
+2025-10-19 02:58:43,317 - root - INFO - [ÉPOCA 9] Erro do teste: 0.2593523284679727
+2025-10-19 02:58:43,317 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-19 02:58:43,323 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 02:58:43,323 - root - INFO - Accuracy: 0.9313
+2025-10-19 02:58:43,323 - root - INFO - Precisão: 0.9344375083591002
+2025-10-19 02:58:43,323 - root - INFO - Recall: 0.9312999999999999
+2025-10-19 02:58:43,323 - root - INFO - F1: 0.9303952692067581
+2025-10-19 02:58:43,323 - root - INFO - Matriz de confusão:
+[[953   0   8   2   3   1   0   0  24   9]
+ [  4 955   1   0   0   1   0   1   5  33]
+ [ 35   0 908   2  25  13   8   6   3   0]
+ [ 10   1  18 723  31 175  19  19   2   2]
+ [  6   0   9   2 967   8   4   3   1   0]
+ [  2   0  16  12  16 947   1   6   0   0]
+ [ 10   0  18   2   3   1 963   1   1   1]
+ [  6   0   9   1  21   9   0 954   0   0]
+ [ 18   1   6   0   0   0   2   1 967   5]
+ [  2  14   0   0   0   1   0   0   7 976]]
+2025-10-19 02:58:43,323 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 02:58:43,467 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-19 02:58:43,468 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-19 03:03:02,620 - root - INFO - [ÉPOCA 10] Treinamento concluído em 259.1502902507782
+2025-10-19 03:03:02,620 - root - INFO - [ÉPOCA 10] Erro do treino: 0.044481451534416024
+2025-10-19 03:03:02,621 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-19 03:03:25,809 - root - INFO - [ÉPOCA 10] Teste concluído em 23.18876361846924
+2025-10-19 03:03:25,810 - root - INFO - [ÉPOCA 10] Erro do teste: 0.24367355659038206
+2025-10-19 03:03:25,810 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-19 03:03:25,815 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:03:25,815 - root - INFO - Accuracy: 0.9325
+2025-10-19 03:03:25,816 - root - INFO - Precisão: 0.9324793866465398
+2025-10-19 03:03:25,816 - root - INFO - Recall: 0.9324999999999999
+2025-10-19 03:03:25,816 - root - INFO - F1: 0.932114190023308
+2025-10-19 03:03:25,816 - root - INFO - Matriz de confusão:
+[[955   0   8   3   1   2   0   3  22   6]
+ [  5 948   0   0   0   0   0   0   9  38]
+ [ 28   0 898  13  26   7  11   4   8   5]
+ [ 14   2  14 832  26  61  15  14  15   7]
+ [  3   0  12  13 934   4  15  15   4   0]
+ [  4   1   7  55  15 889   7  18   1   3]
+ [  2   1   7   5   3   3 975   0   1   3]
+ [  6   0   6   0  16  15   1 954   0   2]
+ [ 13   2   0   1   0   0   0   0 979   5]
+ [ 16  13   0   1   0   0   0   0   9 961]]
+2025-10-19 03:03:25,816 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:03:25,933 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:03:25,933 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-19 03:07:45,144 - root - INFO - [ÉPOCA 11] Treinamento concluído em 259.2088768482208
+2025-10-19 03:07:45,144 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04603819855634133
+2025-10-19 03:07:45,144 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-19 03:08:08,358 - root - INFO - [ÉPOCA 11] Teste concluído em 23.21362328529358
+2025-10-19 03:08:08,358 - root - INFO - [ÉPOCA 11] Erro do teste: 0.2242423913712743
+2025-10-19 03:08:08,358 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-19 03:08:08,364 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:08:08,364 - root - INFO - Accuracy: 0.9376
+2025-10-19 03:08:08,364 - root - INFO - Precisão: 0.9384016512294118
+2025-10-19 03:08:08,364 - root - INFO - Recall: 0.9376000000000001
+2025-10-19 03:08:08,365 - root - INFO - F1: 0.9376352241443009
+2025-10-19 03:08:08,365 - root - INFO - Matriz de confusão:
+[[953   0   6  15   0   0   3   0  18   5]
+ [  1 975   0   0   0   0   0   0   7  17]
+ [ 33   0 906  18  13   6  15   6   2   1]
+ [  3   1  11 908  23  32  11   5   6   0]
+ [  2   0  25  13 940   6   4   8   2   0]
+ [  2   0  11  80  21 869   2  15   0   0]
+ [  1   0   9  16   7   3 964   0   0   0]
+ [  2   0   9  12  11   3   0 962   1   0]
+ [ 20   2   2   2   1   0   1   0 971   1]
+ [ 10  34   0   4   1   0   5   1  17 928]]
+2025-10-19 03:08:08,365 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:08:08,472 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:08:08,472 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-19 03:12:27,695 - root - INFO - [ÉPOCA 12] Treinamento concluído em 259.2212128639221
+2025-10-19 03:12:27,696 - root - INFO - [ÉPOCA 12] Erro do treino: 0.0368186731768005
+2025-10-19 03:12:27,696 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-19 03:12:50,929 - root - INFO - [ÉPOCA 12] Teste concluído em 23.232319116592407
+2025-10-19 03:12:50,929 - root - INFO - [ÉPOCA 12] Erro do teste: 0.2600705565153798
+2025-10-19 03:12:50,929 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-19 03:12:50,934 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:12:50,935 - root - INFO - Accuracy: 0.9272
+2025-10-19 03:12:50,935 - root - INFO - Precisão: 0.9299138180606648
+2025-10-19 03:12:50,935 - root - INFO - Recall: 0.9272
+2025-10-19 03:12:50,935 - root - INFO - F1: 0.9275142629238176
+2025-10-19 03:12:50,935 - root - INFO - Matriz de confusão:
+[[975   2   3   3   0   3   0   0   4  10]
+ [ 11 953   1   2   0   0   0   0   1  32]
+ [ 19   1 914  19   7  25  13   0   1   1]
+ [ 10   1  11 864  14  81  13   3   1   2]
+ [  5   0  16  36 917   9   3  13   1   0]
+ [  3   0   7  36   9 936   2   7   0   0]
+ [  4   3   9  29   4  16 935   0   0   0]
+ [  7   0   6   5   5  17   0 959   1   0]
+ [ 95   6   6   4   0   1   4   0 866  18]
+ [  8  26   2   7   0   1   1   1   1 953]]
+2025-10-19 03:12:50,935 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:12:51,062 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:12:51,062 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 03:17:10,240 - root - INFO - [ÉPOCA 13] Treinamento concluído em 259.17650842666626
+2025-10-19 03:17:10,241 - root - INFO - [ÉPOCA 13] Erro do treino: 0.04821462546715803
+2025-10-19 03:17:10,241 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 03:17:33,457 - root - INFO - [ÉPOCA 13] Teste concluído em 23.216233253479004
+2025-10-19 03:17:33,457 - root - INFO - [ÉPOCA 13] Erro do teste: 0.21971482510053658
+2025-10-19 03:17:33,457 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 03:17:33,463 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:17:33,463 - root - INFO - Accuracy: 0.9373
+2025-10-19 03:17:33,463 - root - INFO - Precisão: 0.9384563826734681
+2025-10-19 03:17:33,463 - root - INFO - Recall: 0.9372999999999999
+2025-10-19 03:17:33,463 - root - INFO - F1: 0.937433346635871
+2025-10-19 03:17:33,464 - root - INFO - Matriz de confusão:
+[[953   8  12   4   4   0   1   0  14   4]
+ [  1 987   1   0   0   0   0   0   4   7]
+ [ 15   0 911  14  33  15   5   4   2   1]
+ [  6   1  17 884  23  57   6   3   3   0]
+ [  1   0   6   7 976   3   2   5   0   0]
+ [  1   1   8  53  17 915   2   3   0   0]
+ [  1   0  25  21  15   5 933   0   0   0]
+ [  4   0   6   9  20  30   2 929   0   0]
+ [ 23   5   4   5   1   1   1   0 955   5]
+ [ 14  41   4   1   0   0   2   0   8 930]]
+2025-10-19 03:17:33,464 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:17:33,585 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:17:33,585 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-19 03:21:52,735 - root - INFO - [ÉPOCA 14] Treinamento concluído em 259.1479477882385
+2025-10-19 03:21:52,735 - root - INFO - [ÉPOCA 14] Erro do treino: 0.035300052646771454
+2025-10-19 03:21:52,736 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-19 03:22:15,968 - root - INFO - [ÉPOCA 14] Teste concluído em 23.231987714767456
+2025-10-19 03:22:15,968 - root - INFO - [ÉPOCA 14] Erro do teste: 0.2595809232207793
+2025-10-19 03:22:15,968 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-19 03:22:15,974 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:22:15,974 - root - INFO - Accuracy: 0.9282
+2025-10-19 03:22:15,974 - root - INFO - Precisão: 0.9293892472430374
+2025-10-19 03:22:15,974 - root - INFO - Recall: 0.9282
+2025-10-19 03:22:15,974 - root - INFO - F1: 0.9281413643619585
+2025-10-19 03:22:15,974 - root - INFO - Matriz de confusão:
+[[922   0  39   6   4   2   2   3  16   6]
+ [  4 981   0   1   0   0   1   1   5   7]
+ [  6   0 907  15  19  27  16   5   5   0]
+ [  4   1  15 854  17  89   8   7   5   0]
+ [  3   0  19   7 939  13   6  12   1   0]
+ [  3   0   9  48  12 921   2   5   0   0]
+ [  2   0  13  10   7   4 962   1   1   0]
+ [  1   0   8   6   7  20   0 957   0   1]
+ [ 14   5   3   3   2   1   0   1 970   1]
+ [ 12  76   1   8   2   2   0   5  25 869]]
+2025-10-19 03:22:15,974 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:22:16,092 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:22:16,092 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-19 03:26:35,255 - root - INFO - [ÉPOCA 15] Treinamento concluído em 259.1612856388092
+2025-10-19 03:26:35,256 - root - INFO - [ÉPOCA 15] Erro do treino: 0.04195272370153452
+2025-10-19 03:26:35,256 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-19 03:26:58,488 - root - INFO - [ÉPOCA 15] Teste concluído em 23.231616735458374
+2025-10-19 03:26:58,488 - root - INFO - [ÉPOCA 15] Erro do teste: 0.20465039475997793
+2025-10-19 03:26:58,488 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-19 03:26:58,494 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:26:58,494 - root - INFO - Accuracy: 0.9415
+2025-10-19 03:26:58,494 - root - INFO - Precisão: 0.942031189111573
+2025-10-19 03:26:58,494 - root - INFO - Recall: 0.9415000000000001
+2025-10-19 03:26:58,494 - root - INFO - F1: 0.9413647660335703
+2025-10-19 03:26:58,494 - root - INFO - Matriz de confusão:
+[[978   1   2   1   2   0   3   0  13   0]
+ [  1 967   2   1   0   0   4   2   6  17]
+ [ 30   0 913   9  18   4  20   5   1   0]
+ [ 14   1  21 887  18  35  12   5   5   2]
+ [  9   0   4   9 961   1   9   6   1   0]
+ [  0   1  11  72  23 875   6  11   0   1]
+ [  5   0   8   6   5   1 975   0   0   0]
+ [  6   0   7   7  21   6   0 953   0   0]
+ [ 27   3   1   1   0   0   3   1 957   7]
+ [  9  25   2   0   0   1   1   2  11 949]]
+2025-10-19 03:26:58,494 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:26:58,616 - root - INFO - Execução do modelo concluída em 4234.043998241425
+2025-10-19 03:26:58,617 - root - INFO - Tempo de execução do treino: 3885.6509532928467
+2025-10-19 03:26:58,617 - root - INFO - Tempo de execução do teste: 348.3930449485779
+2025-10-19 03:26:58,620 - root - INFO - Salvando modelo executado
+2025-10-19 03:27:24,549 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-19 03:54:10,754 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-19 03:54:10,756 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 03:54:10,757 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 03:54:11,072 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 03:54:11,294 - root - INFO - Tamanho do lote: 128
+2025-10-19 03:54:11,294 - root - INFO - Número de classes: 10
+2025-10-19 03:54:11,540 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:54:11,540 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 03:58:30,537 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.99608039855957
+2025-10-19 03:58:30,538 - root - INFO - [ÉPOCA 1] Erro do treino: 0.3146981355326865
+2025-10-19 03:58:30,538 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-19 03:58:53,760 - root - INFO - [ÉPOCA 1] Teste concluído em 23.222465991973877
+2025-10-19 03:58:53,760 - root - INFO - [ÉPOCA 1] Erro do teste: 0.26594536515730843
+2025-10-19 03:58:53,761 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-19 03:58:53,767 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 03:58:53,767 - root - INFO - Accuracy: 0.9108
+2025-10-19 03:58:53,767 - root - INFO - Precisão: 0.9151154105442197
+2025-10-19 03:58:53,767 - root - INFO - Recall: 0.9108
+2025-10-19 03:58:53,767 - root - INFO - F1: 0.9105751340497829
+2025-10-19 03:58:53,767 - root - INFO - Matriz de confusão:
+[[853   5  13   8   8   3   2   4  54  50]
+ [  1 953   0   0   0   0   0   0   1  45]
+ [ 16   1 866   9   9  69  21   7   2   0]
+ [  1   5   5 767  26 150  31  10   2   3]
+ [  2   0  33   2 897  15  18  32   1   0]
+ [  1   0   4  25  10 942   2  15   1   0]
+ [  3   4   6   6   4  14 962   1   0   0]
+ [  0   0   5   1   7  29   1 956   0   1]
+ [ 10  27   4   2   0   0   0   0 935  22]
+ [  1  17   0   1   0   0   0   0   4 977]]
+2025-10-19 03:58:53,767 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 03:58:53,911 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-19 03:58:53,911 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-19 04:03:12,743 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.83078789711
+2025-10-19 04:03:12,743 - root - INFO - [ÉPOCA 2] Erro do treino: 0.14558737160985732
+2025-10-19 04:03:12,743 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-19 04:03:35,972 - root - INFO - [ÉPOCA 2] Teste concluído em 23.22846817970276
+2025-10-19 04:03:35,972 - root - INFO - [ÉPOCA 2] Erro do teste: 0.20615227407292475
+2025-10-19 04:03:35,972 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-19 04:03:35,978 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:03:35,978 - root - INFO - Accuracy: 0.9319
+2025-10-19 04:03:35,978 - root - INFO - Precisão: 0.9322407044214766
+2025-10-19 04:03:35,978 - root - INFO - Recall: 0.9319
+2025-10-19 04:03:35,978 - root - INFO - F1: 0.9316681430681975
+2025-10-19 04:03:35,979 - root - INFO - Matriz de confusão:
+[[908   5  32   6   3   0   1   3  27  15]
+ [  1 984   1   0   1   0   1   2   2   8]
+ [  5   0 944  14  13   7  11   5   1   0]
+ [  2   2  21 849  32  45  26  19   3   1]
+ [  2   1  14   9 956   4   5   8   1   0]
+ [  0   0  14  71  27 871   8   8   0   1]
+ [  4   1  13   9   5   0 965   2   1   0]
+ [  4   0   9   2  29  18   2 936   0   0]
+ [ 17   4   2   2   0   1   0   0 967   7]
+ [  3  46   1   2   0   0   1   1   7 939]]
+2025-10-19 04:03:35,979 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:03:36,110 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:03:36,110 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-19 04:07:54,946 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.8346724510193
+2025-10-19 04:07:54,947 - root - INFO - [ÉPOCA 3] Erro do treino: 0.09984036156064485
+2025-10-19 04:07:54,947 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-19 04:08:18,141 - root - INFO - [ÉPOCA 3] Teste concluído em 23.19416832923889
+2025-10-19 04:08:18,141 - root - INFO - [ÉPOCA 3] Erro do teste: 0.2076444028864933
+2025-10-19 04:08:18,141 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-19 04:08:18,147 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:08:18,147 - root - INFO - Accuracy: 0.9358
+2025-10-19 04:08:18,147 - root - INFO - Precisão: 0.9371630055528287
+2025-10-19 04:08:18,147 - root - INFO - Recall: 0.9357999999999999
+2025-10-19 04:08:18,148 - root - INFO - F1: 0.9357294657141878
+2025-10-19 04:08:18,148 - root - INFO - Matriz de confusão:
+[[941   3  14   5   3   3   2  12  12   5]
+ [  2 968   0   0   0   0   0   1   1  28]
+ [  5   2 922  19   8  17  12  15   0   0]
+ [  2   2  10 813  10 133  10  12   4   4]
+ [  1   0  16   6 930  17   2  27   1   0]
+ [  1   0   1  30   6 934   1  26   0   1]
+ [  1   0  10   9  11   4 958   5   0   2]
+ [  1   0   3   5   5   8   0 978   0   0]
+ [ 34   3   6   2   0   0   0   1 947   7]
+ [  3  23   0   2   1   0   0   2   2 967]]
+2025-10-19 04:08:18,148 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:08:18,284 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:08:18,284 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-19 04:12:37,507 - root - INFO - [ÉPOCA 4] Treinamento concluído em 259.2221312522888
+2025-10-19 04:12:37,508 - root - INFO - [ÉPOCA 4] Erro do treino: 0.07808426575368399
+2025-10-19 04:12:37,508 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-19 04:13:00,735 - root - INFO - [ÉPOCA 4] Teste concluído em 23.226507425308228
+2025-10-19 04:13:00,735 - root - INFO - [ÉPOCA 4] Erro do teste: 0.2403597119676916
+2025-10-19 04:13:00,735 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-19 04:13:00,741 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:13:00,741 - root - INFO - Accuracy: 0.9276
+2025-10-19 04:13:00,741 - root - INFO - Precisão: 0.9314207832280831
+2025-10-19 04:13:00,741 - root - INFO - Recall: 0.9276
+2025-10-19 04:13:00,741 - root - INFO - F1: 0.9280642312845411
+2025-10-19 04:13:00,741 - root - INFO - Matriz de confusão:
+[[930   5   2   6   1   0   2   3  36  15]
+ [  0 963   2   3   0   1   0   2   7  22]
+ [ 45   0 864  40  17   8   9   9   8   0]
+ [  4   2  10 942  10  14   4  10   3   1]
+ [  3   0   4  40 916   5   8  24   0   0]
+ [  2   0  10 128   7 839   2  12   0   0]
+ [  1   0  11  36   4   3 943   2   0   0]
+ [  2   0   4   8   7  10   0 969   0   0]
+ [ 11   3   6   3   0   1   1   2 971   2]
+ [  5  29   2   6   0   1   3   4  11 939]]
+2025-10-19 04:13:00,742 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:13:00,867 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:13:00,867 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-19 04:17:19,973 - root - INFO - [ÉPOCA 5] Treinamento concluído em 259.10418343544006
+2025-10-19 04:17:19,974 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06678249801049375
+2025-10-19 04:17:19,974 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-19 04:17:43,197 - root - INFO - [ÉPOCA 5] Teste concluído em 23.222408533096313
+2025-10-19 04:17:43,197 - root - INFO - [ÉPOCA 5] Erro do teste: 0.2471939216167489
+2025-10-19 04:17:43,197 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-19 04:17:43,203 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:17:43,203 - root - INFO - Accuracy: 0.929
+2025-10-19 04:17:43,203 - root - INFO - Precisão: 0.9308810627602948
+2025-10-19 04:17:43,203 - root - INFO - Recall: 0.9289999999999999
+2025-10-19 04:17:43,203 - root - INFO - F1: 0.9290558126977647
+2025-10-19 04:17:43,203 - root - INFO - Matriz de confusão:
+[[928  22   3   5   3   0   4   1  19  15]
+ [  1 969   0   0   0   0   0   0   2  28]
+ [ 17   0 912  14   8   2  39   1   7   0]
+ [  3   3  22 916   7  29  14   0   3   3]
+ [  4   0  20  13 932   5  15   8   3   0]
+ [  0   0  21 131   7 821  12   4   1   3]
+ [  2   2   7  20   0   2 961   0   6   0]
+ [  6   0  10  13  15   8   7 939   0   2]
+ [ 20  13   2   2   0   0   1   1 952   9]
+ [  7  24   0   2   0   0   1   0   6 960]]
+2025-10-19 04:17:43,203 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:17:43,335 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:17:43,335 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-19 04:22:02,557 - root - INFO - [ÉPOCA 6] Treinamento concluído em 259.22111415863037
+2025-10-19 04:22:02,558 - root - INFO - [ÉPOCA 6] Erro do treino: 0.062454743539471454
+2025-10-19 04:22:02,558 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-19 04:22:25,765 - root - INFO - [ÉPOCA 6] Teste concluído em 23.206851720809937
+2025-10-19 04:22:25,765 - root - INFO - [ÉPOCA 6] Erro do teste: 0.2657164289981504
+2025-10-19 04:22:25,765 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-19 04:22:25,771 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:22:25,771 - root - INFO - Accuracy: 0.9259
+2025-10-19 04:22:25,771 - root - INFO - Precisão: 0.9289064305833614
+2025-10-19 04:22:25,771 - root - INFO - Recall: 0.9258999999999998
+2025-10-19 04:22:25,771 - root - INFO - F1: 0.9255129737153208
+2025-10-19 04:22:25,772 - root - INFO - Matriz de confusão:
+[[929   0  30   1   6   2   2   1  26   3]
+ [  8 938   4   0   0   0   0   1   7  42]
+ [  6   0 955   3  20   7   7   0   2   0]
+ [  1   3  41 766  31 108  36  10   3   1]
+ [  0   0  11   3 968   6  10   1   0   1]
+ [  3   0  20  21  28 911   9   7   0   1]
+ [  2   0  24   1   6   3 962   1   1   0]
+ [  2   0  14   0  44  31   1 906   1   1]
+ [ 18   6   9   1   0   0   1   1 961   3]
+ [  9  18   4   0   1   0   2   0   3 963]]
+2025-10-19 04:22:25,772 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:22:25,910 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:22:25,910 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-19 04:26:45,130 - root - INFO - [ÉPOCA 7] Treinamento concluído em 259.2183585166931
+2025-10-19 04:26:45,131 - root - INFO - [ÉPOCA 7] Erro do treino: 0.056436154457842905
+2025-10-19 04:26:45,131 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-19 04:27:08,332 - root - INFO - [ÉPOCA 7] Teste concluído em 23.20081615447998
+2025-10-19 04:27:08,332 - root - INFO - [ÉPOCA 7] Erro do teste: 0.21967635605531402
+2025-10-19 04:27:08,332 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-19 04:27:08,338 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:27:08,338 - root - INFO - Accuracy: 0.9362
+2025-10-19 04:27:08,338 - root - INFO - Precisão: 0.9369857556446195
+2025-10-19 04:27:08,338 - root - INFO - Recall: 0.9362
+2025-10-19 04:27:08,338 - root - INFO - F1: 0.9358153549938054
+2025-10-19 04:27:08,338 - root - INFO - Matriz de confusão:
+[[965   0  15   5   1   0   4   1   9   0]
+ [ 10 968   1   0   0   0   0   0   0  21]
+ [ 14   0 944   1  16   2  18   3   2   0]
+ [  5   2  54 823  18  47  37   8   2   4]
+ [  5   0  17   2 944   4  12  14   2   0]
+ [  1   0  35  57  11 866   5  24   0   1]
+ [  3   0   9   1   6   1 980   0   0   0]
+ [  6   0   8   1   5   5   1 972   0   2]
+ [ 29   4   3   1   0   0   1   0 946  16]
+ [ 18  26   1   0   0   0   0   0   1 954]]
+2025-10-19 04:27:08,338 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:27:08,527 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:27:08,527 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-19 04:31:27,769 - root - INFO - [ÉPOCA 8] Treinamento concluído em 259.2400448322296
+2025-10-19 04:31:27,770 - root - INFO - [ÉPOCA 8] Erro do treino: 0.05431926088965
+2025-10-19 04:31:27,770 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-19 04:31:50,973 - root - INFO - [ÉPOCA 8] Teste concluído em 23.202918767929077
+2025-10-19 04:31:50,973 - root - INFO - [ÉPOCA 8] Erro do teste: 0.2326576981363417
+2025-10-19 04:31:50,973 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-19 04:31:50,979 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:31:50,979 - root - INFO - Accuracy: 0.9383
+2025-10-19 04:31:50,979 - root - INFO - Precisão: 0.9385207114509434
+2025-10-19 04:31:50,979 - root - INFO - Recall: 0.9382999999999999
+2025-10-19 04:31:50,979 - root - INFO - F1: 0.93804211482516
+2025-10-19 04:31:50,979 - root - INFO - Matriz de confusão:
+[[945   2  16   2   1   0   1   7  22   4]
+ [  3 970   1   0   0   0   0   1   0  25]
+ [  7   0 934   5  19   7  14  12   2   0]
+ [  7   1  26 857  19  36  18  26   5   5]
+ [  2   0  17   8 945   2   4  18   3   1]
+ [  0   0  16  61  11 881   7  23   1   0]
+ [  2   1  16   0   5   1 973   1   1   0]
+ [  1   0   7   1   5   9   0 977   0   0]
+ [ 19  11   3   0   0   0   1   2 951  13]
+ [  9  29   1   2   0   0   0   8   1 950]]
+2025-10-19 04:31:50,979 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:31:51,110 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:31:51,110 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-19 04:36:10,368 - root - INFO - [ÉPOCA 9] Treinamento concluído em 259.25682163238525
+2025-10-19 04:36:10,369 - root - INFO - [ÉPOCA 9] Erro do treino: 0.04939678768077127
+2025-10-19 04:36:10,369 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-19 04:36:33,562 - root - INFO - [ÉPOCA 9] Teste concluído em 23.193376541137695
+2025-10-19 04:36:33,563 - root - INFO - [ÉPOCA 9] Erro do teste: 0.22498696184233774
+2025-10-19 04:36:33,563 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-19 04:36:33,569 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:36:33,569 - root - INFO - Accuracy: 0.9355
+2025-10-19 04:36:33,569 - root - INFO - Precisão: 0.9355844150873569
+2025-10-19 04:36:33,569 - root - INFO - Recall: 0.9355
+2025-10-19 04:36:33,569 - root - INFO - F1: 0.9353469720255282
+2025-10-19 04:36:33,569 - root - INFO - Matriz de confusão:
+[[937   4   7   6   8   2   4   2  17  13]
+ [  3 943   0   0   0   0   1   1   9  43]
+ [ 17   0 920   8  15  10  19   7   3   1]
+ [  2   1  12 859  12  80  15  11   6   2]
+ [  0   0  20   8 931  12   5  20   4   0]
+ [  0   0  16  40   7 904   3  28   2   0]
+ [  3   0   8  12   1   5 968   2   0   1]
+ [  5   0   6   8   9   5   1 962   4   0]
+ [ 18   4   1   3   0   0   4   2 961   7]
+ [  2  15   0   1   0   0   0   1  11 970]]
+2025-10-19 04:36:33,569 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:36:33,685 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:36:33,685 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-19 04:40:52,931 - root - INFO - [ÉPOCA 10] Treinamento concluído em 259.243940114975
+2025-10-19 04:40:52,931 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04407336940402951
+2025-10-19 04:40:52,931 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-19 04:41:16,127 - root - INFO - [ÉPOCA 10] Teste concluído em 23.19518756866455
+2025-10-19 04:41:16,127 - root - INFO - [ÉPOCA 10] Erro do teste: 0.2303632321425631
+2025-10-19 04:41:16,127 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-19 04:41:16,133 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:41:16,133 - root - INFO - Accuracy: 0.9336
+2025-10-19 04:41:16,133 - root - INFO - Precisão: 0.9346358316173544
+2025-10-19 04:41:16,133 - root - INFO - Recall: 0.9335999999999999
+2025-10-19 04:41:16,133 - root - INFO - F1: 0.9332433345843352
+2025-10-19 04:41:16,133 - root - INFO - Matriz de confusão:
+[[941   8   9   2   4   0   0   2  28   6]
+ [  0 979   0   0   0   0   0   0   5  16]
+ [ 15   0 916  10  31   9   8   8   2   1]
+ [  2   1  15 818  36  96   9  17   2   4]
+ [  0   0   5   1 972   2   0  19   1   0]
+ [  1   2  14  26  20 922   1  13   0   1]
+ [  8   2  10  21  18   6 931   2   2   0]
+ [  1   0   4   1  12   4   0 977   0   1]
+ [ 10  10   1   0   1   0   0   2 969   7]
+ [  8  65   0   2   0   0   0   0  14 911]]
+2025-10-19 04:41:16,133 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:41:16,251 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:41:16,251 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-19 04:45:35,549 - root - INFO - [ÉPOCA 11] Treinamento concluído em 259.2962591648102
+2025-10-19 04:45:35,549 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04510301043210394
+2025-10-19 04:45:35,549 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-19 04:45:58,766 - root - INFO - [ÉPOCA 11] Teste concluído em 23.215964794158936
+2025-10-19 04:45:58,766 - root - INFO - [ÉPOCA 11] Erro do teste: 0.23969642148364947
+2025-10-19 04:45:58,766 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-19 04:45:58,772 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:45:58,772 - root - INFO - Accuracy: 0.9297
+2025-10-19 04:45:58,772 - root - INFO - Precisão: 0.9317817555687427
+2025-10-19 04:45:58,772 - root - INFO - Recall: 0.9297000000000001
+2025-10-19 04:45:58,772 - root - INFO - F1: 0.9297680905063311
+2025-10-19 04:45:58,772 - root - INFO - Matriz de confusão:
+[[922   2  40   5   0   0   3   2  21   5]
+ [  5 966   0   0   0   1   1   0   3  24]
+ [  6   0 931   5   4  28  24   1   1   0]
+ [  5   3  14 841   5  76  44   6   5   1]
+ [  8   1  29  15 877  26  32   8   4   0]
+ [  2   1  12  39   4 922  13   6   0   1]
+ [  2   0   9   6   0   1 981   0   1   0]
+ [  4   0  11   5   5  36   4 935   0   0]
+ [ 15   5   5   0   0   0   1   1 971   2]
+ [ 10  25   1   1   0   0   3   0   9 951]]
+2025-10-19 04:45:58,772 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:45:58,976 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:45:58,976 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-19 04:50:18,224 - root - INFO - [ÉPOCA 12] Treinamento concluído em 259.246874332428
+2025-10-19 04:50:18,225 - root - INFO - [ÉPOCA 12] Erro do treino: 0.046495089543235425
+2025-10-19 04:50:18,225 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-19 04:50:41,435 - root - INFO - [ÉPOCA 12] Teste concluído em 23.209864854812622
+2025-10-19 04:50:41,435 - root - INFO - [ÉPOCA 12] Erro do teste: 0.23672504081756254
+2025-10-19 04:50:41,435 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-19 04:50:41,441 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:50:41,441 - root - INFO - Accuracy: 0.9311
+2025-10-19 04:50:41,441 - root - INFO - Precisão: 0.9318498638739555
+2025-10-19 04:50:41,441 - root - INFO - Recall: 0.9311
+2025-10-19 04:50:41,441 - root - INFO - F1: 0.9309832078535422
+2025-10-19 04:50:41,442 - root - INFO - Matriz de confusão:
+[[952   1   8   2   2   0   2   5  23   5]
+ [ 15 936   0   0   0   0   1   1   7  40]
+ [ 18   0 940   7  10   6  12   3   2   2]
+ [ 17   1  22 865  11  41  11  23   5   4]
+ [  5   0  26  24 915   4   7  19   0   0]
+ [  3   1  23  52  12 871   4  32   2   0]
+ [  6   0  31  14   2   1 943   1   0   2]
+ [  3   0   6   1   8   3   0 976   1   2]
+ [ 19   6   3   0   0   0   1   1 965   5]
+ [ 20  18   3   0   0   0   0   1  10 948]]
+2025-10-19 04:50:41,442 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:50:41,572 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:50:41,573 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 04:55:00,853 - root - INFO - [ÉPOCA 13] Treinamento concluído em 259.27863597869873
+2025-10-19 04:55:00,854 - root - INFO - [ÉPOCA 13] Erro do treino: 0.04370010151858906
+2025-10-19 04:55:00,854 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 04:55:24,053 - root - INFO - [ÉPOCA 13] Teste concluído em 23.19873332977295
+2025-10-19 04:55:24,053 - root - INFO - [ÉPOCA 13] Erro do teste: 0.2601766896587384
+2025-10-19 04:55:24,053 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 04:55:24,059 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 04:55:24,059 - root - INFO - Accuracy: 0.9283
+2025-10-19 04:55:24,059 - root - INFO - Precisão: 0.9302509123486585
+2025-10-19 04:55:24,059 - root - INFO - Recall: 0.9282999999999999
+2025-10-19 04:55:24,059 - root - INFO - F1: 0.9282499193615739
+2025-10-19 04:55:24,059 - root - INFO - Matriz de confusão:
+[[973   2   6   6   1   1   2   0   6   3]
+ [  4 993   0   0   0   0   0   1   0   2]
+ [ 24   3 902  23   5  11  26   5   1   0]
+ [  3   6  13 873   5  77  12   6   2   3]
+ [  3   1  47  18 888  19  14   9   1   0]
+ [  3   2  12  40   8 912   6  16   1   0]
+ [  2   3   7  16   0   3 969   0   0   0]
+ [  3   0   9   4   3   9   2 970   0   0]
+ [ 60  15   2   1   0   0   4   1 911   6]
+ [ 15  79   0   1   0   1   3   0   9 892]]
+2025-10-19 04:55:24,059 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 04:55:24,170 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 04:55:24,171 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-19 04:59:43,450 - root - INFO - [ÉPOCA 14] Treinamento concluído em 259.27792620658875
+2025-10-19 04:59:43,451 - root - INFO - [ÉPOCA 14] Erro do treino: 0.03148781996675293
+2025-10-19 04:59:43,451 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-19 05:00:06,649 - root - INFO - [ÉPOCA 14] Teste concluído em 23.19833254814148
+2025-10-19 05:00:06,649 - root - INFO - [ÉPOCA 14] Erro do teste: 0.21402133543845975
+2025-10-19 05:00:06,649 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-19 05:00:06,655 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:00:06,656 - root - INFO - Accuracy: 0.9371
+2025-10-19 05:00:06,656 - root - INFO - Precisão: 0.9379687492558737
+2025-10-19 05:00:06,656 - root - INFO - Recall: 0.9371
+2025-10-19 05:00:06,656 - root - INFO - F1: 0.9372737038564886
+2025-10-19 05:00:06,656 - root - INFO - Matriz de confusão:
+[[945   5  12   4   9   3   6   4   8   4]
+ [  2 983   0   0   0   0   1   1   4   9]
+ [ 15   0 931  16  19  11   5   1   1   1]
+ [  2   3  17 878  17  67   7   4   3   2]
+ [  0   1  14  18 954   5   2   6   0   0]
+ [  0   0  10  48  17 919   1   5   0   0]
+ [  0   0  18  29  13   4 936   0   0   0]
+ [  5   0  21   9   9  10   1 945   0   0]
+ [ 23   7   5   2   2   1   3   2 951   4]
+ [  6  50   0   4   0   2   1   0   8 929]]
+2025-10-19 05:00:06,656 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:00:06,760 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:00:06,761 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-19 05:04:25,981 - root - INFO - [ÉPOCA 15] Treinamento concluído em 259.21887588500977
+2025-10-19 05:04:25,982 - root - INFO - [ÉPOCA 15] Erro do treino: 0.039602075053183625
+2025-10-19 05:04:25,982 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-19 05:04:49,185 - root - INFO - [ÉPOCA 15] Teste concluído em 23.2030668258667
+2025-10-19 05:04:49,185 - root - INFO - [ÉPOCA 15] Erro do teste: 0.27466036756581896
+2025-10-19 05:04:49,185 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-19 05:04:49,191 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:04:49,191 - root - INFO - Accuracy: 0.9238
+2025-10-19 05:04:49,191 - root - INFO - Precisão: 0.9268637410152785
+2025-10-19 05:04:49,191 - root - INFO - Recall: 0.9238
+2025-10-19 05:04:49,191 - root - INFO - F1: 0.9238968523575821
+2025-10-19 05:04:49,192 - root - INFO - Matriz de confusão:
+[[951   2  13   3   6   2   1   4   8  10]
+ [  5 912   0   1   0   2   1   0   9  70]
+ [ 17   0 933   4  10  20   9   3   4   0]
+ [  7   0  38 784  11 129  13   9   2   7]
+ [  1   0  28  16 913  33   5   3   0   1]
+ [  2   0  19  33   9 933   1   2   1   0]
+ [  3   0  28   8   2   8 948   0   1   2]
+ [  2   0   9   7  14  29   1 936   0   2]
+ [ 32   3   3   0   1   0   2   1 950   8]
+ [  3  12   0   0   0   0   2   0   5 978]]
+2025-10-19 05:04:49,192 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:04:49,360 - root - INFO - Execução do modelo concluída em 4235.60583782196
+2025-10-19 05:04:49,360 - root - INFO - Tempo de execução do treino: 3887.4867062568665
+2025-10-19 05:04:49,360 - root - INFO - Tempo de execução do teste: 348.119131565094
+2025-10-19 05:04:49,365 - root - INFO - Salvando modelo executado
+2025-10-19 05:05:15,367 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-19 05:32:01,754 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-19 05:32:01,757 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 05:32:01,757 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 05:32:02,074 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 05:32:02,300 - root - INFO - Tamanho do lote: 128
+2025-10-19 05:32:02,300 - root - INFO - Número de classes: 10
+2025-10-19 05:32:02,544 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:32:02,544 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 05:36:21,328 - root - INFO - [ÉPOCA 1] Treinamento concluído em 258.78212881088257
+2025-10-19 05:36:21,329 - root - INFO - [ÉPOCA 1] Erro do treino: 0.30506689213883237
+2025-10-19 05:36:21,329 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-19 05:36:44,512 - root - INFO - [ÉPOCA 1] Teste concluído em 23.183559894561768
+2025-10-19 05:36:44,512 - root - INFO - [ÉPOCA 1] Erro do teste: 0.23816082268198835
+2025-10-19 05:36:44,512 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-19 05:36:44,518 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:36:44,518 - root - INFO - Accuracy: 0.9206
+2025-10-19 05:36:44,519 - root - INFO - Precisão: 0.9224749159537489
+2025-10-19 05:36:44,519 - root - INFO - Recall: 0.9206
+2025-10-19 05:36:44,519 - root - INFO - F1: 0.9196716608975081
+2025-10-19 05:36:44,519 - root - INFO - Matriz de confusão:
+[[942   7  14   2   3   0   2   0  22   8]
+ [  2 975   0   0   0   0   0   0   4  19]
+ [ 15   0 954   5  11   0  10   2   2   1]
+ [  6   4  65 747  32 101  18  24   3   0]
+ [  1   0  20   5 955   2   2  15   0   0]
+ [  1   1  55  25  25 830   6  57   0   0]
+ [  2   3  25   3  15   1 949   1   1   0]
+ [  8   1  15   2  17   2   0 953   0   2]
+ [ 18   9   2   0   0   0   1   0 965   5]
+ [  7  41   0   3   0   0   1   1  11 936]]
+2025-10-19 05:36:44,519 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:36:44,652 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:36:44,652 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-19 05:41:03,453 - root - INFO - [ÉPOCA 2] Treinamento concluído em 258.79914569854736
+2025-10-19 05:41:03,454 - root - INFO - [ÉPOCA 2] Erro do treino: 0.14145521401330027
+2025-10-19 05:41:03,454 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-19 05:41:26,636 - root - INFO - [ÉPOCA 2] Teste concluído em 23.182377338409424
+2025-10-19 05:41:26,636 - root - INFO - [ÉPOCA 2] Erro do teste: 0.2373978156077711
+2025-10-19 05:41:26,636 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-19 05:41:26,642 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:41:26,643 - root - INFO - Accuracy: 0.9242
+2025-10-19 05:41:26,643 - root - INFO - Precisão: 0.9265007449507878
+2025-10-19 05:41:26,643 - root - INFO - Recall: 0.9241999999999999
+2025-10-19 05:41:26,643 - root - INFO - F1: 0.9241386632487189
+2025-10-19 05:41:26,643 - root - INFO - Matriz de confusão:
+[[955   2  16   0   1   0   3   9  13   1]
+ [  3 975   2   0   0   1   5   2   3   9]
+ [ 10   0 965   4   9   5   3   2   2   0]
+ [  8   0  71 818  29  53  11   8   2   0]
+ [  6   0  23   7 940   7   3  13   1   0]
+ [  1   0  36  63  16 847   5  32   0   0]
+ [  0   0  45  19  11   1 924   0   0   0]
+ [  7   0  14   2  11   4   0 962   0   0]
+ [ 35   6   8   0   0   0   2   2 945   2]
+ [ 11  42   2   6   0   1   3   7  17 911]]
+2025-10-19 05:41:26,643 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:41:26,793 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:41:26,793 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-19 05:45:45,550 - root - INFO - [ÉPOCA 3] Treinamento concluído em 258.7552628517151
+2025-10-19 05:45:45,550 - root - INFO - [ÉPOCA 3] Erro do treino: 0.10374250237727561
+2025-10-19 05:45:45,551 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-19 05:46:08,733 - root - INFO - [ÉPOCA 3] Teste concluído em 23.18269681930542
+2025-10-19 05:46:08,733 - root - INFO - [ÉPOCA 3] Erro do teste: 0.23248827551739126
+2025-10-19 05:46:08,734 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-19 05:46:08,740 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:46:08,740 - root - INFO - Accuracy: 0.927
+2025-10-19 05:46:08,740 - root - INFO - Precisão: 0.9284182872684246
+2025-10-19 05:46:08,740 - root - INFO - Recall: 0.9270000000000002
+2025-10-19 05:46:08,740 - root - INFO - F1: 0.9267271252256464
+2025-10-19 05:46:08,740 - root - INFO - Matriz de confusão:
+[[958   0   5   0   1   0   0   3  11  22]
+ [ 10 938   0   0   1   0   0   2   6  43]
+ [ 27   0 922  11  13   9   5   6   5   2]
+ [ 14   0  20 827  35  54  11  28   4   7]
+ [  1   0   8   7 978   2   0   4   0   0]
+ [  4   1  18  52  26 875   5  18   0   1]
+ [ 16   2  29   6  28   3 904   1  10   1]
+ [  5   0   3   2  26   8   0 956   0   0]
+ [ 35   1   0   0   0   0   0   2 935  27]
+ [  4  15   0   1   0   0   1   0   2 977]]
+2025-10-19 05:46:08,740 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:46:08,867 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:46:08,868 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-19 05:50:27,701 - root - INFO - [ÉPOCA 4] Treinamento concluído em 258.8320083618164
+2025-10-19 05:50:27,702 - root - INFO - [ÉPOCA 4] Erro do treino: 0.08015658428220798
+2025-10-19 05:50:27,702 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-19 05:50:50,898 - root - INFO - [ÉPOCA 4] Teste concluído em 23.19574737548828
+2025-10-19 05:50:50,898 - root - INFO - [ÉPOCA 4] Erro do teste: 0.3009762754545936
+2025-10-19 05:50:50,898 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-19 05:50:50,904 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:50:50,904 - root - INFO - Accuracy: 0.9107
+2025-10-19 05:50:50,904 - root - INFO - Precisão: 0.9201621386109826
+2025-10-19 05:50:50,904 - root - INFO - Recall: 0.9107
+2025-10-19 05:50:50,904 - root - INFO - F1: 0.9120454796819499
+2025-10-19 05:50:50,904 - root - INFO - Matriz de confusão:
+[[929  12  13   8  11   7   1   1  16   2]
+ [  1 982   1   3   0   0   0   0   3  10]
+ [  6   0 905  21  26  21  19   0   1   1]
+ [  1   0  11 795   8 169  13   0   3   0]
+ [  1   0   5  21 893  69   7   3   0   1]
+ [  0   1   3  21   2 968   2   2   0   1]
+ [  1   3  11  22   7   9 947   0   0   0]
+ [  3   3  28  16  16 119   2 813   0   0]
+ [ 20  20   3   2   0   0   1   0 948   6]
+ [  6  50   0   2   0   9   1   0   5 927]]
+2025-10-19 05:50:50,905 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:50:51,083 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:50:51,083 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-19 05:55:09,769 - root - INFO - [ÉPOCA 5] Treinamento concluído em 258.6842529773712
+2025-10-19 05:55:09,770 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06942694574889853
+2025-10-19 05:55:09,770 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-19 05:55:32,960 - root - INFO - [ÉPOCA 5] Teste concluído em 23.190513134002686
+2025-10-19 05:55:32,960 - root - INFO - [ÉPOCA 5] Erro do teste: 0.2516803090708165
+2025-10-19 05:55:32,960 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-19 05:55:32,966 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 05:55:32,966 - root - INFO - Accuracy: 0.9277
+2025-10-19 05:55:32,966 - root - INFO - Precisão: 0.9304364914866209
+2025-10-19 05:55:32,967 - root - INFO - Recall: 0.9277000000000001
+2025-10-19 05:55:32,967 - root - INFO - F1: 0.9278610729197794
+2025-10-19 05:55:32,967 - root - INFO - Matriz de confusão:
+[[943   0   4   3   0   0   0   1  18  31]
+ [  7 892   0   0   0   2   0   1   8  90]
+ [ 24   0 874  30  16  20  22   7   5   2]
+ [  7   1   6 863   7  79  17   8   2  10]
+ [  9   0   2  20 914  14   9  27   3   2]
+ [  0   1   3  50   6 923   1  14   0   2]
+ [  3   2   7   8   2  12 954   0   0  12]
+ [  1   0   4   8   2  14   2 966   1   2]
+ [ 16   1   1   3   0   0   1   0 956  22]
+ [  0   5   1   1   0   0   0   0   1 992]]
+2025-10-19 05:55:32,967 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 05:55:33,115 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-19 05:55:33,116 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-19 05:59:52,261 - root - INFO - [ÉPOCA 6] Treinamento concluído em 259.1436836719513
+2025-10-19 05:59:52,262 - root - INFO - [ÉPOCA 6] Erro do treino: 0.05943794786105947
+2025-10-19 05:59:52,262 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-19 06:00:15,448 - root - INFO - [ÉPOCA 6] Teste concluído em 23.186492204666138
+2025-10-19 06:00:15,448 - root - INFO - [ÉPOCA 6] Erro do teste: 0.26887831271071977
+2025-10-19 06:00:15,448 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-19 06:00:15,454 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:00:15,454 - root - INFO - Accuracy: 0.9257
+2025-10-19 06:00:15,455 - root - INFO - Precisão: 0.9271640037964977
+2025-10-19 06:00:15,455 - root - INFO - Recall: 0.9257000000000002
+2025-10-19 06:00:15,455 - root - INFO - F1: 0.9253909696525053
+2025-10-19 06:00:15,455 - root - INFO - Matriz de confusão:
+[[945   2   8   6   0   0   3   3  23  10]
+ [  9 963   1   0   0   1   0   0   5  21]
+ [ 12   0 891  17  14   7  51   2   6   0]
+ [  6   1   9 842  16  25  71  17   8   5]
+ [  2   0  12   8 921   3  31  16   7   0]
+ [  1   0   7  84  31 839  15  21   1   1]
+ [  2   0   2   3   2   0 989   0   2   0]
+ [  7   0   8   3   9   4   4 962   1   2]
+ [ 25   3   2   1   0   0   0   0 960   9]
+ [  4  37   1   2   0   0   0   2   9 945]]
+2025-10-19 06:00:15,455 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:00:15,606 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:00:15,607 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-19 06:04:34,658 - root - INFO - [ÉPOCA 7] Treinamento concluído em 259.05017495155334
+2025-10-19 06:04:34,659 - root - INFO - [ÉPOCA 7] Erro do treino: 0.06119977020422745
+2025-10-19 06:04:34,659 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-19 06:04:57,844 - root - INFO - [ÉPOCA 7] Teste concluído em 23.185180187225342
+2025-10-19 06:04:57,845 - root - INFO - [ÉPOCA 7] Erro do teste: 0.2675087029420877
+2025-10-19 06:04:57,845 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-19 06:04:57,851 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:04:57,851 - root - INFO - Accuracy: 0.9236
+2025-10-19 06:04:57,851 - root - INFO - Precisão: 0.9265907497262027
+2025-10-19 06:04:57,851 - root - INFO - Recall: 0.9235999999999999
+2025-10-19 06:04:57,851 - root - INFO - F1: 0.9231620406074136
+2025-10-19 06:04:57,851 - root - INFO - Matriz de confusão:
+[[979   4   9   1   2   0   0   0   5   0]
+ [  3 984   0   0   0   0   1   0   1  11]
+ [ 18   0 947   0   8   4  20   1   1   1]
+ [ 18   3  47 815  29  38  33  12   1   4]
+ [  5   0  21   5 955   0  10   4   0   0]
+ [  8   0  37  59  35 836  19   5   1   0]
+ [  6   1   6   2   3   0 982   0   0   0]
+ [ 11   0  14   1  22   8   2 942   0   0]
+ [ 53  38   7   0   0   0   0   0 899   3]
+ [ 26  68   2   1   0   1   1   1   3 897]]
+2025-10-19 06:04:57,851 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:04:57,972 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:04:57,972 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-19 06:09:17,152 - root - INFO - [ÉPOCA 8] Treinamento concluído em 259.1785910129547
+2025-10-19 06:09:17,153 - root - INFO - [ÉPOCA 8] Erro do treino: 0.048400524966752206
+2025-10-19 06:09:17,153 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-19 06:09:40,328 - root - INFO - [ÉPOCA 8] Teste concluído em 23.174073934555054
+2025-10-19 06:09:40,328 - root - INFO - [ÉPOCA 8] Erro do teste: 0.212003364687479
+2025-10-19 06:09:40,328 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-19 06:09:40,334 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:09:40,334 - root - INFO - Accuracy: 0.9367
+2025-10-19 06:09:40,334 - root - INFO - Precisão: 0.9375880162785325
+2025-10-19 06:09:40,334 - root - INFO - Recall: 0.9367000000000001
+2025-10-19 06:09:40,334 - root - INFO - F1: 0.9364929035148577
+2025-10-19 06:09:40,334 - root - INFO - Matriz de confusão:
+[[976   0  10   1   0   0   1   1  10   1]
+ [  8 961   1   0   2   0   4   0   7  17]
+ [ 29   0 908   5  13  12  26   4   3   0]
+ [ 12   1  16 866  24  33  36   8   4   0]
+ [  4   0   5   2 973   4   5   3   4   0]
+ [  3   0  12  65  23 881   5  11   0   0]
+ [  4   0   4   3   0   0 989   0   0   0]
+ [ 10   0   8   7  30  11   0 929   5   0]
+ [ 36   6   1   0   2   0   0   1 948   6]
+ [ 14  29   3   3   0   1   4   0  10 936]]
+2025-10-19 06:09:40,334 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:09:40,446 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:09:40,446 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-19 06:13:59,660 - root - INFO - [ÉPOCA 9] Treinamento concluído em 259.2120623588562
+2025-10-19 06:13:59,661 - root - INFO - [ÉPOCA 9] Erro do treino: 0.05454410860836601
+2025-10-19 06:13:59,661 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-19 06:14:22,828 - root - INFO - [ÉPOCA 9] Teste concluído em 23.1672625541687
+2025-10-19 06:14:22,828 - root - INFO - [ÉPOCA 9] Erro do teste: 0.24590046373726446
+2025-10-19 06:14:22,828 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-19 06:14:22,834 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:14:22,834 - root - INFO - Accuracy: 0.9327
+2025-10-19 06:14:22,834 - root - INFO - Precisão: 0.9351957300207457
+2025-10-19 06:14:22,834 - root - INFO - Recall: 0.9327
+2025-10-19 06:14:22,834 - root - INFO - F1: 0.9330508831631622
+2025-10-19 06:14:22,835 - root - INFO - Matriz de confusão:
+[[925   3  11   8   9   7   4   6  12  15]
+ [  3 966   1   0   1   1   0   1   6  21]
+ [  9   0 922  20  15  20   7   4   2   1]
+ [  2   0  16 811  15 144   6   2   3   1]
+ [  0   1  12  12 939  21   5   8   0   2]
+ [  1   0   7  32   7 948   0   5   0   0]
+ [  1   0  13  13   1  16 950   4   1   1]
+ [  0   0   1  15  14  27   0 941   0   2]
+ [ 18   4   4   3   1   2   1   3 958   6]
+ [  2  20   2   1   0   2   0   0   6 967]]
+2025-10-19 06:14:22,835 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:14:22,979 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:14:22,979 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-19 06:18:42,067 - root - INFO - [ÉPOCA 10] Treinamento concluído em 259.086017370224
+2025-10-19 06:18:42,068 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04137377356491087
+2025-10-19 06:18:42,068 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-19 06:19:05,274 - root - INFO - [ÉPOCA 10] Teste concluído em 23.20579433441162
+2025-10-19 06:19:05,274 - root - INFO - [ÉPOCA 10] Erro do teste: 0.23374568699281426
+2025-10-19 06:19:05,274 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-19 06:19:05,280 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:19:05,280 - root - INFO - Accuracy: 0.9363
+2025-10-19 06:19:05,280 - root - INFO - Precisão: 0.9370601032344468
+2025-10-19 06:19:05,280 - root - INFO - Recall: 0.9362999999999999
+2025-10-19 06:19:05,280 - root - INFO - F1: 0.9363078181470124
+2025-10-19 06:19:05,280 - root - INFO - Matriz de confusão:
+[[938  10  15   4   4   0   4   6   7  12]
+ [  0 990   0   0   1   0   0   0   0   9]
+ [ 23   0 939  10  13   7   5   3   0   0]
+ [  5   1  32 873  20  51  11   4   1   2]
+ [  1   0   6  15 964   4   6   4   0   0]
+ [  5   0  16  46  23 901   2   7   0   0]
+ [  4   0  18  11   3   4 959   0   0   1]
+ [  2   0   8  21  18  11   0 940   0   0]
+ [ 30  16   6   2   1   2   3   2 926  12]
+ [  6  51   4   0   0   1   0   4   1 933]]
+2025-10-19 06:19:05,280 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:19:05,411 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:19:05,411 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-19 06:23:24,587 - root - INFO - [ÉPOCA 11] Treinamento concluído em 259.1740379333496
+2025-10-19 06:23:24,587 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04726060851515197
+2025-10-19 06:23:24,588 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-19 06:23:47,759 - root - INFO - [ÉPOCA 11] Teste concluído em 23.171499013900757
+2025-10-19 06:23:47,759 - root - INFO - [ÉPOCA 11] Erro do teste: 0.251038325549681
+2025-10-19 06:23:47,759 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-19 06:23:47,765 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:23:47,765 - root - INFO - Accuracy: 0.9268
+2025-10-19 06:23:47,765 - root - INFO - Precisão: 0.929529227875534
+2025-10-19 06:23:47,765 - root - INFO - Recall: 0.9268000000000001
+2025-10-19 06:23:47,765 - root - INFO - F1: 0.9271851488006921
+2025-10-19 06:23:47,766 - root - INFO - Matriz de confusão:
+[[952   1   8  17   3   4   0   0   5  10]
+ [  2 954   0   2   0   3   0   1   3  35]
+ [ 17   0 909  26  10  24   3  10   1   0]
+ [  1   2  15 875   7  85   3   7   2   3]
+ [  1   0  17  17 905  37   1  22   0   0]
+ [  1   0   6  38   3 934   0  18   0   0]
+ [  3   0  48  34  18  23 866   4   0   4]
+ [  5   0   2   9   2   7   0 974   1   0]
+ [ 34   3   3  10   0   4   1   1 926  18]
+ [  3  15   1   4   0   0   0   0   4 973]]
+2025-10-19 06:23:47,766 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:23:47,935 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:23:47,936 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-19 06:28:07,127 - root - INFO - [ÉPOCA 12] Treinamento concluído em 259.1902377605438
+2025-10-19 06:28:07,128 - root - INFO - [ÉPOCA 12] Erro do treino: 0.04517514292029259
+2025-10-19 06:28:07,128 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-19 06:28:30,279 - root - INFO - [ÉPOCA 12] Teste concluído em 23.150241374969482
+2025-10-19 06:28:30,279 - root - INFO - [ÉPOCA 12] Erro do teste: 0.3135049160145506
+2025-10-19 06:28:30,279 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-19 06:28:30,285 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:28:30,285 - root - INFO - Accuracy: 0.9141
+2025-10-19 06:28:30,285 - root - INFO - Precisão: 0.9199503136535165
+2025-10-19 06:28:30,285 - root - INFO - Recall: 0.9141
+2025-10-19 06:28:30,285 - root - INFO - F1: 0.9143901809327304
+2025-10-19 06:28:30,285 - root - INFO - Matriz de confusão:
+[[906   9  32   4   3   1   1   1  42   1]
+ [  0 988   1   0   0   0   0   0   4   7]
+ [  4   0 964   8   8   9   4   0   3   0]
+ [  3   4  49 816  12 100   7   3   5   1]
+ [  2   0  27  15 941   5   4   1   5   0]
+ [  0   0  39  39  15 904   3   0   0   0]
+ [  2   1  38  11   5  10 932   0   1   0]
+ [  2   1  46   4  28  28   1 890   0   0]
+ [ 13   8   6   1   0   0   0   1 971   0]
+ [ 14 125   8   4   0   8   2   1   9 829]]
+2025-10-19 06:28:30,285 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:28:30,402 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:28:30,402 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 06:32:49,643 - root - INFO - [ÉPOCA 13] Treinamento concluído em 259.2399673461914
+2025-10-19 06:32:49,644 - root - INFO - [ÉPOCA 13] Erro do treino: 0.041761945393901136
+2025-10-19 06:32:49,644 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 06:33:12,822 - root - INFO - [ÉPOCA 13] Teste concluído em 23.177115440368652
+2025-10-19 06:33:12,822 - root - INFO - [ÉPOCA 13] Erro do teste: 0.2888734690562079
+2025-10-19 06:33:12,822 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 06:33:12,828 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:33:12,828 - root - INFO - Accuracy: 0.9178
+2025-10-19 06:33:12,828 - root - INFO - Precisão: 0.9233583145016435
+2025-10-19 06:33:12,828 - root - INFO - Recall: 0.9178
+2025-10-19 06:33:12,828 - root - INFO - F1: 0.918212458889697
+2025-10-19 06:33:12,828 - root - INFO - Matriz de confusão:
+[[855   2  61  10  25  10   7   8  21   1]
+ [  2 961   3   0   0   1   1   1   3  28]
+ [ 10   0 894  19  19  39  16   2   1   0]
+ [  1   1  11 768  17 190   9   2   1   0]
+ [  0   0   7   6 948  26   5   8   0   0]
+ [  0   0   3  10   6 973   2   6   0   0]
+ [  1   0  10  10   6  15 956   1   0   1]
+ [  0   0  10   7  13  31   4 934   1   0]
+ [ 14   3   6   7   1   5  11   5 943   5]
+ [ 15  18   3   7   0   4   2   2   3 946]]
+2025-10-19 06:33:12,828 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:33:12,946 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:33:12,947 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
+2025-10-19 06:37:32,109 - root - INFO - [ÉPOCA 14] Treinamento concluído em 259.1606945991516
+2025-10-19 06:37:32,109 - root - INFO - [ÉPOCA 14] Erro do treino: 0.04181724186519833
+2025-10-19 06:37:32,109 - root - INFO - [ÉPOCA 14] Iniciando teste do modelo CNN
+2025-10-19 06:37:55,275 - root - INFO - [ÉPOCA 14] Teste concluído em 23.165632724761963
+2025-10-19 06:37:55,275 - root - INFO - [ÉPOCA 14] Erro do teste: 0.22393625045690355
+2025-10-19 06:37:55,275 - root - INFO - [ÉPOCA 14] Calculando métricas de desempenho
+2025-10-19 06:37:55,281 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:37:55,281 - root - INFO - Accuracy: 0.9352
+2025-10-19 06:37:55,281 - root - INFO - Precisão: 0.9365567123802648
+2025-10-19 06:37:55,281 - root - INFO - Recall: 0.9351999999999998
+2025-10-19 06:37:55,281 - root - INFO - F1: 0.9353316351915779
+2025-10-19 06:37:55,282 - root - INFO - Matriz de confusão:
+[[932   3  29   1   1   0   4   0  27   3]
+ [  1 970   0   1   1   0   1   1   7  18]
+ [ 11   0 951  14   5   5  10   2   2   0]
+ [  4   1  22 904  10  34  14   7   2   2]
+ [  3   0  29  14 933   4  12   2   0   3]
+ [  2   0  28  71  18 869   3   8   0   1]
+ [  2   0  14  15   2   0 966   0   1   0]
+ [ 11   0  23   8  26   8   5 914   4   1]
+ [ 11   3  12   0   0   0   0   1 966   7]
+ [ 11  24   0   2   0   1   2   0  13 947]]
+2025-10-19 06:37:55,282 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:37:55,398 - root - INFO - [ÉPOCA 15] Iniciando a execução do modelo (treino e teste)
+2025-10-19 06:37:55,399 - root - INFO - [ÉPOCA 15] Iniciando treinamento do modelo CNN
+2025-10-19 06:42:14,608 - root - INFO - [ÉPOCA 15] Treinamento concluído em 259.207804441452
+2025-10-19 06:42:14,609 - root - INFO - [ÉPOCA 15] Erro do treino: 0.04119595193215991
+2025-10-19 06:42:14,609 - root - INFO - [ÉPOCA 15] Iniciando teste do modelo CNN
+2025-10-19 06:42:37,786 - root - INFO - [ÉPOCA 15] Teste concluído em 23.177383422851562
+2025-10-19 06:42:37,787 - root - INFO - [ÉPOCA 15] Erro do teste: 0.27015545992534373
+2025-10-19 06:42:37,787 - root - INFO - [ÉPOCA 15] Calculando métricas de desempenho
+2025-10-19 06:42:37,793 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 06:42:37,793 - root - INFO - Accuracy: 0.9263
+2025-10-19 06:42:37,793 - root - INFO - Precisão: 0.9312771547751273
+2025-10-19 06:42:37,793 - root - INFO - Recall: 0.9263
+2025-10-19 06:42:37,793 - root - INFO - F1: 0.9265820849204853
+2025-10-19 06:42:37,793 - root - INFO - Matriz de confusão:
+[[992   1   2   0   1   0   0   0   3   1]
+ [ 23 942   0   2   0   2   0   0   5  26]
+ [ 47   0 824  34  43  36  10   3   2   1]
+ [ 14   0   3 845  23  91  12   6   2   4]
+ [  2   0   0   8 974   6   7   2   1   0]
+ [  7   0   1  35  20 933   0   3   0   1]
+ [ 12   1   6  13  14   6 947   0   0   1]
+ [ 14   0   1   8  25  15   0 934   2   1]
+ [ 76   2   1   1   0   1   2   0 910   7]
+ [ 21  16   0   0   0   0   0   0   1 962]]
+2025-10-19 06:42:37,793 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 06:42:37,932 - root - INFO - Execução do modelo concluída em 4233.1916399002075
+2025-10-19 06:42:37,933 - root - INFO - Tempo de execução do treino: 3885.4960701465607
+2025-10-19 06:42:37,933 - root - INFO - Tempo de execução do teste: 347.69556975364685
+2025-10-19 06:42:37,936 - root - INFO - Salvando modelo executado
+2025-10-19 06:43:03,907 - root - INFO - Modelo salvo com sucesso em: checkpoints/resnet50_2025-10-18_20_53_08.pth
+2025-10-19 07:09:49,666 - root - INFO - Utilizando como base do fine tuning o modelo: resnet50
+2025-10-19 07:09:49,669 - root - INFO - CUDA disponível. Usando GPU para treinamento.
+2025-10-19 07:09:49,669 - root - INFO - Carregando conjunto de treino CIFAR10
+2025-10-19 07:09:49,986 - root - INFO - Carregando conjunto de teste CIFAR10
+2025-10-19 07:09:50,206 - root - INFO - Tamanho do lote: 128
+2025-10-19 07:09:50,206 - root - INFO - Número de classes: 10
+2025-10-19 07:09:50,448 - root - INFO - [ÉPOCA 1] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:09:50,448 - root - INFO - [ÉPOCA 1] Iniciando treinamento do modelo CNN
+2025-10-19 07:14:09,540 - root - INFO - [ÉPOCA 1] Treinamento concluído em 259.0910732746124
+2025-10-19 07:14:09,541 - root - INFO - [ÉPOCA 1] Erro do treino: 0.3150299324670716
+2025-10-19 07:14:09,541 - root - INFO - [ÉPOCA 1] Iniciando teste do modelo CNN
+2025-10-19 07:14:32,585 - root - INFO - [ÉPOCA 1] Teste concluído em 23.044121980667114
+2025-10-19 07:14:32,585 - root - INFO - [ÉPOCA 1] Erro do teste: 0.2476988879940178
+2025-10-19 07:14:32,585 - root - INFO - [ÉPOCA 1] Calculando métricas de desempenho
+2025-10-19 07:14:32,591 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:14:32,591 - root - INFO - Accuracy: 0.9193
+2025-10-19 07:14:32,591 - root - INFO - Precisão: 0.9213644260745311
+2025-10-19 07:14:32,591 - root - INFO - Recall: 0.9193
+2025-10-19 07:14:32,591 - root - INFO - F1: 0.9189045522828378
+2025-10-19 07:14:32,592 - root - INFO - Matriz de confusão:
+[[980   6   4   0   1   0   0   0   8   1]
+ [  4 987   0   1   0   0   0   0   1   7]
+ [ 38   0 876  22  17  13  17  14   3   0]
+ [ 22   1  16 849  23  29  22  31   2   5]
+ [ 17   0  17   4 931   5   4  21   0   1]
+ [  1   0   7 106  18 826   4  37   0   1]
+ [  6   2   8  10   5   3 955   5   3   3]
+ [  5   1   2   2  11   2   0 977   0   0]
+ [ 37  15   0   1   0   0   1   1 924  21]
+ [ 16  87   0   0   0   0   0   7   2 888]]
+2025-10-19 07:14:32,592 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:14:32,716 - root - INFO - [ÉPOCA 2] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:14:32,716 - root - INFO - [ÉPOCA 2] Iniciando treinamento do modelo CNN
+2025-10-19 07:18:51,882 - root - INFO - [ÉPOCA 2] Treinamento concluído em 259.16467666625977
+2025-10-19 07:18:51,883 - root - INFO - [ÉPOCA 2] Erro do treino: 0.14791828571149454
+2025-10-19 07:18:51,883 - root - INFO - [ÉPOCA 2] Iniciando teste do modelo CNN
+2025-10-19 07:19:14,939 - root - INFO - [ÉPOCA 2] Teste concluído em 23.05612587928772
+2025-10-19 07:19:14,939 - root - INFO - [ÉPOCA 2] Erro do teste: 0.2210592591687094
+2025-10-19 07:19:14,939 - root - INFO - [ÉPOCA 2] Calculando métricas de desempenho
+2025-10-19 07:19:14,945 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:19:14,945 - root - INFO - Accuracy: 0.9302
+2025-10-19 07:19:14,945 - root - INFO - Precisão: 0.9313798407220583
+2025-10-19 07:19:14,945 - root - INFO - Recall: 0.9301999999999999
+2025-10-19 07:19:14,945 - root - INFO - F1: 0.9299620756455745
+2025-10-19 07:19:14,946 - root - INFO - Matriz de confusão:
+[[930   2  10   3  10   0   3   2  17  23]
+ [  4 902   0   1   0   0   0   0  10  83]
+ [ 23   0 904  22  29  10   4   4   4   0]
+ [  5   0  12 821  33  90  14  21   2   2]
+ [  1   0  13   4 962   4   4  11   0   1]
+ [  0   0  11  30  28 917   2  11   1   0]
+ [  2   0  21  14  10   1 951   0   1   0]
+ [  0   0   7   3  14   8   0 966   0   2]
+ [ 15   4   0   1   0   1   0   0 971   8]
+ [  4   8   0   3   0   0   0   0   7 978]]
+2025-10-19 07:19:14,946 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:19:15,074 - root - INFO - [ÉPOCA 3] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:19:15,075 - root - INFO - [ÉPOCA 3] Iniciando treinamento do modelo CNN
+2025-10-19 07:23:34,284 - root - INFO - [ÉPOCA 3] Treinamento concluído em 259.2074534893036
+2025-10-19 07:23:34,284 - root - INFO - [ÉPOCA 3] Erro do treino: 0.10233145883149655
+2025-10-19 07:23:34,284 - root - INFO - [ÉPOCA 3] Iniciando teste do modelo CNN
+2025-10-19 07:23:57,331 - root - INFO - [ÉPOCA 3] Teste concluído em 23.04659366607666
+2025-10-19 07:23:57,331 - root - INFO - [ÉPOCA 3] Erro do teste: 0.22214750483443466
+2025-10-19 07:23:57,331 - root - INFO - [ÉPOCA 3] Calculando métricas de desempenho
+2025-10-19 07:23:57,337 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:23:57,337 - root - INFO - Accuracy: 0.9326
+2025-10-19 07:23:57,337 - root - INFO - Precisão: 0.9365958277966534
+2025-10-19 07:23:57,337 - root - INFO - Recall: 0.9325999999999999
+2025-10-19 07:23:57,337 - root - INFO - F1: 0.9329931947138059
+2025-10-19 07:23:57,337 - root - INFO - Matriz de confusão:
+[[969   1   4   5   0   0   0   3  15   3]
+ [  4 964   3   0   0   0   0   1   5  23]
+ [ 15   0 955  13   7   4   1   4   1   0]
+ [  0   0  18 943   5  19   9   2   2   2]
+ [  3   0  45  38 891   4   5  13   1   0]
+ [  3   0  18 122   9 825   2  21   0   0]
+ [  6   0  39  21   3   0 930   0   1   0]
+ [  5   0  12  21   4   1   0 957   0   0]
+ [ 36   6   1   2   0   0   0   0 947   8]
+ [  9  30   3   5   0   1   0   1   6 945]]
+2025-10-19 07:23:57,337 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:23:57,474 - root - INFO - [ÉPOCA 4] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:23:57,474 - root - INFO - [ÉPOCA 4] Iniciando treinamento do modelo CNN
+2025-10-19 07:28:16,598 - root - INFO - [ÉPOCA 4] Treinamento concluído em 259.1225528717041
+2025-10-19 07:28:16,599 - root - INFO - [ÉPOCA 4] Erro do treino: 0.08722120889312471
+2025-10-19 07:28:16,599 - root - INFO - [ÉPOCA 4] Iniciando teste do modelo CNN
+2025-10-19 07:28:39,691 - root - INFO - [ÉPOCA 4] Teste concluído em 23.091995000839233
+2025-10-19 07:28:39,691 - root - INFO - [ÉPOCA 4] Erro do teste: 0.22290848751988593
+2025-10-19 07:28:39,691 - root - INFO - [ÉPOCA 4] Calculando métricas de desempenho
+2025-10-19 07:28:39,697 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:28:39,697 - root - INFO - Accuracy: 0.9307
+2025-10-19 07:28:39,697 - root - INFO - Precisão: 0.932527398007459
+2025-10-19 07:28:39,697 - root - INFO - Recall: 0.9306999999999999
+2025-10-19 07:28:39,697 - root - INFO - F1: 0.9310505032434909
+2025-10-19 07:28:39,697 - root - INFO - Matriz de confusão:
+[[923   1  16   6   2   3   8   4  19  18]
+ [  2 949   1   0   0   0   0   0   2  46]
+ [  7   0 907  26  13  24   9   9   2   3]
+ [  2   1  10 868   3  95  11   2   2   6]
+ [  3   0  24  21 906  15  11  17   2   1]
+ [  1   0   8  48   4 928   2   7   0   2]
+ [  1   1  14  16   3  20 943   1   0   1]
+ [  1   0   1  11   6  24   1 953   1   2]
+ [ 15   7   5   0   0   0   0   1 951  21]
+ [  1  14   0   0   0   2   1   0   3 979]]
+2025-10-19 07:28:39,697 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:28:39,824 - root - INFO - [ÉPOCA 5] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:28:39,824 - root - INFO - [ÉPOCA 5] Iniciando treinamento do modelo CNN
+2025-10-19 07:32:59,031 - root - INFO - [ÉPOCA 5] Treinamento concluído em 259.2055630683899
+2025-10-19 07:32:59,032 - root - INFO - [ÉPOCA 5] Erro do treino: 0.06566154227718292
+2025-10-19 07:32:59,032 - root - INFO - [ÉPOCA 5] Iniciando teste do modelo CNN
+2025-10-19 07:33:22,134 - root - INFO - [ÉPOCA 5] Teste concluído em 23.101882696151733
+2025-10-19 07:33:22,134 - root - INFO - [ÉPOCA 5] Erro do teste: 0.21288667581503903
+2025-10-19 07:33:22,134 - root - INFO - [ÉPOCA 5] Calculando métricas de desempenho
+2025-10-19 07:33:22,140 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:33:22,140 - root - INFO - Accuracy: 0.9373
+2025-10-19 07:33:22,140 - root - INFO - Precisão: 0.9377220632735928
+2025-10-19 07:33:22,140 - root - INFO - Recall: 0.9372999999999999
+2025-10-19 07:33:22,140 - root - INFO - F1: 0.9372509165895833
+2025-10-19 07:33:22,140 - root - INFO - Matriz de confusão:
+[[935   1  16   5   1   1   4   3  29   5]
+ [  4 961   0   0   0   0   0   1  11  23]
+ [ 11   0 941   8   6   7  22   2   1   2]
+ [  3   4  30 866  17  45  21   3   8   3]
+ [  5   0  27  13 915  12   9  19   0   0]
+ [  0   1  15  62   9 905   4   3   0   1]
+ [  0   1  14   9   1   2 972   0   0   1]
+ [  2   0  12   7   6  15   2 956   0   0]
+ [ 10   4   6   0   1   0   1   0 975   3]
+ [  5  21   0   1   0   0   2   0  24 947]]
+2025-10-19 07:33:22,140 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:33:22,265 - root - INFO - [ÉPOCA 6] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:33:22,265 - root - INFO - [ÉPOCA 6] Iniciando treinamento do modelo CNN
+2025-10-19 07:37:41,362 - root - INFO - [ÉPOCA 6] Treinamento concluído em 259.0954761505127
+2025-10-19 07:37:41,363 - root - INFO - [ÉPOCA 6] Erro do treino: 0.06130076848837497
+2025-10-19 07:37:41,363 - root - INFO - [ÉPOCA 6] Iniciando teste do modelo CNN
+2025-10-19 07:38:04,459 - root - INFO - [ÉPOCA 6] Teste concluído em 23.095967769622803
+2025-10-19 07:38:04,459 - root - INFO - [ÉPOCA 6] Erro do teste: 0.24776887667330005
+2025-10-19 07:38:04,459 - root - INFO - [ÉPOCA 6] Calculando métricas de desempenho
+2025-10-19 07:38:04,465 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:38:04,465 - root - INFO - Accuracy: 0.9253
+2025-10-19 07:38:04,465 - root - INFO - Precisão: 0.926931007628631
+2025-10-19 07:38:04,466 - root - INFO - Recall: 0.9253
+2025-10-19 07:38:04,466 - root - INFO - F1: 0.9249560278398684
+2025-10-19 07:38:04,466 - root - INFO - Matriz de confusão:
+[[911   5   5   5   2   1   4   4  38  25]
+ [  3 952   0   0   1   0   0   0   8  36]
+ [ 27   0 907  27  11   5  12   7   2   2]
+ [ 10   0  14 888  11  27  16  23   3   8]
+ [  6   1  12  12 913   3   5  47   1   0]
+ [  1   0  21 106  11 801   6  50   1   3]
+ [  0   2  16  21   5   7 945   0   4   0]
+ [  3   1   5   3   1   2   1 984   0   0]
+ [ 11   3   2   0   0   0   0   0 981   3]
+ [  0  15   1   1   0   0   1   0  11 971]]
+2025-10-19 07:38:04,466 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:38:04,603 - root - INFO - [ÉPOCA 7] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:38:04,604 - root - INFO - [ÉPOCA 7] Iniciando treinamento do modelo CNN
+2025-10-19 07:42:23,670 - root - INFO - [ÉPOCA 7] Treinamento concluído em 259.06469917297363
+2025-10-19 07:42:23,671 - root - INFO - [ÉPOCA 7] Erro do treino: 0.051225916181197935
+2025-10-19 07:42:23,671 - root - INFO - [ÉPOCA 7] Iniciando teste do modelo CNN
+2025-10-19 07:42:46,714 - root - INFO - [ÉPOCA 7] Teste concluído em 23.042667150497437
+2025-10-19 07:42:46,714 - root - INFO - [ÉPOCA 7] Erro do teste: 0.23069646020856086
+2025-10-19 07:42:46,714 - root - INFO - [ÉPOCA 7] Calculando métricas de desempenho
+2025-10-19 07:42:46,719 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:42:46,720 - root - INFO - Accuracy: 0.9336
+2025-10-19 07:42:46,720 - root - INFO - Precisão: 0.9348198085391543
+2025-10-19 07:42:46,720 - root - INFO - Recall: 0.9336
+2025-10-19 07:42:46,720 - root - INFO - F1: 0.9334556008282032
+2025-10-19 07:42:46,720 - root - INFO - Matriz de confusão:
+[[967   4   6   7   0   0   2   1   7   6]
+ [  4 964   0   0   0   0   0   0   1  31]
+ [ 18   0 855  35  27  13  32  15   4   1]
+ [  5   2   4 902   5  50  14  17   0   1]
+ [  4   1   5  14 942  10   3  19   1   1]
+ [  1   2   4  72  12 877   6  25   0   1]
+ [  3   0   2  11   8   0 971   3   0   2]
+ [  3   0   3   9   5   2   0 977   0   1]
+ [ 36  16   1   4   1   0   2   0 925  15]
+ [ 11  30   0   2   0   0   0   0   1 956]]
+2025-10-19 07:42:46,720 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:42:46,872 - root - INFO - [ÉPOCA 8] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:42:46,872 - root - INFO - [ÉPOCA 8] Iniciando treinamento do modelo CNN
+2025-10-19 07:47:05,957 - root - INFO - [ÉPOCA 8] Treinamento concluído em 259.08370184898376
+2025-10-19 07:47:05,958 - root - INFO - [ÉPOCA 8] Erro do treino: 0.05862848138165139
+2025-10-19 07:47:05,958 - root - INFO - [ÉPOCA 8] Iniciando teste do modelo CNN
+2025-10-19 07:47:28,993 - root - INFO - [ÉPOCA 8] Teste concluído em 23.034977912902832
+2025-10-19 07:47:28,993 - root - INFO - [ÉPOCA 8] Erro do teste: 0.2578208756786359
+2025-10-19 07:47:28,993 - root - INFO - [ÉPOCA 8] Calculando métricas de desempenho
+2025-10-19 07:47:28,999 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:47:28,999 - root - INFO - Accuracy: 0.9269
+2025-10-19 07:47:28,999 - root - INFO - Precisão: 0.9292911771499612
+2025-10-19 07:47:28,999 - root - INFO - Recall: 0.9269000000000001
+2025-10-19 07:47:28,999 - root - INFO - F1: 0.9270269673746515
+2025-10-19 07:47:29,000 - root - INFO - Matriz de confusão:
+[[946   1  15   2   2   0   4   2  15  13]
+ [ 10 896   1   0   0   0   7   0   2  84]
+ [ 20   0 901  18  23   8  24   1   3   2]
+ [  7   1   7 892  13  27  44   0   7   2]
+ [  3   0   6  11 954  11  11   2   2   0]
+ [  3   0   9  98  14 859  15   0   0   2]
+ [  2   0   3  10   2   0 983   0   0   0]
+ [  2   0  10  19  20  22  11 915   0   1]
+ [ 18   5   2   1   0   0   8   0 949  17]
+ [  6  11   0   4   0   1   2   0   2 974]]
+2025-10-19 07:47:29,000 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:47:29,117 - root - INFO - [ÉPOCA 9] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:47:29,118 - root - INFO - [ÉPOCA 9] Iniciando treinamento do modelo CNN
+2025-10-19 07:51:48,200 - root - INFO - [ÉPOCA 9] Treinamento concluído em 259.08061695098877
+2025-10-19 07:51:48,201 - root - INFO - [ÉPOCA 9] Erro do treino: 0.04614428279783262
+2025-10-19 07:51:48,201 - root - INFO - [ÉPOCA 9] Iniciando teste do modelo CNN
+2025-10-19 07:52:11,260 - root - INFO - [ÉPOCA 9] Teste concluído em 23.059590339660645
+2025-10-19 07:52:11,260 - root - INFO - [ÉPOCA 9] Erro do teste: 0.23883914949867543
+2025-10-19 07:52:11,261 - root - INFO - [ÉPOCA 9] Calculando métricas de desempenho
+2025-10-19 07:52:11,266 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:52:11,266 - root - INFO - Accuracy: 0.9305
+2025-10-19 07:52:11,267 - root - INFO - Precisão: 0.9331601107899197
+2025-10-19 07:52:11,267 - root - INFO - Recall: 0.9305
+2025-10-19 07:52:11,267 - root - INFO - F1: 0.9306705643561364
+2025-10-19 07:52:11,267 - root - INFO - Matriz de confusão:
+[[917  10  10   8   0   1  11  13  20  10]
+ [  0 981   0   0   0   0   0   2   2  15]
+ [ 11   0 871  44  13  12  15  31   2   1]
+ [  0   3   7 897  13  34  18  24   3   1]
+ [  0   0   7  22 914   5   7  45   0   0]
+ [  1   0   3  68   7 877   6  37   1   0]
+ [  0   1   4  14   3   0 970   8   0   0]
+ [  1   0   3   3   2   5   1 984   1   0]
+ [ 11   9   1   2   0   0   3   5 961   8]
+ [  3  48   0   1   0   0   0  13   2 933]]
+2025-10-19 07:52:11,267 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:52:11,397 - root - INFO - [ÉPOCA 10] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:52:11,397 - root - INFO - [ÉPOCA 10] Iniciando treinamento do modelo CNN
+2025-10-19 07:56:30,462 - root - INFO - [ÉPOCA 10] Treinamento concluído em 259.0632119178772
+2025-10-19 07:56:30,463 - root - INFO - [ÉPOCA 10] Erro do treino: 0.04884388999503744
+2025-10-19 07:56:30,463 - root - INFO - [ÉPOCA 10] Iniciando teste do modelo CNN
+2025-10-19 07:56:53,514 - root - INFO - [ÉPOCA 10] Teste concluído em 23.05016851425171
+2025-10-19 07:56:53,514 - root - INFO - [ÉPOCA 10] Erro do teste: 0.2628959801189507
+2025-10-19 07:56:53,514 - root - INFO - [ÉPOCA 10] Calculando métricas de desempenho
+2025-10-19 07:56:53,520 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 07:56:53,520 - root - INFO - Accuracy: 0.9227
+2025-10-19 07:56:53,520 - root - INFO - Precisão: 0.9252441515041954
+2025-10-19 07:56:53,520 - root - INFO - Recall: 0.9227000000000001
+2025-10-19 07:56:53,520 - root - INFO - F1: 0.9229744944163075
+2025-10-19 07:56:53,520 - root - INFO - Matriz de confusão:
+[[955   3  11   5   0   4   0  12   6   4]
+ [  3 956   0   2   0   0   0   7   3  29]
+ [  9   0 926  15  23  16   3   7   1   0]
+ [  3   0  23 833  18  93   7  21   2   0]
+ [  6   0  15   9 884  41   6  39   0   0]
+ [  0   0   7  34   5 936   0  18   0   0]
+ [  5   0  19  29   2  17 926   2   0   0]
+ [  2   0   7   5   4  19   0 963   0   0]
+ [ 54   5   3   0   1   1   1  11 915   9]
+ [ 19  22   2   3   0   3   1  13   4 933]]
+2025-10-19 07:56:53,520 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 07:56:53,713 - root - INFO - [ÉPOCA 11] Iniciando a execução do modelo (treino e teste)
+2025-10-19 07:56:53,713 - root - INFO - [ÉPOCA 11] Iniciando treinamento do modelo CNN
+2025-10-19 08:01:12,800 - root - INFO - [ÉPOCA 11] Treinamento concluído em 259.0857331752777
+2025-10-19 08:01:12,801 - root - INFO - [ÉPOCA 11] Erro do treino: 0.04042718752556483
+2025-10-19 08:01:12,801 - root - INFO - [ÉPOCA 11] Iniciando teste do modelo CNN
+2025-10-19 08:01:35,863 - root - INFO - [ÉPOCA 11] Teste concluído em 23.062397718429565
+2025-10-19 08:01:35,863 - root - INFO - [ÉPOCA 11] Erro do teste: 0.1954694275237337
+2025-10-19 08:01:35,864 - root - INFO - [ÉPOCA 11] Calculando métricas de desempenho
+2025-10-19 08:01:35,869 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 08:01:35,869 - root - INFO - Accuracy: 0.9437
+2025-10-19 08:01:35,869 - root - INFO - Precisão: 0.9438943704895527
+2025-10-19 08:01:35,870 - root - INFO - Recall: 0.9437000000000001
+2025-10-19 08:01:35,870 - root - INFO - F1: 0.9433614413278659
+2025-10-19 08:01:35,870 - root - INFO - Matriz de confusão:
+[[948   5   9   3   1   0   0   2  26   6]
+ [  2 975   0   0   0   0   0   0   5  18]
+ [ 19   0 925   7  19  17   8   2   3   0]
+ [ 14   4  22 826   8  85  25   8   4   4]
+ [  6   0   9   8 954   8   7   7   1   0]
+ [  2   0  12  32  15 933   2   2   1   1]
+ [  4   0   5   6   0   1 982   1   0   1]
+ [  3   0   8   4   2  13   1 967   1   1]
+ [ 11   7   2   0   0   0   2   1 973   4]
+ [  5  25   1   1   0   0   0   1  13 954]]
+2025-10-19 08:01:35,870 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 08:01:35,993 - root - INFO - [ÉPOCA 12] Iniciando a execução do modelo (treino e teste)
+2025-10-19 08:01:35,993 - root - INFO - [ÉPOCA 12] Iniciando treinamento do modelo CNN
+2025-10-19 08:05:55,129 - root - INFO - [ÉPOCA 12] Treinamento concluído em 259.1348657608032
+2025-10-19 08:05:55,130 - root - INFO - [ÉPOCA 12] Erro do treino: 0.0454655538921666
+2025-10-19 08:05:55,130 - root - INFO - [ÉPOCA 12] Iniciando teste do modelo CNN
+2025-10-19 08:06:18,192 - root - INFO - [ÉPOCA 12] Teste concluído em 23.06184458732605
+2025-10-19 08:06:18,192 - root - INFO - [ÉPOCA 12] Erro do teste: 0.22487355033053627
+2025-10-19 08:06:18,192 - root - INFO - [ÉPOCA 12] Calculando métricas de desempenho
+2025-10-19 08:06:18,198 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 08:06:18,198 - root - INFO - Accuracy: 0.9363
+2025-10-19 08:06:18,198 - root - INFO - Precisão: 0.9369445839411277
+2025-10-19 08:06:18,198 - root - INFO - Recall: 0.9362999999999999
+2025-10-19 08:06:18,198 - root - INFO - F1: 0.9363139096600307
+2025-10-19 08:06:18,199 - root - INFO - Matriz de confusão:
+[[927   0  17  10   1   2   4   9  24   6]
+ [  3 937   1   0   0   0   1   1  26  31]
+ [  3   0 919  18  20   8  25   3   4   0]
+ [  4   1  10 886  18  34  31   6   4   6]
+ [  2   0   7  12 939  14  14  11   1   0]
+ [  2   2   8  78  10 888   8   3   0   1]
+ [  2   1   7   7   3   1 977   0   0   2]
+ [  3   0   2  14  13  15   2 951   0   0]
+ [  7   2   3   2   0   1   1   6 976   2]
+ [  1  15   1   1   0   0   2   5  12 963]]
+2025-10-19 08:06:18,199 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 08:06:18,316 - root - INFO - [ÉPOCA 13] Iniciando a execução do modelo (treino e teste)
+2025-10-19 08:06:18,316 - root - INFO - [ÉPOCA 13] Iniciando treinamento do modelo CNN
+2025-10-19 08:10:37,449 - root - INFO - [ÉPOCA 13] Treinamento concluído em 259.1320044994354
+2025-10-19 08:10:37,451 - root - INFO - [ÉPOCA 13] Erro do treino: 0.04797191249594912
+2025-10-19 08:10:37,451 - root - INFO - [ÉPOCA 13] Iniciando teste do modelo CNN
+2025-10-19 08:11:00,512 - root - INFO - [ÉPOCA 13] Teste concluído em 23.060640335083008
+2025-10-19 08:11:00,512 - root - INFO - [ÉPOCA 13] Erro do teste: 0.30491808773596074
+2025-10-19 08:11:00,512 - root - INFO - [ÉPOCA 13] Calculando métricas de desempenho
+2025-10-19 08:11:00,518 - root - INFO - 
+---------- Métricas ----------
+2025-10-19 08:11:00,518 - root - INFO - Accuracy: 0.917
+2025-10-19 08:11:00,518 - root - INFO - Precisão: 0.9203473364342486
+2025-10-19 08:11:00,518 - root - INFO - Recall: 0.917
+2025-10-19 08:11:00,518 - root - INFO - F1: 0.9166169703587791
+2025-10-19 08:11:00,518 - root - INFO - Matriz de confusão:
+[[918   0  17   4   2   0   4   3  49   3]
+ [  5 875   1   0   0   0   0   0  74  45]
+ [ 18   0 930  12   8   4  15   7   6   0]
+ [  6   1  36 842  16  16  40  18  19   6]
+ [  1   0  31  11 934   0  12   6   5   0]
+ [  4   1  31  80  26 797  22  30   7   2]
+ [  2   0  17   5   2   1 970   0   3   0]
+ [  1   0  10   6  16   5   1 959   1   1]
+ [  7   0   1   0   0   0   1   2 986   3]
+ [  3  10   2   0   0   0   1   1  24 959]]
+2025-10-19 08:11:00,518 - root - INFO - Salvando informações da época no arquivo CSV
+2025-10-19 08:11:00,639 - root - INFO - [ÉPOCA 14] Iniciando a execução do modelo (treino e teste)
+2025-10-19 08:11:00,639 - root - INFO - [ÉPOCA 14] Iniciando treinamento do modelo CNN
