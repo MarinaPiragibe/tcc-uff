@@ -1,6 +1,7 @@
 import torch
 import torchvision
-from utils.tipos_transformacao_wisard import TiposDeTransformacao
+
+from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 
 
 class WisardImageTransform:
@@ -19,4 +20,9 @@ class WisardImageTransform:
                 return torchvision.transforms.Compose([
                     torchvision.transforms.ToTensor(),
                     torchvision.transforms.Lambda(lambda x: torch.flatten(x))
+                ])
+            
+            case(TiposDeTransformacao.STRIDE_HD):
+                return torchvision.transforms.Compose([
+                    torchvision.transforms.ToTensor() 
                 ])
