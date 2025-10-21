@@ -54,7 +54,7 @@ if args['debug']:
 train_loader = DataLoader(train_set, batch_size=args['tamanho_lote'], shuffle=True, num_workers=0)
 test_loader = DataLoader(test_set, batch_size=args['tamanho_lote'], shuffle=False, num_workers=0)
 
-stride_hd = StrideHD(window_size=(8,8), stride=2, pool_size=(2,2))
+stride_hd = StrideHD(window_size=(4,4), stride=1, pool_size=(2,2))
 
 logging.info("Configurando termômetro distributivo")
 thermometer = DistributiveThermometer(10)
