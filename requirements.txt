@@ -1,9 +1,8 @@
 ucimlrepo
 scikit-learn
+scikit-image
 torch
 torchvision
 torchaudio
 matplotlib
 pybind11
-wisardpkg --no-build-isolation
-torchwnn --no-build-isolation
