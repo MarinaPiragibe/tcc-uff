@@ -3,7 +3,7 @@ import random
 from utils.arquivo_utils import ArquivoUtils
 
 
-class WisardModel:
+class Wisard:
     def __init__(self, tamanho_entrada, tamanho_tupla):
         self.tamanho_entrada = tamanho_entrada
         self.tamanho_tupla = tamanho_tupla
@@ -58,5 +58,5 @@ class WisardModel:
         return max(pontuacoes, key=pontuacoes.get)
 
 if __name__ == "__main__":
-    model = WisardModel(8, 2)
+    model = Wisard(8, 2)
     print(model.buscar_enderecos_de_ativacao([1,1,1,0,0,1,1,0]))

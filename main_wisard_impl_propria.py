@@ -4,7 +4,7 @@ from datasets.iris import Iris
 from utils.logger import Logger
 from utils.metricas import Metricas
 from wisard.termometro import Termometro
-from wisard.wisard_model import WisardModel
+from wisard.wisard_model import Wisard
 import logging
 from sklearn.model_selection import train_test_split
 
@@ -29,7 +29,7 @@ entradas_binarizadas = np.hstack(colunas_binarizadas)
 tamanho_entrada = entradas_binarizadas.shape[1]
 
 logging.info(f'Dimensão de cada entrada após a binarização: {tamanho_entrada} bits')
-wisard = WisardModel(tamanho_entrada, tamanho_tupla)
+wisard = Wisard(tamanho_entrada, tamanho_tupla)
 
 classes = iris.classes['class'].values 
 

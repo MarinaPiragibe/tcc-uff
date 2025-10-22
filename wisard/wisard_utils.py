@@ -5,74 +5,87 @@ from time import time
 from utils.metricas import Metricas
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 
-def executar_wisard(modelo, train_loader, test_loader, termometro, tamanho_tupla, tipo_transformacao, stride_hd):
-	
-	inicio_treino = time()
+class WisardModel():
+	def __init__(self, modelo, tamanho_tupla, train_loader, termometro, test_loader, stride_hd, args):
+		self.modelo = modelo
+		self.tamanho_tupla = tamanho_tupla
+		self.train_loader = train_loader
+		self.test_loader = test_loader
+		self.termometro = termometro
+		self.stride_hd = stride_hd
+		self.args = args
 
-	for k, (dados_do_lote, classes_do_lote) in enumerate(train_loader):
-		print(f"\r{k+1}/{len(train_loader)}", end="", flush=True)
-		dados_do_lote_bin = transformar_dados_em_binarios(
-			dados_do_lote=dados_do_lote,
-			tipo_transformacao=tipo_transformacao,
-			termometro=termometro,
-			stride_hd=stride_hd
-		)
+	def transformar_dados_em_binarios(self, dados_do_lote):
+		if self.args['tipo_transformacao'] == TiposDeTransformacao.STRIDE_HD:
+			pooled_windows = self.stride_hd.extract_and_pool(dados_do_lote)
+			B, N, C, H_pool, W_pool = pooled_windows.shape
+			dados_para_wisard = pooled_windows.contiguous().view(B, -1)
 
-		classes_do_lote = classes_do_lote.numpy().astype(str)
+			dados_do_lote_bin = self.termometro.binarize(dados_para_wisard).numpy()
+			dados_do_lote_bin = dados_do_lote_bin.reshape(B, -1).astype(int).tolist()
 
-		modelo.train(dados_do_lote_bin, classes_do_lote)
+			return dados_do_lote_bin
+		
+		return self.termometro.binarize(dados_do_lote).flatten(start_dim=1).numpy()
 
-	final_treino = time()
+	def treinar(self):
+		
+		inicio_treino = time()
 
-	tempo_total_treino = final_treino - inicio_treino
+		for k, (dados_do_lote, classes_do_lote) in enumerate(self.train_loader):
+			print(f"\r{k+1}/{len(self.train_loader)}", end="", flush=True)
+			dados_do_lote_bin = self.transformar_dados_em_binarios(
+				dados_do_lote=dados_do_lote,
+			)
 
-	logging.info(f"[TUPLA {tamanho_tupla}] Fim do treinamento do WisardPKG. Tempo total do treino: {tempo_total_treino}")
+			classes_do_lote = classes_do_lote.numpy().astype(str)
 
-	classes_preditas = []
-	classes_reais = []
+			self.modelo.train(dados_do_lote_bin, classes_do_lote)
 
-	logging.info(f"[TUPLA {tamanho_tupla}] Iniciando teste do WisardPKG ")
+		final_treino = time()
 
-	inicio_teste = time()
+		tempo_total_treino = final_treino - inicio_treino
 
-	for k, (dados_do_lote, classes_do_lote) in enumerate(test_loader):
-		print(f"\r{k+1}/{len(test_loader)}", end="", flush=True)
-		dados_do_lote_bin = transformar_dados_em_binarios(
-			dados_do_lote=dados_do_lote,
-			tipo_transformacao=tipo_transformacao,
-			termometro=termometro,
-			stride_hd=stride_hd
-		)
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Fim do treinamento do WisardPKG. Tempo total do treino: {tempo_total_treino}")
 
-		classes_do_lote = classes_do_lote.numpy().astype(str)
-		preds = modelo.classify(dados_do_lote_bin)
-		classes_preditas.extend(preds)
-		classes_reais.extend(classes_do_lote)
+		return tempo_total_treino
 
-	final_teste = time()
-	tempo_total_teste = final_teste - inicio_teste
+	def testar(self):
+		classes_preditas = []
+		classes_reais = []
 
-	logging.info(f"[TUPLA {tamanho_tupla}] Fim do teste do WisardPKG . Tempo total de inferência: {tempo_total_teste}")
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Iniciando teste do WisardPKG ")
 
+		inicio_teste = time()
 
-	logging.info(f"[TUPLA {tamanho_tupla}] Execução do modeloo  concluída em {tempo_total_treino + tempo_total_teste}")
-	logging.info(f"[TUPLA {tamanho_tupla}] Tempo de execução do treino: {tempo_total_treino}")
-	logging.info(f"[TUPLA {tamanho_tupla}] Tempo de execução do teste: {tempo_total_teste}")
+		for k, (dados_do_lote, classes_do_lote) in enumerate(self.test_loader):
+			print(f"\r{k+1}/{len(self.test_loader)}", end="", flush=True)
+			dados_do_lote_bin = self.transformar_dados_em_binarios(
+				dados_do_lote=dados_do_lote,
+			)
 
-	metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-	
-	logging.info(f"Calculando métricas de desempenho")
-	metricas.calcular_e_imprimir_metricas()
+			classes_do_lote = classes_do_lote.numpy().astype(str)
+			preds = self.modelo.classify(dados_do_lote_bin)
+			classes_preditas.extend(preds)
+			classes_reais.extend(classes_do_lote)
 
-def transformar_dados_em_binarios(lote_dado, tipo_transformacao, termometro, stride_hd):
-	if tipo_transformacao == TiposDeTransformacao.STRIDE_HD:
-		pooled_windows = stride_hd.extract_and_pool(lote_dado)
-		B, N, C, H_pool, W_pool = pooled_windows.shape
-		dados_para_wisard = pooled_windows.contiguous().view(B, -1)
+		final_teste = time()
+		tempo_total_teste = final_teste - inicio_teste
 
-		dados_do_lote_bin = termometro.binarize(dados_para_wisard).numpy()
-		dados_do_lote_bin = dados_do_lote_bin.reshape(B, -1).astype(int).tolist()
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Fim do teste do WisardPKG . Tempo total de inferência: {tempo_total_teste}")
 
-		return dados_do_lote_bin
-	
-	return termometro.binarize(lote_dado).flatten(start_dim=1).numpy()
+		return tempo_total_teste, classes_reais, classes_preditas
+
+	def executar_modelo(self):
+		tempo_total_treino = self.treinar()
+
+		tempo_total_teste, classes_reais, classes_preditas = self.testar()
+
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Execução do modelo  concluída em {tempo_total_treino + tempo_total_teste}")
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Tempo de execução do treino: {tempo_total_treino}")
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Tempo de execução do teste: {tempo_total_teste}")
+
+		metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
+		
+		logging.info(f"Calculando métricas de desempenho")
+		metricas.calcular_e_imprimir_metricas()
