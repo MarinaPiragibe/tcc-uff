@@ -24,6 +24,10 @@ class WisardModel():
 			dados_do_lote_bin = self.termometro.binarize(dados_para_wisard).numpy()
 			dados_do_lote_bin = dados_do_lote_bin.reshape(B, -1).astype(int).tolist()
 
+			# dados_encoded = self.stride_hd.encode_to_hv(dados_do_lote_bin)
+
+			# # 3) Conversão final para lista binária
+			# dados_encoded = dados_encoded.cpu().numpy().astype(int).tolist()
 			return dados_do_lote_bin
 		
 		return self.termometro.binarize(dados_do_lote).flatten(start_dim=1).numpy()

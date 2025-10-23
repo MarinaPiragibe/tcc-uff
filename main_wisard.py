@@ -18,13 +18,13 @@ from wisard.wisard_utils import WisardModel
 
 args = {
 	"modelo_base": "wisard",
-	"tamanho_lote": 32,
+	"tamanho_lote": 16,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
 	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
 	"tamanhos_tuplas": [16, 20, 32, 64],
 	"num_bits_termometro": 10,
-	"debug": True
+	"debug": False
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
@@ -56,7 +56,7 @@ test_loader = torch.utils.data.DataLoader(
 logging.info(f"Configurando termômetro distributivo")
 termometro = DistributiveThermometer(args['num_bits_termometro'])
 
-stride_hd = StrideHD(window_size=(4,4), stride=1, pool_size=(2,2))
+stride_hd = StrideHD(window_size=(4,4), stride=2, pool_size=(2,2))
 
 def calcular_dados_para_termometro(args, stride_hd: StrideHD):
 	dados_para_termometro, _ = next(iter(train_loader))
