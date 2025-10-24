@@ -24,4 +24,8 @@ class DatasetUtils():
                 dados_treino = torchvision.datasets.FashionMNIST('./datasets', train=True, download=download, transform=WisardImageTransform.get_image_transformation(tipo_transformacao))
                 dados_teste = torchvision.datasets.FashionMNIST('./datasets', train=False, download=download, transform=WisardImageTransform.get_image_transformation(tipo_transformacao))
 
+            case DatasetName.STL10:
+                dados_treino = torchvision.datasets.STL10(root='./datasets', split='train', download=download, transform=WisardImageTransform.get_image_transformation(tipo_transformacao))
+                dados_teste = torchvision.datasets.STL10( root='./datasets', split='test', download=download, transform=WisardImageTransform.get_image_transformation(tipo_transformacao))
+        
         return dados_treino, dados_teste

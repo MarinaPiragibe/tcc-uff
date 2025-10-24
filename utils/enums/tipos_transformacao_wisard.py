@@ -7,3 +7,5 @@ class TiposDeTransformacao(Enum):
     THRESHOLD_3 = "threshold_3"
     THRESHOLD_31 = "threshold_31"
     STRIDE_HD = "stride_hd"
+    FISHER_VECTOR = "fisher_vector"
+    VLAD = "vlad"

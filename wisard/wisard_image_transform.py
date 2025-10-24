@@ -26,3 +26,13 @@ class WisardImageTransform:
                 return torchvision.transforms.Compose([
                     torchvision.transforms.ToTensor() 
                 ])
+            
+            case(TiposDeTransformacao.FISHER_VECTOR):
+                return torchvision.transforms.Compose([
+                    torchvision.transforms.ToTensor() 
+                ])
+            
+            case(TiposDeTransformacao.VLAD):
+                return torchvision.transforms.Compose([
+                    torchvision.transforms.ToTensor() 
+                ])

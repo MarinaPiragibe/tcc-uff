@@ -9,21 +9,23 @@ from utils.dataset_utils import DatasetUtils
 from utils.enums.datasets_name_enum import DatasetName
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
+from wisard.fisher_vector import FisherVectorTransform
 from wisard.stride_hd import StrideHD
 
 from torch.utils.data import Subset
 
+from wisard.vlad import VLADTransform
 from wisard.wisard_utils import WisardModel
 
 
 args = {
 	"modelo_base": "wisard",
-	"tamanho_lote": 16,
+	"tamanho_lote": 32,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
-	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
-	"tamanhos_tuplas": [16, 20, 32, 64],
-	"num_bits_termometro": 10,
+	"tipo_transformacao": TiposDeTransformacao.VLAD,
+	"tamanhos_tuplas": [8, 12, 16, 20, 32, 64],
+	"num_bits_termometro": 12,
 	"debug": False
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
@@ -54,25 +56,50 @@ test_loader = torch.utils.data.DataLoader(
 )
 
 logging.info(f"Configurando termômetro distributivo")
-termometro = DistributiveThermometer(args['num_bits_termometro'])
 
 stride_hd = StrideHD(window_size=(4,4), stride=2, pool_size=(2,2))
 
-def calcular_dados_para_termometro(args, stride_hd: StrideHD):
+def calcular_dados_para_termometro(args, stride_hd: StrideHD, termometro, vlad_transform=None, fisher_transform=None):
 	dados_para_termometro, _ = next(iter(train_loader))
+	match(args['tipo_transformacao']):
 
-	if args['tipo_transformacao'] == TiposDeTransformacao.STRIDE_HD:
-		pooled_dados_para_termometro = stride_hd.extract_and_pool(dados_para_termometro)
-		B, N, C, H_pool, W_pool = pooled_dados_para_termometro.shape
-		dados_para_termometro = pooled_dados_para_termometro.contiguous().view(B, -1)
+		case TiposDeTransformacao.STRIDE_HD:
+			pooled_dados_para_termometro = stride_hd.extract_and_pool(dados_para_termometro)
+			B, N, C, H_pool, W_pool = pooled_dados_para_termometro.shape
+			dados_para_termometro = pooled_dados_para_termometro.contiguous().view(B, -1)
+			termometro.fit(dados_para_termometro)
+		
+		case TiposDeTransformacao.FISHER_VECTOR:
+			fv_features = fisher_transform.extract_features(dados_para_termometro)  # já é [B, D]
+			termometro.fit(fv_features)
+			# fv_features = fisher_transform.extract_features(dados_para_termometro)  # [B, D]
+			# fv_features = fv_features.unsqueeze(1)  # [B, 1, D]
+			# termometro.fit(fv_features)
+
+		case TiposDeTransformacao.VLAD:
+			vlads = vlad_transform.transform(dados_para_termometro)
+			termometro.fit(vlads)
 	
-	return dados_para_termometro
+	return termometro
 
-dados_para_termometro = calcular_dados_para_termometro(args, stride_hd)
-termometro.fit(dados_para_termometro)
+# Inicializa o fisher_transform antes:
+fisher_transform = None
+vlad_transform = None 
 
+if args["tipo_transformacao"] == TiposDeTransformacao.FISHER_VECTOR:
+	fisher_transform = FisherVectorTransform(num_gaussians=16, n_components_pca=64)
+	fisher_transform.fit_gmm(train_loader)
+
+if args["tipo_transformacao"] == TiposDeTransformacao.VLAD:
+	vlad_transform = VLADTransform(num_centros=32, n_components_pca=32)
+	vlad_transform.fit(train_loader)
+
+# Inicializa termômetro
+termometro = DistributiveThermometer(args['num_bits_termometro'])
+termometro = calcular_dados_para_termometro(args, stride_hd, termometro, fisher_transform=fisher_transform, vlad_transform=vlad_transform)
+
+# Agora cria o modelo com o fisher_transform e termometro treinados
 for tamanho in args['tamanhos_tuplas']:
-	logging.info(f"[TUPLA {tamanho}] Iniciando treinamento do WisardPKG")
 	modelo_wisard = wp.Wisard(tamanho)
 
 	modelo = WisardModel(
@@ -82,19 +109,8 @@ for tamanho in args['tamanhos_tuplas']:
 		test_loader=test_loader,
 		termometro=termometro,
 		stride_hd=stride_hd,
-		args=args
+		args=args,
+		fisher_transform = fisher_transform,
+		vlad_transform=vlad_transform
 	)
-
 	modelo.executar_modelo()
-	
-	# executar_wisard(
-	# 	modelo,
-	# 	train_loader,
-	# 	test_loader,
-	# 	termometro,
-	# 	tamanho,
-	# 	args['tipo_transformacao'],
-	# 	stride_hd=None
-		
-	# )
-	

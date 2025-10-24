@@ -2,11 +2,14 @@
 import logging
 from time import time
 
+import torch
+
 from utils.metricas import Metricas
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
+from wisard.fisher_vector import FisherVectorTransform
 
 class WisardModel():
-	def __init__(self, modelo, tamanho_tupla, train_loader, termometro, test_loader, stride_hd, args):
+	def __init__(self, modelo, tamanho_tupla, train_loader, termometro, test_loader, stride_hd, fisher_transform, vlad_transform, args):
 		self.modelo = modelo
 		self.tamanho_tupla = tamanho_tupla
 		self.train_loader = train_loader
@@ -14,23 +17,39 @@ class WisardModel():
 		self.termometro = termometro
 		self.stride_hd = stride_hd
 		self.args = args
+		self.fisher_transform = fisher_transform
+		self.vlad_transform = vlad_transform
 
 	def transformar_dados_em_binarios(self, dados_do_lote):
-		if self.args['tipo_transformacao'] == TiposDeTransformacao.STRIDE_HD:
-			pooled_windows = self.stride_hd.extract_and_pool(dados_do_lote)
-			B, N, C, H_pool, W_pool = pooled_windows.shape
-			dados_para_wisard = pooled_windows.contiguous().view(B, -1)
+		match(self.args['tipo_transformacao']):
+			case TiposDeTransformacao.STRIDE_HD:
+				pooled_windows = self.stride_hd.extract_and_pool(dados_do_lote)
+				B, N, C, H_pool, W_pool = pooled_windows.shape
+				dados_para_wisard = pooled_windows.contiguous().view(B, -1)
+				dados_do_lote_bin = self.termometro.binarize(dados_para_wisard).numpy()
+				return dados_do_lote_bin.reshape(B, -1).astype(int).tolist()
 
-			dados_do_lote_bin = self.termometro.binarize(dados_para_wisard).numpy()
-			dados_do_lote_bin = dados_do_lote_bin.reshape(B, -1).astype(int).tolist()
+			case TiposDeTransformacao.FISHER_VECTOR:
+				fv_features = dados_do_lote
+				if fv_features.dim() == 3 and fv_features.shape[1] == 1:
+					fv_features = fv_features.squeeze(1)
+				bin_data = self.termometro.binarize(fv_features)
+				if bin_data.dim() == 3:
+					bin_data = bin_data.reshape(bin_data.size(0), -1)
+				return bin_data.numpy().astype(int).tolist()
 
-			# dados_encoded = self.stride_hd.encode_to_hv(dados_do_lote_bin)
+			case TiposDeTransformacao.VLAD:
+				# Usa o VLAD + PCA para gerar vetores contínuos
+				vlads = self.vlad_transform.transform(dados_do_lote)
+				# termometro binariza os vetores
+				bin_data = self.termometro.binarize(vlads)
+				if isinstance(bin_data, torch.Tensor):
+					bin_data = bin_data.cpu().int()
+				dados_do_lote_bin = bin_data.reshape(bin_data.size(0), -1).tolist()
+				return dados_do_lote_bin
 
-			# # 3) Conversão final para lista binária
-			# dados_encoded = dados_encoded.cpu().numpy().astype(int).tolist()
-			return dados_do_lote_bin
-		
-		return self.termometro.binarize(dados_do_lote).flatten(start_dim=1).numpy()
+			case _:
+				return self.termometro.binarize(dados_do_lote).flatten(start_dim=1).numpy()
 
 	def treinar(self):
 		
