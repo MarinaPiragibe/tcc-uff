@@ -2,6 +2,7 @@ from datetime import datetime
 import logging
 import os
 import csv
+import numpy as np
 import torch
 
 
@@ -62,3 +63,25 @@ class ArquivoUtils:
         os.makedirs(diretorio, exist_ok=True)
 
         return os.path.join(diretorio, nome_arquivo)
+    
+    @staticmethod
+    def salvar_features_imagem(
+        nome_tecnica_ext,
+        nome_dataset,
+        dados_treino,
+        classes_treino,
+        dados_teste,
+        classes_teste):
+        
+        nome_arquivo = f"{nome_tecnica_ext}_{nome_dataset}_features.npz"
+        
+        np.savez_compressed(
+            nome_arquivo,
+            dados_treino=dados_treino,
+            classes_treino=classes_treino,
+            dados_teste=dados_teste,
+            classes_teste=classes_teste,
+        )
+
+        logging.info(f"Features salvas em '{nome_arquivo}'")
+        logging.info(f"Shape treino: {dados_treino.shape}, Shape teste: {dados_teste.shape}")

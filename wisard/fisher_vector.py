@@ -1,96 +1,138 @@
+from enum import Enum
+import cv2
+from matplotlib import pyplot as plt
 import numpy as np
-from sklearn.mixture import GaussianMixture
-from sklearn.decomposition import PCA
-import torch
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay
+from sklearn.model_selection import train_test_split
+from sklearn.svm import LinearSVC
+from skimage.color import rgb2gray
+from skimage.transform import resize
+from skimage.feature import ORB, fisher_vector, learn_gmm
+from torchvision.datasets import CIFAR10
+from torchvision import transforms
 
-class FisherVectorTransform:
-    def __init__(self, num_gaussians=16, n_components_pca=64):
-        """
-        num_gaussians: número de componentes do GMM
-        n_components_pca: dimensionalidade final após PCA
-        """
-        self.num_gaussians = num_gaussians
-        self.n_components_pca = n_components_pca
-        self.gmm = None
-        self.pca = None
-        self.means_ = None
-        self.covs_ = None
-        self.weights_ = None
+from utils.arquivo_utils import ArquivoUtils
+
+# -------------------------------------------------------------
+# 1. Carregar CIFAR-10
+# -------------------------------------------------------------
+
+class TipoDescritor(Enum):
+    SIFT = "sift"
+    ORB = 'orb'
+
+
+class FisherVectorORB:
+    def __init__(self, train_loader, test_loader, dataset):
+        self.train_loader = train_loader
+        self.test_loader = test_loader
+        self.dataset = dataset
+
+    def converter_dados_para_np(self, loader):
+        dados_convertidos = []
+        classes_convertidas = []
+        for k, (dado, classe) in enumerate(loader):
+            dado = dado.permute(0, 2, 3, 1).numpy()  # [B,C,H,W] → [B,H,W,C]
+            dados_convertidos.append(dado)
+            classes_convertidas.append(classe.numpy())
+
+        dados_convertidos = np.concatenate(dados_convertidos)
+        classes_convertidas = np.concatenate(classes_convertidas)
+
+        return dados_convertidos, classes_convertidas
 
     @staticmethod
-    def extrair_descritores_locais(imagem, tamanho_janela=4, passo=4):
-        """
-        Divide a imagem em patches e retorna vetores achatados.
-        Funciona tanto para PyTorch tensors quanto para numpy arrays.
-        """
-        # Se for tensor PyTorch, converte para numpy
-        if isinstance(imagem, torch.Tensor):
-            imagem = imagem.cpu().numpy()
-        # Se for PIL Image, converte para numpy
-        elif "PIL" in str(type(imagem)):
-            imagem = np.array(imagem).transpose(2, 0, 1)  # HWC -> CHW
+    def converter_escala_de_cinza_e_redimensionar(dados):
+        dados_escala_cinza = np.array([rgb2gray(dado) for dado in dados])
+        dados_redimensionados = np.array([resize(dado, (80, 80)) for dado in dados_escala_cinza])
+        return dados_redimensionados
 
-        C, H, W = imagem.shape
+    @staticmethod
+    def extrair_descritores_orb(dados):
+        descritores = []
+        for dado in dados:
+            orb = ORB(n_keypoints=5, harris_k=0.01)
+            orb.detect_and_extract(dado)
+            if orb.descriptors is not None:
+                descritores.append(orb.descriptors.astype("float32"))
+            else:
+                # se não encontrar pontos, adiciona ruído pequeno
+                descritores.append(np.zeros((5, 256), dtype="float32"))
+        return descritores
+
+    @staticmethod
+    def extrair_descritores_sift(dados, nfeatures=20):
+        sift = cv2.SIFT_create(nfeatures=nfeatures)
+        descritores = []
+        for dado in dados:
+            # converter para uint8, necessário para o OpenCV
+            dado_convertido = (dado * 255).astype(np.uint8)
+            dado_escala_cinza = cv2.cvtColor(dado_convertido, cv2.COLOR_RGB2GRAY)
+            kp, desc = sift.detectAndCompute(dado_escala_cinza, None)
+            if desc is None:
+                desc = np.zeros((5, 128), dtype=np.float32)
+            descritores.append(desc.astype("float32"))
+        return descritores
+
+    @staticmethod
+    def extrair_descritores_sift_colorido(dados, nfeatures=20):
+        sift = cv2.SIFT_create(nfeatures=nfeatures)
         descritores = []
 
-        for y in range(0, H - tamanho_janela + 1, passo):
-            for x in range(0, W - tamanho_janela + 1, passo):
-                patch = imagem[:, y:y+tamanho_janela, x:x+tamanho_janela]
-                descritores.append(patch.flatten())
+        for dado in dados:
+            descs = []
+            for c in range(3):  # R, G, B
+                canal = (dado[..., c] * 255).astype(np.uint8)
+                kp, desc = sift.detectAndCompute(canal, None)
+                if desc is not None:
+                    descs.append(desc)
+            if descs:
+                descritores.append(np.vstack(descs).astype("float32"))
+            else:
+                descritores.append(np.zeros((5, 128), dtype="float32"))
+        return descritores
 
-        return np.stack(descritores)  
+    @staticmethod
+    def treinar_gmm(descritores, n_modes=16):
+        print("Treinando GMM...")
+        # Junta todos os descritores (de todas as imagens) num único array
+        todos_descritores = np.vstack(descritores)
+        gmm = learn_gmm(todos_descritores, n_modes=n_modes)
+        return gmm
+    
+    @staticmethod
+    def calcular_fisher_vectors(descritores, gmm):
+        return np.array([fisher_vector(d, gmm) for d in descritores])
 
-    def fit_gmm(self, dataloader):
-        todos_descritores = []
-        for imgs, _ in dataloader:
-            # imgs pode ser tensor ou PIL
-            if isinstance(imgs, torch.Tensor):
-                imgs = imgs.numpy()
-            for img in imgs:
-                d = self.extrair_descritores_locais(img)
-                todos_descritores.append(d)
-        todos_descritores = np.concatenate(todos_descritores, axis=0)
+    def executar_fisher_vector(self, tipo_descritor: TipoDescritor):
+        dados_treino, classes_treino = self.converter_dados_para_np(self.train_loader)
+        dados_teste, classes_teste = self.converter_dados_para_np(self.test_loader)
 
-        # GMM
-        self.gmm = GaussianMixture(
-            n_components=self.num_gaussians,
-            covariance_type='diag',
-            random_state=42
+        descritores_treino = []
+        descritores_teste = []
+
+        if tipo_descritor == TipoDescritor.SIFT:
+            descritores_treino = self.extrair_descritores_sift(dados_treino)
+            descritores_teste = self.extrair_descritores_sift(dados_teste)
+            
+        if tipo_descritor == TipoDescritor.ORB:
+            dados_treino = self.converter_escala_de_cinza_e_redimensionar(dados_treino)
+            dados_teste = self.converter_escala_de_cinza_e_redimensionar(dados_teste)
+
+            descritores_treino = self.extrair_descritores_orb(dados_treino)
+            descritores_teste = self.extrair_descritores_orb(dados_teste)
+
+        gmm = self.treinar_gmm(descritores_treino)
+        fisher_vector_treino = self.calcular_fisher_vectors(descritores_treino, gmm)
+        fisher_vector_teste = self.calcular_fisher_vectors(descritores_teste, gmm)
+
+
+        ArquivoUtils.salvar_features_imagem(
+            nome_tecnica_ext=tipo_descritor.value,
+            nome_dataset=self.dataset,
+            dados_treino=fisher_vector_treino,
+            classes_treino=classes_treino,
+            dados_teste=fisher_vector_teste,
+            classes_teste=classes_teste
         )
-        self.gmm.fit(todos_descritores)
-        self.means_ = self.gmm.means_
-        self.covs_ = self.gmm.covariances_
-        self.weights_ = self.gmm.weights_
 
-        # PCA: nunca mais que a dimensão real
-        n_features = todos_descritores.shape[1]
-        n_components = min(self.n_components_pca, n_features)
-        self.pca = PCA(n_components=n_components, random_state=42)
-        self.pca.fit(todos_descritores)
-
-    def extract_features(self, batch_imgs):
-        """
-        Retorna Fisher Vectors já em forma de tensor para o termometro.
-        """
-        batch_vf = []
-        for img in batch_imgs:
-            if isinstance(img, torch.Tensor):
-                img = img.cpu().numpy()
-            descritores = self.extrair_descritores_locais(img)
-            descritores_pca = self.pca.transform(descritores)
-
-            # Fisher Vector (simplificado)
-            fv = np.zeros((self.num_gaussians, descritores_pca.shape[1]))
-            prob = self.gmm.predict_proba(descritores_pca)  # (num_patches, num_gaussians)
-            for k in range(self.num_gaussians):
-                diff = descritores_pca - self.means_[k]
-                fv[k] = np.sum(prob[:, k][:, None] * diff, axis=0)
-
-            # Normalização
-            fv = np.sign(fv) * np.sqrt(np.abs(fv))
-            fv = fv.flatten()
-            fv /= np.linalg.norm(fv) + 1e-10  # evitar divisão por zero
-            batch_vf.append(fv)
-
-        batch_vf = np.stack(batch_vf)  # (B, dim)
-        return torch.tensor(batch_vf, dtype=torch.float32)
