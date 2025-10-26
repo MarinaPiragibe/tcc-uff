@@ -4,7 +4,7 @@ from datasets.iris import Iris
 from utils.logger import Logger
 from utils.metricas import Metricas
 from wisard.termometro import Termometro
-from wisard.wisard_model import Wisard
+from wisard.wisard_model_impl_propria import Wisard
 import logging
 from sklearn.model_selection import train_test_split
 

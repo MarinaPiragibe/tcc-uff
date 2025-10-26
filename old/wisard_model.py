@@ -6,10 +6,9 @@ import torch
 
 from utils.metricas import Metricas
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
-from wisard.fisher_vector import FisherVectorTransform
 
 class WisardModel():
-	def __init__(self, modelo, tamanho_tupla, train_loader, termometro, test_loader, stride_hd, fisher_transform, vlad_transform, args):
+	def __init__(self, modelo, tamanho_tupla, train_loader, termometro, test_loader, stride_hd, args):
 		self.modelo = modelo
 		self.tamanho_tupla = tamanho_tupla
 		self.train_loader = train_loader
@@ -17,8 +16,6 @@ class WisardModel():
 		self.termometro = termometro
 		self.stride_hd = stride_hd
 		self.args = args
-		self.fisher_transform = fisher_transform
-		self.vlad_transform = vlad_transform
 
 	def transformar_dados_em_binarios(self, dados_do_lote):
 		match(self.args['tipo_transformacao']):

@@ -9,13 +9,12 @@ from utils.dataset_utils import DatasetUtils
 from utils.enums.datasets_name_enum import DatasetName
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
-from wisard.fisher_vector import FisherVectorTransform
-from wisard.stride_hd import StrideHD
+from old.stride_hd import StrideHD
 
 from torch.utils.data import Subset
 
 from wisard.vlad import VLADTransform
-from wisard.wisard_utils import WisardModel
+from old.wisard_model import WisardModel
 
 
 args = {
@@ -23,7 +22,7 @@ args = {
 	"tamanho_lote": 32,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
-	"tipo_transformacao": TiposDeTransformacao.VLAD,
+	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
 	"tamanhos_tuplas": [8, 12, 16, 20, 32, 64],
 	"num_bits_termometro": 12,
 	"debug": False
@@ -86,9 +85,9 @@ def calcular_dados_para_termometro(args, stride_hd: StrideHD, termometro, vlad_t
 fisher_transform = None
 vlad_transform = None 
 
-if args["tipo_transformacao"] == TiposDeTransformacao.FISHER_VECTOR:
-	fisher_transform = FisherVectorTransform(num_gaussians=16, n_components_pca=64)
-	fisher_transform.fit_gmm(train_loader)
+# if args["tipo_transformacao"] == TiposDeTransformacao.FISHER_VECTOR:
+# 	fisher_transform = FisherVectorTransform(num_gaussians=16, n_components_pca=64)
+# 	fisher_transform.fit_gmm(train_loader)
 
 if args["tipo_transformacao"] == TiposDeTransformacao.VLAD:
 	vlad_transform = VLADTransform(num_centros=32, n_components_pca=32)
@@ -110,7 +109,5 @@ for tamanho in args['tamanhos_tuplas']:
 		termometro=termometro,
 		stride_hd=stride_hd,
 		args=args,
-		fisher_transform = fisher_transform,
-		vlad_transform=vlad_transform
 	)
 	modelo.executar_modelo()

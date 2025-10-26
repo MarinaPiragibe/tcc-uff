@@ -10,7 +10,7 @@ import wisardpkg as wp
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
 from utils.metricas import Metricas
-from wisard.stride_hd import StrideHD
+from old.stride_hd import StrideHD
 from wisard.wisard_image_transform import WisardImageTransform
 
 from torch.utils.data import DataLoader, Subset
