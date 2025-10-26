@@ -1,0 +1,34 @@
+2025-09-29 17:07:31,640 - main_wisard - INFO - Binarizando coluna 'sepal length' com 10 bits (Termômetro).
+2025-09-29 17:07:31,643 - main_wisard - INFO - Coluna 'sepal length' binarizada
+
+2025-09-29 17:07:31,643 - main_wisard - INFO - Binarizando coluna 'sepal width' com 10 bits (Termômetro).
+2025-09-29 17:07:31,645 - main_wisard - INFO - Coluna 'sepal width' binarizada
+
+2025-09-29 17:07:31,645 - main_wisard - INFO - Binarizando coluna 'petal length' com 10 bits (Termômetro).
+2025-09-29 17:07:31,648 - main_wisard - INFO - Coluna 'petal length' binarizada
+
+2025-09-29 17:07:31,648 - main_wisard - INFO - Binarizando coluna 'petal width' com 10 bits (Termômetro).
+2025-09-29 17:07:31,651 - main_wisard - INFO - Coluna 'petal width' binarizada
+
+2025-09-29 17:07:31,651 - main_wisard - INFO - Dimensão de cada entrada após a binarização: 40 bits
+2025-09-29 17:07:31,667 - main_wisard - INFO - Amostras separadas em 105 para treino e 45 para teste
+2025-09-29 17:07:31,668 - main_wisard - INFO - Treinamento da wisard iniciado
+2025-09-29 17:07:31,683 - main_wisard - INFO - Treinamento concluído!
+2025-09-29 17:45:21,047 - root - INFO - Binarizando coluna 'sepal length' com 10 bits (Termômetro).
+2025-09-29 17:45:21,050 - root - INFO - Coluna 'sepal length' binarizada
+
+2025-09-29 17:45:21,051 - root - INFO - Binarizando coluna 'sepal width' com 10 bits (Termômetro).
+2025-09-29 17:45:21,053 - root - INFO - Coluna 'sepal width' binarizada
+
+2025-09-29 17:45:21,053 - root - INFO - Binarizando coluna 'petal length' com 10 bits (Termômetro).
+2025-09-29 17:45:21,055 - root - INFO - Coluna 'petal length' binarizada
+
+2025-09-29 17:45:21,056 - root - INFO - Binarizando coluna 'petal width' com 10 bits (Termômetro).
+2025-09-29 17:45:21,058 - root - INFO - Coluna 'petal width' binarizada
+
+2025-09-29 17:45:21,059 - root - INFO - Dimensão de cada entrada após a binarização: 40 bits
+2025-09-29 17:45:21,073 - root - INFO - Amostras separadas em 105 para treino e 45 para teste
+2025-09-29 17:45:21,073 - root - INFO - Treinamento da wisard iniciado
+2025-09-29 17:45:21,093 - root - INFO - Treinamento concluído em 0.019540786743164062
+2025-09-29 17:45:21,094 - root - INFO - Teste da wisard iniciado
+2025-09-29 17:45:21,146 - root - INFO - Teste concluído em 0.019540786743164062
