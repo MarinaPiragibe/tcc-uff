@@ -1,0 +1,147 @@
+2025-10-26 09:11:47,418 - root - INFO - Inicializando o modelo da wisard com os seguintes argumentos: {'modelo_base': 'wisard', 'tamanho_lote': 32, 'dataset': <DatasetName.CIFAR10: 'CIFAR10'>, 'download_dataset': False, 'tipo_transformacao': <TiposDeTransformacao.STRIDE_HD: 'stride_hd'>, 'tamanhos_tuplas': [8, 12, 16, 20, 32, 64], 'num_bits_termometro': 12, 'debug': False, 'data_execucao': '2025-10-26_09_11_47'}
+2025-10-26 09:11:47,418 - root - INFO - Carregando dataset do CIFAR10 com dowload:False e transform: stride_hd
+2025-10-26 09:11:48,871 - root - INFO - Configurando termômetro distributivo
+2025-10-26 09:14:54,376 - root - INFO - [TUPLA 8] Fim do treinamento do WisardPKG. Tempo total do treino: 185.48111057281494
+2025-10-26 09:14:54,379 - root - INFO - [TUPLA 8] Iniciando teste do WisardPKG 
+2025-10-26 09:17:27,788 - root - INFO - [TUPLA 8] Fim do teste do WisardPKG . Tempo total de inferência: 153.40951466560364
+2025-10-26 09:17:27,791 - root - INFO - [TUPLA 8] Execução do modelo  concluída em 338.8906252384186
+2025-10-26 09:17:27,791 - root - INFO - [TUPLA 8] Tempo de execução do treino: 185.48111057281494
+2025-10-26 09:17:27,792 - root - INFO - [TUPLA 8] Tempo de execução do teste: 153.40951466560364
+2025-10-26 09:17:27,792 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:17:28,058 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:17:28,058 - root - INFO - Accuracy: 0.3145
+2025-10-26 09:17:28,058 - root - INFO - Precisão: 0.3912067903783728
+2025-10-26 09:17:28,058 - root - INFO - Recall: 0.31450000000000006
+2025-10-26 09:17:28,059 - root - INFO - F1: 0.2860692571438885
+2025-10-26 09:17:28,064 - root - INFO - Matriz de confusão:
+[[349 195  28  42   4  43   0  65  78 196]
+ [ 11 589   0  42   0  32   2  31   7 286]
+ [ 75 136  92 171  16 203  24 159   8 116]
+ [ 33 133  10 304   3 271   8  95   3 140]
+ [ 18 156  34 191  34 173  65 216   7 106]
+ [ 13 101   9 219   2 438   8 106   8  96]
+ [  9 185  23 238  18 205 103 105   1 113]
+ [  6 126   8  98   7 146   4 393   8 204]
+ [ 64 245   1  28   1  80   1  24 224 332]
+ [ 10 238   0  40   0  34   1  43  15 619]]
+2025-10-26 09:19:54,715 - root - INFO - [TUPLA 12] Fim do treinamento do WisardPKG. Tempo total do treino: 145.6600272655487
+2025-10-26 09:19:54,718 - root - INFO - [TUPLA 12] Iniciando teste do WisardPKG 
+2025-10-26 09:22:23,033 - root - INFO - [TUPLA 12] Fim do teste do WisardPKG . Tempo total de inferência: 148.31448197364807
+2025-10-26 09:22:23,035 - root - INFO - [TUPLA 12] Execução do modelo  concluída em 293.9745092391968
+2025-10-26 09:22:23,035 - root - INFO - [TUPLA 12] Tempo de execução do treino: 145.6600272655487
+2025-10-26 09:22:23,035 - root - INFO - [TUPLA 12] Tempo de execução do teste: 148.31448197364807
+2025-10-26 09:22:23,036 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:22:23,215 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:22:23,215 - root - INFO - Accuracy: 0.3902
+2025-10-26 09:22:23,216 - root - INFO - Precisão: 0.44973663430530725
+2025-10-26 09:22:23,216 - root - INFO - Recall: 0.39020000000000005
+2025-10-26 09:22:23,216 - root - INFO - F1: 0.37720376746815115
+2025-10-26 09:22:23,218 - root - INFO - Matriz de confusão:
+[[440 125  13  33   3  30  10  60  99 187]
+ [ 19 561   0  53   1  37   5  25  23 276]
+ [ 99 100 134 144  39 162  77 152   8  85]
+ [ 44  79  13 343   9 251  29  72   5 155]
+ [ 31  96  53 125 136 136 132 186  10  95]
+ [ 18  59  20 188   6 461  26 115  15  92]
+ [ 15  93  27 174  20 165 307 104   2  93]
+ [ 20  93   8  68   9 106  13 478  10 195]
+ [ 67 163   2  28   2  63   0  18 374 283]
+ [ 22 178   1  41   1  31   4  30  24 668]]
+2025-10-26 09:25:23,378 - root - INFO - [TUPLA 16] Fim do treinamento do WisardPKG. Tempo total do treino: 175.1886293888092
+2025-10-26 09:25:23,381 - root - INFO - [TUPLA 16] Iniciando teste do WisardPKG 
+2025-10-26 09:28:46,053 - root - INFO - [TUPLA 16] Fim do teste do WisardPKG . Tempo total de inferência: 202.6707627773285
+2025-10-26 09:28:46,054 - root - INFO - [TUPLA 16] Execução do modelo  concluída em 377.8593921661377
+2025-10-26 09:28:46,055 - root - INFO - [TUPLA 16] Tempo de execução do treino: 175.1886293888092
+2025-10-26 09:28:46,055 - root - INFO - [TUPLA 16] Tempo de execução do teste: 202.6707627773285
+2025-10-26 09:28:46,055 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:28:46,262 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:28:46,263 - root - INFO - Accuracy: 0.437
+2025-10-26 09:28:46,263 - root - INFO - Precisão: 0.44786066689315945
+2025-10-26 09:28:46,263 - root - INFO - Recall: 0.437
+2025-10-26 09:28:46,263 - root - INFO - F1: 0.4315011435178495
+2025-10-26 09:28:46,265 - root - INFO - Matriz de confusão:
+[[491  77  29  17  22  20  22  40 157 125]
+ [ 30 498   7  36  10  39  37  35  52 256]
+ [118  53 237  99 100 107 127  82  19  58]
+ [ 58  53  29 299  28 221  97  72  11 132]
+ [ 39  47  87  74 271  79 185 124  23  71]
+ [ 30  32  38 150  31 442  66 105  27  79]
+ [ 26  39  34 103  50  95 511  66   2  74]
+ [ 34  68  22  48  53  98  34 455  20 168]
+ [ 65 104   9  25  11  54   8  16 546 162]
+ [ 35 130   6  47  10  31  27  36  58 620]]
+2025-10-26 09:31:39,803 - root - INFO - [TUPLA 20] Fim do treinamento do WisardPKG. Tempo total do treino: 161.86526536941528
+2025-10-26 09:31:39,808 - root - INFO - [TUPLA 20] Iniciando teste do WisardPKG 
+2025-10-26 09:34:35,878 - root - INFO - [TUPLA 20] Fim do teste do WisardPKG . Tempo total de inferência: 176.06851625442505
+2025-10-26 09:34:35,880 - root - INFO - [TUPLA 20] Execução do modelo  concluída em 337.93378162384033
+2025-10-26 09:34:35,880 - root - INFO - [TUPLA 20] Tempo de execução do treino: 161.86526536941528
+2025-10-26 09:34:35,881 - root - INFO - [TUPLA 20] Tempo de execução do teste: 176.06851625442505
+2025-10-26 09:34:35,881 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:34:36,037 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:34:36,038 - root - INFO - Accuracy: 0.4392
+2025-10-26 09:34:36,038 - root - INFO - Precisão: 0.44280259137369127
+2025-10-26 09:34:36,038 - root - INFO - Recall: 0.4391999999999999
+2025-10-26 09:34:36,038 - root - INFO - F1: 0.43236095489637466
+2025-10-26 09:34:36,039 - root - INFO - Matriz de confusão:
+[[530  41  41  15  34  11  37  21 197  73]
+ [ 43 384  21  39  43  26  80  35 109 220]
+ [128  18 267  59 170  60 171  50  32  45]
+ [ 62  29  50 248  91 178 161  61  26  94]
+ [ 50  15  94  42 397  43 203  72  37  47]
+ [ 45  15  54 143  68 390 115  70  41  59]
+ [ 31  17  61  54 110  59 585  22   8  53]
+ [ 49  46  31  47 113  81  64 403  42 124]
+ [ 73  61  11  22  32  36  18  16 638  93]
+ [ 55  73  10  36  38  28  55  31 124 550]]
+2025-10-26 09:36:53,106 - root - INFO - [TUPLA 32] Fim do treinamento do WisardPKG. Tempo total do treino: 124.34328722953796
+2025-10-26 09:36:53,108 - root - INFO - [TUPLA 32] Iniciando teste do WisardPKG 
+2025-10-26 09:38:50,700 - root - INFO - [TUPLA 32] Fim do teste do WisardPKG . Tempo total de inferência: 117.59246158599854
+2025-10-26 09:38:50,702 - root - INFO - [TUPLA 32] Execução do modelo  concluída em 241.9357488155365
+2025-10-26 09:38:50,702 - root - INFO - [TUPLA 32] Tempo de execução do treino: 124.34328722953796
+2025-10-26 09:38:50,702 - root - INFO - [TUPLA 32] Tempo de execução do teste: 117.59246158599854
+2025-10-26 09:38:50,702 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:38:50,868 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:38:50,870 - root - INFO - Accuracy: 0.3816
+2025-10-26 09:38:50,871 - root - INFO - Precisão: 0.43112348924460403
+2025-10-26 09:38:50,871 - root - INFO - Recall: 0.3816
+2025-10-26 09:38:50,871 - root - INFO - F1: 0.36698689228515724
+2025-10-26 09:38:50,872 - root - INFO - Matriz de confusão:
+[[594   8  54   8  53   5  32   9 215  22]
+ [ 94 199  74  26 109  20 131  14 238  95]
+ [141   5 349  32 218  25 134  19  59  18]
+ [ 91   9 110 148 183 113 197  40  66  43]
+ [ 65   2 152  14 497  11 153  31  60  15]
+ [ 78   5 151  79 148 263 150  35  70  21]
+ [ 37   2 144  20 227  28 483  12  31  16]
+ [ 90  10  97  28 210  44  91 275  85  70]
+ [ 96  14  32  11  56  22  27   9 701  32]
+ [ 96  39  62  19  78  11  76  38 274 307]]
+2025-10-26 09:40:40,599 - root - INFO - [TUPLA 64] Fim do treinamento do WisardPKG. Tempo total do treino: 95.95285654067993
+2025-10-26 09:40:40,601 - root - INFO - [TUPLA 64] Iniciando teste do WisardPKG 
+2025-10-26 09:41:46,506 - root - INFO - [TUPLA 64] Fim do teste do WisardPKG . Tempo total de inferência: 65.90492963790894
+2025-10-26 09:41:46,507 - root - INFO - [TUPLA 64] Execução do modelo  concluída em 161.85778617858887
+2025-10-26 09:41:46,508 - root - INFO - [TUPLA 64] Tempo de execução do treino: 95.95285654067993
+2025-10-26 09:41:46,508 - root - INFO - [TUPLA 64] Tempo de execução do teste: 65.90492963790894
+2025-10-26 09:41:46,508 - root - INFO - Calculando métricas de desempenho
+2025-10-26 09:41:46,654 - root - INFO - 
+---------- Métricas ----------
+2025-10-26 09:41:46,654 - root - INFO - Accuracy: 0.2102
+2025-10-26 09:41:46,654 - root - INFO - Precisão: 0.37439039512452765
+2025-10-26 09:41:46,654 - root - INFO - Recall: 0.21020000000000003
+2025-10-26 09:41:46,654 - root - INFO - F1: 0.18804540982562834
+2025-10-26 09:41:46,656 - root - INFO - Matriz de confusão:
+[[349   7  39  12  28  11  11   5  97 441]
+ [ 24  48   9   8  11   4  12   6  34 844]
+ [ 80   3 134  23  71  12  44  14  31 588]
+ [ 27   2  31  44  37  17  34   5  14 789]
+ [ 30   3  69  22 168  15  66  13  21 593]
+ [ 17   0  26  17  33  42  22   5  14 824]
+ [ 14   1  48  18  81  21 133  14   8 662]
+ [ 15   2  21   9  28   3  13  34  16 859]
+ [ 88   6  13   7   9   3   5   3 241 625]
+ [ 17   5   7   5   8   1   7   5  36 909]]

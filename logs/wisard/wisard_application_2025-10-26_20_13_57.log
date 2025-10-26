@@ -1,0 +1,4 @@
+2025-10-26 20:13:57,720 - root - INFO - Inicializando o modelo da wisard com os seguintes argumentos: {'modelo_base': 'wisard', 'tamanho_lote': 32, 'dataset': <DatasetName.CIFAR10: 'CIFAR10'>, 'download_dataset': False, 'tipo_transformacao': <TiposDeTransformacao.STRIDE_HD: 'stride_hd'>, 'tamanhos_tuplas': [8, 12, 16, 20, 32, 64], 'num_bits_termometro': 12, 'debug': False, 'data_execucao': '2025-10-26_20_13_57'}
+2025-10-26 20:14:10,790 - root - INFO - Configurando termômetro distributivo
+2025-10-26 20:18:29,717 - root - INFO - [TUPLA 8] Fim do treinamento do WisardPKG. Tempo total do treino: 258.72996735572815
+2025-10-26 20:18:29,719 - root - INFO - [TUPLA 8] Iniciando teste do WisardPKG 
