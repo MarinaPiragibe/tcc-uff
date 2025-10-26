@@ -1,4 +1,3 @@
-from datetime import datetime
 import logging
 import os
 import csv
@@ -85,3 +84,14 @@ class ArquivoUtils:
 
         logging.info(f"Features salvas em '{nome_arquivo}'")
         logging.info(f"Shape treino: {dados_treino.shape}, Shape teste: {dados_teste.shape}")
+
+    
+    @staticmethod
+    def carregar_caracteristicas_salvas(caminho_npz: str):
+        pack = np.load(caminho_npz, allow_pickle=False)
+        dados_treino = pack["dados_treino"].astype(np.float32)
+        classes_treino = pack["classes_treino"].astype(str)
+        dados_teste = pack["dados_teste"].astype(np.float32)
+        classes_teste = pack["classes_teste"].astype(str)
+        
+        return dados_treino, classes_treino, dados_teste, classes_teste
