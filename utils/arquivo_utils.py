@@ -95,3 +95,15 @@ class ArquivoUtils:
         classes_teste = pack["classes_teste"].astype(str)
         
         return dados_treino, classes_treino, dados_teste, classes_teste
+
+    @staticmethod
+    def transformar_dados_memmap(dados, nome_arquivo):
+        N, D = len(dados), dados[0].shape[0]
+        dados_memmap = np.memmap(nome_arquivo, dtype=np.float32, mode='w+', shape=(N, D))
+
+        for i, feat in enumerate(dados):
+            dados_memmap[i, :] = feat
+        dados_memmap.flush()
+
+        return dados_memmap
+
