@@ -1,6 +1,7 @@
 import logging
 import os
 import csv
+import h5py
 import numpy as np
 import torch
 
@@ -85,10 +86,55 @@ class ArquivoUtils:
         logging.info(f"Features salvas em '{nome_arquivo}'")
         logging.info(f"Shape treino: {dados_treino.shape}, Shape teste: {dados_teste.shape}")
 
+
+    @staticmethod
+    def salvar_features_vgg16_h5(
+        nome_dataset,
+        dados_treino,
+        classes_treino,
+        dados_teste,
+        classes_teste
+    ):
+
+        nome_arquivo = f"vgg16_{nome_dataset}_features.h5"
+        logging.info(f"Salvando features VGG16 em '{nome_arquivo}'...")
+
+        with h5py.File(nome_arquivo, "w") as f:
+            # Dataset de treino
+            f.create_dataset("dados_treino", data=dados_treino, dtype=np.float32)
+            f.create_dataset("classes_treino", data=classes_treino.astype(np.int64))
+            # Dataset de teste
+            f.create_dataset("dados_teste", data=dados_teste, dtype=np.float32)
+            f.create_dataset("classes_teste", data=classes_teste.astype(np.int64))
+
+        logging.info(f"Features salvas com sucesso!")
+        logging.info(f"Shape treino: {dados_treino.shape}, Shape teste: {dados_teste.shape}")
+
+
+    @staticmethod
+    def carregar_features_vgg16_h5(caminho_h5: str):
+        """
+        Carrega as features da VGG16 salvas em HDF5 e converte as classes para str,
+        mantendo compatibilidade com o formato .npz antigo.
+        """
+        logging.info(f"Carregando features de '{caminho_h5}'...")
+
+        with h5py.File(caminho_h5, "r") as f:
+            dados_treino = np.array(f["dados_treino"], dtype=np.float32)
+            dados_teste = np.array(f["dados_teste"], dtype=np.float32)
+
+            # Converte as classes para str
+            classes_treino = np.array(f["classes_treino"], dtype=np.int64).astype(str)
+            classes_teste = np.array(f["classes_teste"], dtype=np.int64).astype(str)
+
+        logging.info(f"Features carregadas com sucesso!")
+        logging.info(f"Shape treino: {dados_treino.shape}, Shape teste: {dados_teste.shape}")
+
+        return dados_treino, classes_treino, dados_teste, classes_teste
     
     @staticmethod
     def carregar_caracteristicas_salvas(caminho_npz: str):
-        pack = np.load(caminho_npz, allow_pickle=False)
+        pack = np.load(caminho_npz, mmap_mode="r")
         dados_treino = pack["dados_treino"].astype(np.float32)
         classes_treino = pack["classes_treino"].astype(str)
         dados_teste = pack["dados_teste"].astype(np.float32)
