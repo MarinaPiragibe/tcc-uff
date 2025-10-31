@@ -69,7 +69,7 @@ class StrideHD:
 
 		logging.info("Salvando features no formato padrão (compatível com seu pipeline)...")
 		ArquivoUtils.salvar_features_imagem(
-			nome_tecnica_ext=f"stride_hd_{self.window_size[0]}",
+			nome_tecnica_ext=f"features/stride_hd_{self.window_size[0]}",
 			nome_dataset=dataset_enum.value,
 			dados_treino=X_tr,
 			classes_treino=y_tr,

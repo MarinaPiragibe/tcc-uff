@@ -1,120 +1,113 @@
 from datetime import datetime
 import logging
 import random
-from time import time
 import torch
-import torchvision
 from torchwnn.encoding import DistributiveThermometer
 import wisardpkg as wp
 
+from utils.dataset_utils import DatasetUtils
+from utils.enums.datasets_name_enum import DatasetName
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
-from utils.metricas import Metricas
 from old.stride_hd import StrideHD
-from wisard.wisard_image_transform import WisardImageTransform
 
-from torch.utils.data import DataLoader, Subset
+from torch.utils.data import Subset
+
+from old.vlad import VLADTransform
+from old.wisard_model import WisardModel
 
 
 args = {
-    "modelo_base": "wisard",
-    "tamanho_lote": 32,
-    "dataset": "cifar-10-3-thresholds",
-    "debug": False,
-    "tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
+	"modelo_base": "wisard",
+	"tamanho_lote": 32,
+	"dataset": DatasetName.CIFAR10,
+	"download_dataset": False,
+	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
+	"tamanhos_tuplas": [8, 12, 16, 20, 32, 64],
+	"num_bits_termometro": 12,
+	"debug": False
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
 Logger.configurar_logger(
-    nome_arquivo=f"{args['modelo_base']}_application_{args['data_execucao']}.log"
+	nome_arquivo=f"{args['modelo_base']}_application_{args['data_execucao']}.log"
 )
 
 logging.info(f"Inicializando o modelo da wisard com os seguintes argumentos: {args}")
 torch.set_num_threads(1)
 
-adress_list = [8, 12, 16, 20, 32, 64]
-
-logging.info(f"Carregando dataset do CIFAR-10")
-train_set = torchvision.datasets.CIFAR10(
-    './', train=True, download=False,
-    transform=WisardImageTransform.get_image_transformation(args["tipo_transformacao"])
-)
-test_set = torchvision.datasets.CIFAR10(
-    './', train=False, download=False,
-    transform=WisardImageTransform.get_image_transformation(args["tipo_transformacao"])
-)
+logging.info(f"Carregando dataset do {args['dataset'].value} com dowload:False e transform: {args['tipo_transformacao'].value}")
+dados_treino, dados_teste  = DatasetUtils.carregar_dados_treinamento(args['dataset'], args['tipo_transformacao'], args['download_dataset'])
 
 if args['debug']:
-    logging.info("Modo depuração: 1000 treino / 20 teste")
-    train_indices = random.sample(range(len(train_set)), 1000)
-    test_indices = random.sample(range(len(test_set)), 20)
-    train_set = Subset(train_set, train_indices)
-    test_set = Subset(test_set, test_indices)
+	logging.info("Iniciando modelo no modo de depuração com 1000 entradas para treino e 200 para teste")
+	indices_treino = random.sample(range(len(dados_treino)), 1000)
+	indice_teste = random.sample(range(len(dados_teste)), 20)
 
-train_loader = DataLoader(train_set, batch_size=args['tamanho_lote'], shuffle=True, num_workers=0)
-test_loader = DataLoader(test_set, batch_size=args['tamanho_lote'], shuffle=False, num_workers=0)
+	dados_treino = Subset(dados_treino, indices_treino)
+	dados_teste = Subset(dados_teste, indice_teste)
 
-stride_hd = StrideHD(window_size=(4,4), stride=1, pool_size=(2,2))
+train_loader = torch.utils.data.DataLoader(
+	dados_treino, batch_size=args['tamanho_lote'], shuffle=True, drop_last=False, num_workers=0
+)
+test_loader = torch.utils.data.DataLoader(
+	dados_teste, batch_size=args['tamanho_lote'], shuffle=False,drop_last=False, num_workers=0
+)
 
-logging.info("Configurando termômetro distributivo")
-thermometer = DistributiveThermometer(10)
+logging.info(f"Configurando termômetro distributivo")
 
-# Ajustar termômetro após StrideHD
-sample_x, _ = next(iter(train_loader))
-pooled_sample = stride_hd.extract_and_pool(sample_x)
-B, N, C, H_pool, W_pool = pooled_sample.shape
-x_for_fit = pooled_sample.contiguous().view(B, -1)
-thermometer.fit(x_for_fit)
+stride_hd = StrideHD(window_size=(4,4), stride=2, pool_size=(2,2))
 
-for tupple_size in adress_list:
-    logging.info(f"[TUPLA {tupple_size}] Iniciando treinamento do WisardPKG")
-    model = wp.Wisard(tupple_size)
+def calcular_dados_para_termometro(args, stride_hd: StrideHD, termometro, vlad_transform=None, fisher_transform=None):
+	dados_para_termometro, _ = next(iter(train_loader))
+	match(args['tipo_transformacao']):
 
-    inicio_treino = time()
-    for k, (x_batch, y_batch) in enumerate(train_loader):
-        print(f"\rTreino {k+1}/{len(train_loader)}", end="", flush=True)
+		case TiposDeTransformacao.STRIDE_HD:
+			pooled_dados_para_termometro = stride_hd.extract_and_pool(dados_para_termometro)
+			B, N, C, H_pool, W_pool = pooled_dados_para_termometro.shape
+			dados_para_termometro = pooled_dados_para_termometro.contiguous().view(B, -1)
+			termometro.fit(dados_para_termometro)
+		
+		case TiposDeTransformacao.FISHER_VECTOR:
+			fv_features = fisher_transform.extract_features(dados_para_termometro)  # já é [B, D]
+			termometro.fit(fv_features)
+			# fv_features = fisher_transform.extract_features(dados_para_termometro)  # [B, D]
+			# fv_features = fv_features.unsqueeze(1)  # [B, 1, D]
+			# termometro.fit(fv_features)
 
-        pooled_windows = stride_hd.extract_and_pool(x_batch)
-        B, N, C, H_pool, W_pool = pooled_windows.shape
-        x_for_wisard = pooled_windows.contiguous().view(B, -1)
+		case TiposDeTransformacao.VLAD:
+			vlads = vlad_transform.transform(dados_para_termometro)
+			termometro.fit(vlads)
+	
+	return termometro
 
-        # Binariza e achata
-        x_batch_bin = thermometer.binarize(x_for_wisard).numpy()
-        x_batch_bin = x_batch_bin.reshape(B, -1).astype(int).tolist()
+# Inicializa o fisher_transform antes:
+fisher_transform = None
+vlad_transform = None 
 
-        # Converte rótulos para strings
-        y_batch_list = y_batch.numpy().astype(str).tolist()
+# if args["tipo_transformacao"] == TiposDeTransformacao.FISHER_VECTOR:
+# 	fisher_transform = FisherVectorTransform(num_gaussians=16, n_components_pca=64)
+# 	fisher_transform.fit_gmm(train_loader)
 
-        model.train(x_batch_bin, y_batch_list)
-    final_treino = time()
-    logging.info(f"\n[TUPLA {tupple_size}] Treinamento concluído em {final_treino - inicio_treino:.2f}s")
+if args["tipo_transformacao"] == TiposDeTransformacao.VLAD:
+	vlad_transform = VLADTransform(num_centros=32, n_components_pca=32)
+	vlad_transform.fit(train_loader)
 
-    # --- Teste ---
-    classes_preditas = []
-    classes_reais = []
+# Inicializa termômetro
+termometro = DistributiveThermometer(args['num_bits_termometro'])
+termometro = calcular_dados_para_termometro(args, stride_hd, termometro, fisher_transform=fisher_transform, vlad_transform=vlad_transform)
 
-    inicio_teste = time()
-    for k, (x_batch, y_batch) in enumerate(test_loader):
-        print(f"\rTeste {k+1}/{len(test_loader)}", end="", flush=True)
+# Agora cria o modelo com o fisher_transform e termometro treinados
+for tamanho in args['tamanhos_tuplas']:
+	modelo_wisard = wp.Wisard(tamanho)
 
-        pooled_windows = stride_hd.extract_and_pool(x_batch)
-        B, N, C, H_pool, W_pool = pooled_windows.shape
-        x_for_wisard = pooled_windows.contiguous().view(B, -1)
-
-        x_batch_bin = thermometer.binarize(x_for_wisard).numpy()
-        x_batch_bin = x_batch_bin.reshape(B, -1).astype(int).tolist()
-        y_batch_list = y_batch.numpy().astype(str).tolist()
-
-        preds = model.classify(x_batch_bin)
-
-        # Todas as classes como strings
-        classes_preditas.extend(preds)
-        classes_reais.extend(y_batch_list)
-    final_teste = time()
-
-    logging.info(f"\n[TUPLA {tupple_size}] Teste concluído em {final_teste - inicio_teste:.2f}s")
-    logging.info(f"[TUPLA {tupple_size}] Execução total: {final_treino - inicio_treino + final_teste - inicio_teste:.2f}s")
-
-    metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-    logging.info("Calculando métricas de desempenho")
-    metricas.calcular_e_imprimir_metricas()
+	modelo = WisardModel(
+		modelo=modelo_wisard,
+		tamanho_tupla=tamanho,
+		train_loader=train_loader,
+		test_loader=test_loader,
+		termometro=termometro,
+		stride_hd=stride_hd,
+		args=args,
+	)
+	modelo.executar_modelo()
