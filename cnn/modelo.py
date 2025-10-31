@@ -1,6 +1,7 @@
 import logging
 import os
 from time import time
+import h5py
 import numpy as np
 import torch
 from torchvision import models
@@ -103,6 +104,125 @@ class Modelo:
 			{'params': self.model.AuxLogits.fc.parameters(), 'lr': self.args['taxa_aprendizado'], 'weight_decay': self.args['penalidade']}
 		], lr=0)
 
+	
+	def get_feature_extractor(self, modelo_base):
+		match(modelo_base):
+			case ModeloBase.RESNET18:
+				return torch.nn.Sequential(*list(self.model.children())[:-1])
+			case ModeloBase.RESNET50:
+				return torch.nn.Sequential(*list(self.model.children())[:-1])
+			case ModeloBase.VGG16:
+				return torch.nn.Sequential(self.model.features, self.model.avgpool)
+			case ModeloBase.CONVNEXT:
+				return torch.nn.Sequential(self.model.features, self.model.avgpool)
+			case ModeloBase.INCEPTION_V3:
+				feature_extractor = self.model
+				feature_extractor.fc = torch.nn.Identity()  # Remove a última camada
+				if hasattr(feature_extractor, "AuxLogits"):
+					feature_extractor.AuxLogits = None  # Remove o auxiliar, pra evitar erro
+				return feature_extractor
+			case _:
+				raise ValueError(f"Modelo base '{modelo_base}' não suportado.")
+			
+	def extrair_features_npz(self, modelo_base, loader):
+		feature_extractor = self.get_feature_extractor(modelo_base)
+		self.model.eval()
+
+		all_features = []
+		all_labels = []
+
+		with torch.no_grad():
+			for k, (dado, rotulo) in enumerate(loader):
+				print(f'\r{k+1}/{len(loader)}', end='', flush=True)
+
+				dado = dado.to(self.args['dispositivo'])
+				rotulo = rotulo.to(self.args['dispositivo'])
+
+				# Extrai as features e achata
+				features = feature_extractor(dado)
+				features = features.view(features.size(0), -1).detach().cpu().numpy()
+				rotulo = rotulo.cpu().numpy()
+
+				all_features.append(features)
+				all_labels.append(rotulo)
+
+		# Concatena todos os batches
+		dados = np.concatenate(all_features, axis=0)
+		classes = np.concatenate(all_labels, axis=0)
+
+		return dados, classes
+
+
+	def extrair_features(self, modelo_base, loader):
+		feature_extractor = self.get_feature_extractor(modelo_base)
+		with h5py.File('features_labels.h5', 'w') as h5f:
+			first = True
+			self.model.eval()
+			with torch.no_grad():
+				for k, (dado, rotulo) in enumerate(loader):
+					print(f'\r{k+1}/{len(loader)}', end='', flush=True)
+
+					dado = dado.to(self.args['dispositivo'])
+					rotulo = rotulo.to(self.args['dispositivo'])
+
+					features = feature_extractor(dado)
+					features = features.view(features.size(0), -1).detach().cpu().numpy()
+					rotulo = rotulo.cpu().numpy()
+
+					if first:
+						features_dset = h5f.create_dataset('features', data=features, maxshape=(None, features.shape[1]))
+						labels_dset = h5f.create_dataset('labels', data=rotulo, maxshape=(None,))
+						first = False
+					else:
+						features_dset.resize(features_dset.shape[0] + features.shape[0], axis=0)
+						features_dset[-features.shape[0]:] = features
+
+						labels_dset.resize(labels_dset.shape[0] + rotulo.shape[0], axis=0)
+						labels_dset[-rotulo.shape[0]:] = rotulo
+
+				print("\nDados salvos em 'features_labels.h5'")
+	
+	def extrair_e_salvar_features_cnn(self, modelo_base):
+
+		logging.info(f"[ÍNICIO] Extração de características do treino")
+		
+		start_treino = time()
+		dados_treino, classes_treino = self.extrair_features_npz(modelo_base, self.train_loader)
+		end_treino = time()
+
+		tempo_total_treino = end_treino - start_treino
+
+		logging.info(f"[FIM] Extração de características do treino demorou {tempo_total_treino}")
+		
+		logging.info(f"[ÍNICIO] Extração de características do teste")
+
+		start_teste = time()
+		dados_teste, classes_teste = self.extrair_features_npz( modelo_base, self.test_loader,)
+		end_teste = time()
+
+		tempo_total_teste = end_teste - start_teste
+		
+		logging.info(f"[FIM] Extração de características do teste demorou {tempo_total_teste}")
+
+		if modelo_base == ModeloBase.VGG16:
+			ArquivoUtils.salvar_features_vgg16_h5(
+				nome_dataset=self.args['dataset'],
+				dados_treino=dados_treino,
+				classes_treino=classes_treino,
+				dados_teste=dados_teste,
+				classes_teste=classes_teste
+			)
+
+		else:
+			# Salva no formato .npz
+			ArquivoUtils.salvar_features_imagem(
+				nome_tecnica_ext=modelo_base.value,
+				nome_dataset=self.args['dataset'],
+				dados_treino=dados_treino,  
+				classes_treino=classes_treino,
+				dados_teste=dados_teste,  
+				classes_teste=classes_teste
+			)
 
 	def forward(self, lote, classes_preditas, classes_reais, erro_da_epoca):
 		dado, classe = lote
@@ -207,8 +327,8 @@ class Modelo:
 
 		ArquivoUtils.salvar_modelo(
 			args=self.args,
-    		estado_modelo=self.model.state_dict(),
-    		estado_otimizador=self.optimizer.state_dict(),
+			estado_modelo=self.model.state_dict(),
+			estado_otimizador=self.optimizer.state_dict(),
 		)
 
 		return
