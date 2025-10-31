@@ -1,84 +1,97 @@
+#!/usr/bin/env python3
+"""
+VLAD (tim-hilt/vlad) + PCA no estilo do StrideHD (args como dict)
+-----------------------------------------------------------------
+- Usa a biblioteca tim-hilt/vlad para codificar VLAD a partir de descritores
+  Dense SIFT.
+- Redução de dimensionalidade **opcional** no vetor VLAD com PCA.
+- **Salva** as features com as mesmas chaves do seu pipeline
+  (`dados_treino`, `classes_treino`, `dados_teste`, `classes_teste`) via
+  `ArquivoUtils.salvar_features_imagem`.
+- Configuração via **args = { ... }** (sem argparse), no mesmo espírito do seu código.
+
+Como usar:
+  1) Instale a lib:  git clone https://github.com/tim-hilt/vlad && cd vlad && pip install -e .
+  2) Dependências:   pip install opencv-contrib-python scikit-learn torch torchvision numpy
+  3) Ajuste o dict `args` e rode este arquivo.
+"""
+from __future__ import annotations
+import logging
 import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
+import torchvision
 
-class VLADTransform:
-    def __init__(self, num_centros=16, n_components_pca=24):
-        self.num_centros = num_centros
-        self.n_components_pca = n_components_pca
-        self.kmeans = None
-        self.pca = None
+from wisard.vlad import VLAD
+from utils.arquivo_utils import ArquivoUtils
+from wisard.sift import Sift
 
-    def fit(self, dataloader, num_amostras=500):
-        """
-        Ajusta PCA e KMeans com amostras do dataloader.
-        """
-        descritores = []
+logging.basicConfig(level=logging.INFO,
+					format="%(asctime)s - VLAD - %(levelname)s - %(message)s")
 
-        # coleta amostras
-        count = 0
-        for imgs, _ in dataloader:
-            for img in imgs:
-                desc = self.extrair_descritores_locais(img)
-                descritores.append(desc)
-                count += 1
-                if count >= num_amostras:
-                    break
-            if count >= num_amostras:
-                break
 
-        todos_descritores = np.concatenate(descritores, axis=0)
-        self.pca = PCA(n_components=self.n_components_pca, random_state=42)
-        descritores_pca = self.pca.fit_transform(todos_descritores)
+class Vlad:
+	def __init__(self, args: dict):
+		self.args = args
+		self.vlad = VLAD(k=self.args["k"], norming="RN")
 
-        self.kmeans = KMeans(n_clusters=self.num_centros, random_state=42)
-        self.kmeans.fit(descritores_pca)
 
-    @staticmethod
-    def extrair_descritores_locais(imagem, tamanho_janela=4, passo=4):
-        """
-        Divide a imagem em patches e retorna vetores achatados.
-        """
-        C, H, W = imagem.shape
-        descritores = []
+	def executar_e_salvar(self):
+		trainset = torchvision.datasets.CIFAR10(root='./datasets', train=True,  download=False, transform=None)
+		testset  = torchvision.datasets.CIFAR10(root='./datasets', train=False, download=False, transform=None)
 
-        for y in range(0, H - tamanho_janela + 1, passo):
-            for x in range(0, W - tamanho_janela + 1, passo):
-                patch = imagem[:, y:y+tamanho_janela, x:x+tamanho_janela]
-                descritores.append(patch.flatten().numpy())
+		classes_treino = np.array(list(trainset.targets))
+		classes_teste = np.array(list(testset.targets))
 
-        return np.stack(descritores)
+		sift = Sift(trainset=trainset)
 
-    def calcular_vlad(self, descritores):
-        descritores_pca = self.pca.transform(descritores)
-        centros = self.kmeans.cluster_centers_
-        num_centros, dim = centros.shape
+		# ================== TREINO ==================
+		descritores_treino = sift.extrair_descritores_dataset(trainset, max_imgs=50_000, desc_target=100_000)
+		descritores_treino_pca = sift.aplicar_pca(descritores_treino)
+		self.vlad.fit(descritores_treino_pca)
 
-        vlad = np.zeros((num_centros, dim))
-        atribuicoes = np.argmin(
-            np.linalg.norm(descritores_pca[:, None, :] - centros[None, :, :], axis=2),
-            axis=1
-        )
+		descritores_treino_full = sift.extrair_descritores_dataset(trainset)
+		descritores_treino_full_pca = sift.transformar_pca(descritores_treino_full)
+		vlad_treino = self.vlad.transform(descritores_treino_full_pca)
 
-        for i in range(num_centros):
-            desc_cluster = descritores_pca[atribuicoes == i]
-            if len(desc_cluster) > 0:
-                vlad[i] = np.sum(desc_cluster - centros[i], axis=0)
+		# Filtra e empilha
+		vlad_treino_validos = [f for f in vlad_treino if f is not None and np.size(f) > 0]
+		classes_treino_validos = classes_treino[[f is not None and np.size(f) > 0 for f in vlad_treino]]
 
-        # power normalization + L2
-        vlad = np.sign(vlad) * np.sqrt(np.abs(vlad))
-        vlad = vlad.flatten()
-        vlad = vlad / np.linalg.norm(vlad)
+		dados_treino_np = ArquivoUtils.transformar_dados_memmap(
+			dados=vlad_treino_validos,
+			nome_arquivo="vlad_treino.dat"
+		)
 
-        return vlad
+		classes_treino = np.array(classes_treino_validos, dtype=np.int64)
 
-    def transform(self, imgs):
-        """
-        Recebe batch de imagens, retorna matriz (B, D)
-        """
-        vlads = []
-        for img in imgs:
-            desc = self.extrair_descritores_locais(img)
-            v = self.calcular_vlad(desc)
-            vlads.append(v)
-        return np.stack(vlads)  # shape (B, D)
+		descritores_teste = sift.extrair_descritores_dataset(testset)
+		descritores_teste_pca = sift.transformar_pca(descritores_teste)
+		vlad_teste = self.vlad.transform(descritores_teste_pca)
+
+		vlad_teste_validos = [f for f in vlad_teste if f is not None and np.size(f) > 0]
+		classes_teste_validos = classes_teste[[f is not None and np.size(f) > 0 for f in vlad_teste]]
+
+		dados_teste_np = ArquivoUtils.transformar_dados_memmap(
+			vlad_teste_validos,
+			nome_arquivo="vlad_teste.dat"
+		)
+
+		classes_teste = np.array(classes_teste_validos, dtype=np.int64)
+
+		ArquivoUtils.salvar_features_imagem(
+			nome_tecnica_ext=f"sift_vlad_k{self.args['k']}",
+			nome_dataset=self.args['nome_dataset'],
+			dados_treino=dados_treino_np,
+			classes_treino=classes_treino,
+			dados_teste=dados_teste_np,
+			classes_teste=classes_teste
+		)
+
+if __name__ == "__main__":
+	# === Exemplo de args no MESMO estilo do StrideHD ===
+	args = {
+		"k": 32,
+		"nome_dataset": "CIFAR10",
+		"saida_dir": "resultados",
+		"nome_tecnica_prefixo": "vlad_timlib",
+	}
+	Vlad(args).executar_e_salvar()
