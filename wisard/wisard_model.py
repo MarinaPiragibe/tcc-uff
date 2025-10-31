@@ -20,6 +20,8 @@ class WisardModel():
 
 	def treinar(self):
 		
+		logging.info(f"[TUPLA {self.tamanho_tupla}] Iniciando treino do WisardPKG ")
+
 		inicio_treino = time()
 
 		for k, (dado, classe) in enumerate(self.dados_treino):
