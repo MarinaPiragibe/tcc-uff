@@ -9,8 +9,9 @@ from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
 from torch.utils.data import Subset
 
-from old.stride_hd import StrideHD
-from wisard.fisher_vector import FisherVector
+from wisard.fisher_vector_bad_impl import FisherVector
+from wisard.stride_hd import StrideHD
+from wisard.vlad import Vlad
 
 
 
@@ -18,7 +19,7 @@ args = {
 	"tamanho_lote": 32,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
-	"tipo_transformacao": TiposDeTransformacao.FISHER_VECTOR,
+	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
 	"debug": False
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
@@ -51,15 +52,13 @@ test_loader = torch.utils.data.DataLoader(
 match(args['tipo_transformacao']):
 
 	case TiposDeTransformacao.STRIDE_HD:
-		stride_hd = StrideHD(window_size=(2,2), stride=1)
+		stride_hd = StrideHD(pool_size=(2,2), stride=2)
 		stride_hd.executar_e_salvar(train_loader, test_loader, args['dataset'])
-
-	case TiposDeTransformacao.FISHER_VECTOR:
-		fv = FisherVector(
-			train_set=dados_treino,
-			test_set=dados_teste,
+	
+	case TiposDeTransformacao.VLAD:
+		vlad = Vlad(
 			args=args
 		)
-		fv.executar_e_salvar()
+		vlad.executar_e_salvar()
 
 	
