@@ -5,56 +5,34 @@ import logging
 from utils.arquivo_utils import ArquivoUtils
 
 class StrideHD:
-	def __init__(self, window_size=(4,4), stride=2, pool_size=(2,2)):
-		self.window_size = window_size
+	def __init__(self, stride=2, pool_size=(2,2)):
 		self.stride = stride
 		self.pool_size = pool_size
 
 	def extract_and_pool(self, dado: torch.Tensor):
-		B, C, H, W = dado.shape
+		# Obtemos as dimensões do tensor de entrada
+		B, C, H, W = dado.shape  # B: batch size, C: canais, H: altura, W: largura
 
-		# 1) Extrai as janelas diretamente usando unfold
-		janelas = dado.unfold(2, self.window_size[0], self.stride).unfold(3, self.window_size[1], self.stride)
-		# windows: [B, C, num_h, num_w, win_H, win_W]
-
-		# 2) Combina dimensões num_h e num_w para formar num_windows
-		B, C, num_janelas_altura, num_janelas_largura, altura_janela, largura_janela = janelas.shape
-		janelas = janelas.permute(0, 2, 3, 1, 4, 5)  # [B, num_h, num_w, C, win_H, win_W]
-		janelas = janelas.contiguous().view(B, num_janelas_altura*num_janelas_largura, C, altura_janela, largura_janela)  # [B, num_windows, C, win_H, win_W]
-
-		# 3) Aplicar max pooling de forma eficiente
-		# Transformamos [B*num_windows, C, win_H, win_W] para aplicar F.max_pool2d
-		pooled = F.max_pool2d(janelas.view(-1, C, altura_janela, largura_janela), self.pool_size)
-		pooled_altura, pooled_largura = pooled.shape[2], pooled.shape[3]
-		pooled = pooled.view(B, num_janelas_altura*num_janelas_largura, C, pooled_altura, pooled_largura)
+		# Aplicar o Max Pooling diretamente ao tensor (cada imagem do batch é processada separadamente)
+		pooled = F.max_pool2d(dado, kernel_size=self.pool_size, stride=self.stride)
 
 		return pooled
 
-	def _agregar(self, pooled: torch.Tensor, modo: str = "meanmax") -> torch.Tensor:
-		B, Wn, C, ph, pw = pooled.shape
-		pooled_flat = pooled.view(B, Wn, C*ph*pw)
-		if modo == "mean":
-			out = pooled_flat.mean(dim=1)
-		elif modo == "max":
-			out, _ = pooled_flat.max(dim=1)
-		elif modo == "meanmax":
-			m = pooled_flat.mean(dim=1)
-			M, _ = pooled_flat.max(dim=1)
-			out = torch.cat([m, M], dim=1)
-		else:
-			raise ValueError(f"Agregação desconhecida: {modo}")
-		return out
-
 	@torch.inference_mode()
-	def _encode_loader(self, loader, agregacao, progress: bool = True):
+	def _encode_loader(self, loader):
 		feats, labels = [], []
 		for k, (imgs, cls) in enumerate(loader):
-			# opcional: garante CPU caso algo venha na GPU por engano
 			if imgs.device.type != "cpu":
 				imgs = imgs.to("cpu")
+			
+			# Sempre aplicar max pooling
 			pooled = self.extract_and_pool(imgs)
-			agg = self._agregar(pooled, agregacao)
-			feats.append(agg.numpy())   # já está na CPU
+			
+			# "Flatten" cada imagem em um vetor
+			B, C, H, W = pooled.shape
+			pooled_flat = pooled.view(B, -1)  # cada imagem vira um vetor
+			
+			feats.append(pooled_flat.numpy())   
 			labels.append(cls.numpy())
 		
 			print(f"\r{k+1}/{len(loader)}", end="", flush=True)
@@ -64,14 +42,15 @@ class StrideHD:
 		logging.info(f"StrideHD -> amostras: {X.shape[0]}, dimensão: {X.shape[1]}")
 		return X, y
 
+
 	def executar_e_salvar(self, train_loader, test_loader, dataset_enum,
 						  nome_tecnica_ext: str = "stride_hd",
 						  agregacao: str = "max"):
-		logging.info(f"Executando StrideHD (agregação={agregacao}, device=cpu)...")
-		X_tr, y_tr = self._encode_loader(train_loader, agregacao)
-		X_te, y_te = self._encode_loader(test_loader, agregacao)
+		logging.info(f"Executando StrideHD")
+		X_tr, y_tr = self._encode_loader(train_loader)
+		X_te, y_te = self._encode_loader(test_loader)
 
-		logging.info("Salvando features no formato padrão (compatível com Fisher Vector)...")
+		logging.info("Salvando features no formato padrão")
 		ArquivoUtils.salvar_features_imagem(
 			nome_tecnica_ext=nome_tecnica_ext,
 			nome_dataset=dataset_enum.value,
