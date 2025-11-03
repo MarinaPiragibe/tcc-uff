@@ -13,13 +13,14 @@ from wisard.wisard_model import WisardModel
 
 args = {
 	"modelo_base": "wisard",
-	"tamanho_lote": 32,
+	"tamanho_lote": 32 ,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
 	"tipo_transformacao": TiposDeTransformacao.VLAD,
-	"tamanhos_tuplas": [8, 12, 16, 20, 32, 64],
-	"num_bits_termometro": 12,
-	"debug": False
+	"tamanhos_tuplas": [16, 20, 32, 64],
+	"num_bits_termometro": 8,
+	"debug": False,
+    "arquivo_features": "stride_hd_CIFAR10_features.npz"
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
@@ -31,7 +32,7 @@ logging.info(f"Inicializando o modelo da wisard com os seguintes argumentos: {ar
 torch.set_num_threads(1)
 
 # 2) (Opcional) Criar DataLoaders
-dados_treino, classes_treino, dados_teste, classes_teste = ArquivoUtils.carregar_caracteristicas_salvas("features/convnext_DatasetName.CIFAR10_features.npz")
+dados_treino, classes_treino, dados_teste, classes_teste = ArquivoUtils.carregar_caracteristicas_salvas(args['arquivo_features'])
 
 logging.info(f"Configurando termômetro distributivo")
 
@@ -47,7 +48,6 @@ termometro = DistributiveThermometer(args['num_bits_termometro'])
 termometro.fit(dados_treino_lote[0][0])
 
 
-# Agora cria o modelo com o fisher_transform e termometro treinados
 for tamanho in args['tamanhos_tuplas']:
 	modelo_wisard = wp.Wisard(tamanho)
 
