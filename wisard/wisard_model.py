@@ -4,6 +4,7 @@ from time import time
 
 import torch
 
+from utils.arquivo_utils import ArquivoUtils
 from utils.metricas import Metricas
 from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 
@@ -18,9 +19,9 @@ class WisardModel():
 		self.termometro = termometro
 		self.args = args
 
-	def treinar(self):
+	def treinar(self, num_execucao):
 		
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Iniciando treino do WisardPKG ")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Iniciando treino do WisardPKG ")
 
 		inicio_treino = time()
 
@@ -34,15 +35,15 @@ class WisardModel():
 
 		tempo_total_treino = final_treino - inicio_treino
 
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Fim do treinamento do WisardPKG. Tempo total do treino: {tempo_total_treino}")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Fim do treinamento do WisardPKG. Tempo total do treino: {tempo_total_treino}")
 
 		return tempo_total_treino
 
-	def testar(self):
+	def testar(self, num_execucao):
 		classes_preditas = []
 		classes_reais = []
 
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Iniciando teste do WisardPKG ")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Iniciando teste do WisardPKG ")
 
 		inicio_teste = time()
 
@@ -58,20 +59,35 @@ class WisardModel():
 		final_teste = time()
 		tempo_total_teste = final_teste - inicio_teste
 
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Fim do teste do WisardPKG . Tempo total de inferência: {tempo_total_teste}")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Fim do teste do WisardPKG . Tempo total de inferência: {tempo_total_teste}")
 
 		return tempo_total_teste, classes_reais, classes_preditas
 
-	def executar_modelo(self):
-		tempo_total_treino = self.treinar()
+	def executar_modelo(self, num_execucao, tecnica_ext_feat):
+		tempo_total_treino = self.treinar(num_execucao)
 
-		tempo_total_teste, classes_reais, classes_preditas = self.testar()
+		tempo_total_teste, classes_reais, classes_preditas = self.testar(num_execucao)
 
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Execução do modelo  concluída em {tempo_total_treino + tempo_total_teste}")
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Tempo de execução do treino: {tempo_total_treino}")
-		logging.info(f"[TUPLA {self.tamanho_tupla}] Tempo de execução do teste: {tempo_total_teste}")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Execução do modelo  concluída em {tempo_total_treino + tempo_total_teste}")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Tempo de execução do treino: {tempo_total_treino}")
+		logging.info(f"[EXECUCAO {num_execucao}] [TUPLA {self.tamanho_tupla}] Tempo de execução do teste: {tempo_total_teste}")
 
 		metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
 		
 		logging.info(f"Calculando métricas de desempenho")
 		metricas.calcular_e_imprimir_metricas()
+
+		dados_execucao = {
+				"execucao": num_execucao,
+				"modelo_base": tecnica_ext_feat,
+				"tupla": self.tamanho_tupla,
+				"acuracia": metricas.acc,
+				"precisao": metricas.precisao,
+				"recall": metricas.recall,
+				"f1": metricas.f1,
+				"tempo_treino": tempo_total_treino,
+				"tempo_teste": tempo_total_teste,
+				"tempo_total": tempo_total_treino + tempo_total_teste
+			}
+
+		ArquivoUtils.salvar_csv(self.args, dados_execucao)
