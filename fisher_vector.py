@@ -1,3 +1,6 @@
+from datetime import datetime
+import logging
+from time import time
 from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.decomposition import PCA
@@ -8,6 +11,7 @@ import cv2
 
 from utils.arquivo_utils import ArquivoUtils
 from utils.enums.datasets_name_enum import DatasetName
+from utils.logger import Logger
 
 # ---------- Parâmetros ----------
 MAX_DESC_PER_IMG = 200
@@ -16,6 +20,12 @@ K = 16
 RANDOM_STATE = 42
 rng = np.random.default_rng(RANDOM_STATE)
 PCA_DIM = 128
+
+data_execucao = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+
+Logger.configurar_logger(
+	nome_arquivo=f"fisher_vector_{data_execucao}.log"
+)
 
 def sift_desc_cv2(img_u8, sift):
     kpts, desc = sift.detectAndCompute(img_u8, None)
@@ -36,6 +46,9 @@ def sift_desc_cv2(img_u8, sift):
     return desc.astype(np.float32)
 # =======================================================
 
+inicio = time()
+
+logging.info("[ÍNICIO] Extração de características pelo fisher vector")
 # ---------- Carrega CIFAR-10 ----------
 trainset = CIFAR10(root="./datasets", train=True,  download=False)
 testset  = CIFAR10(root="./datasets", train=False, download=False)
@@ -95,7 +108,11 @@ for i,(img_pil, y) in enumerate(testset):
 test_fvs = np.vstack(test_fvs).astype(np.float32)
 y_test = np.array(y_test)
 
-print("Dimensão do FV:", 2*K*D_FV + K)
+fim = time()
+
+logging.info("[FIM] Extração de características pelo fisher vector")
+logging.info("Dimensão do FV:", 2*K*D_FV + K)
+logging.info(f"Tempo total da execução do fisher vectors {fim - inicio}")
 
 ArquivoUtils.salvar_features_imagem(
     nome_tecnica_ext=f"fisher_vector_sift_k{K}_pca{PCA_DIM}",

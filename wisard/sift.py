@@ -33,8 +33,7 @@ class Sift():
 		pool_desc, total = [], 0
 		for i, (img_pil, _) in enumerate(self.trainset):
 			img_np = np.array(img_pil)         # RGB uint8 (32x32x3)
-			img_u8 = self.to_rgb_u8(img_np)         # RGB uint8 (80x80x3)
-			d = self.sift_desc_cv2(img_u8)
+			d = self.sift_desc_cv2(img_np)
 			falta = self.gmm_pool_size - total
 			if falta <= 0:
 				break
@@ -72,8 +71,7 @@ class Sift():
 		for i, idx in enumerate(idxs):
 			img_pil, _ = dataset[idx]
 			img_np = np.array(img_pil)
-			img_u8 = self.to_rgb_u8(img_np)
-			d = self.sift_desc_cv2(img_u8)
+			d = self.sift_desc_cv2(img_np)
 			descs.append(d)
 			total_desc += len(d)
 
@@ -88,7 +86,6 @@ class Sift():
 		return descs
 
 	def transformar_pca(self, lista_desc):
-		# usa PCA JÁ AJUSTADO no treino
 		return [self.pca.transform(d).astype(np.float32) for d in lista_desc]
 
 	def aplicar_pca(self, pool_desc):

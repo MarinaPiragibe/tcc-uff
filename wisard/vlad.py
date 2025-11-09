@@ -20,7 +20,7 @@ import logging
 import numpy as np
 import torchvision
 
-from wisard.vlad import VLAD
+from vlad import VLAD
 from utils.arquivo_utils import ArquivoUtils
 from wisard.sift import Sift
 
@@ -78,8 +78,8 @@ class Vlad:
 		classes_teste = np.array(classes_teste_validos, dtype=np.int64)
 
 		ArquivoUtils.salvar_features_imagem(
-			nome_tecnica_ext=f"sift_vlad_k{self.args['k']}",
-			nome_dataset=self.args['nome_dataset'],
+			nome_tecnica_ext=f"vlad_k{self.args['k']}",
+			nome_dataset=self.args['dataset'],
 			dados_treino=dados_treino_np,
 			classes_treino=classes_treino,
 			dados_teste=dados_teste_np,

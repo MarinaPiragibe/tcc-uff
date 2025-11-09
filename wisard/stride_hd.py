@@ -1,3 +1,4 @@
+from time import time
 import torch
 import torch.nn.functional as F
 import numpy as np
@@ -46,18 +47,21 @@ class StrideHD:
 	def executar_e_salvar(self, train_loader, test_loader, dataset_enum,
 						  nome_tecnica_ext: str = "stride_hd",
 						  agregacao: str = "max"):
+		logging.info(f"[ÍNICIO] Extraindo caracteristicas com stride {self.stride}")
+		start = time()
 		logging.info(f"Executando StrideHD")
 		X_tr, y_tr = self._encode_loader(train_loader)
 		X_te, y_te = self._encode_loader(test_loader)
 
 		logging.info("Salvando features no formato padrão")
 		ArquivoUtils.salvar_features_imagem(
-			nome_tecnica_ext=nome_tecnica_ext,
+			nome_tecnica_ext=f"{nome_tecnica_ext}_stride{self.stride}",
 			nome_dataset=dataset_enum.value,
 			dados_treino=X_tr,
 			classes_treino=y_tr,
 			dados_teste=X_te,
 			classes_teste=y_te
 		)
-		logging.info("Pipeline StrideHD concluído e salvo com sucesso.")
+		end=time()
+		logging.info(f"[FIM] Tempo de execução do stride HD {end-start}")
 
