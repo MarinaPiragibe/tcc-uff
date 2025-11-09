@@ -73,7 +73,7 @@ class ArquivoUtils:
         dados_teste,
         classes_teste):
         
-        nome_arquivo = f"{nome_tecnica_ext}_{nome_dataset}_features.npz"
+        nome_arquivo = f"features/{nome_tecnica_ext}_{nome_dataset}_features.npz"
         
         np.savez_compressed(
             nome_arquivo,
