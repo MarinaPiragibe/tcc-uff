@@ -1,23 +1,15 @@
 import cv2
 import numpy as np
-from skimage.transform import resize
 from sklearn.decomposition import PCA
 
 
 class Sift():
-	def __init__(self, trainset, gmm_pool_size=100_000, max_desc_per_img=200, resize_to=80):
+	def __init__(self, trainset, max_desc_per_img=200):
 		self.trainset = trainset
 		self.sift = cv2.SIFT_create()
 		self.pca = PCA(n_components=64, whiten=True, random_state=42)
-		self.resize_to = resize_to
 		self.max_desc_per_img = max_desc_per_img
-		self.gmm_pool_size = gmm_pool_size
 		self.rng = np.random.default_rng(42)
-
-	def to_rgb_u8(self, img_rgb_np):
-		# resize em RGB e converte para uint8; SIFT do OpenCV aceita 3 canais e converte internamente
-		img_resized = resize(img_rgb_np, (self.resize_to, self.resize_to), anti_aliasing=True)  # float [0,1]
-		return (img_resized * 255).astype(np.uint8)
 
 
 	def sift_desc_cv2(self, img_u8):
@@ -32,7 +24,7 @@ class Sift():
 	def pool_descritores(self):
 		pool_desc, total = [], 0
 		for i, (img_pil, _) in enumerate(self.trainset):
-			img_np = np.array(img_pil)         # RGB uint8 (32x32x3)
+			img_np = np.array(img_pil)        
 			d = self.sift_desc_cv2(img_np)
 			falta = self.gmm_pool_size - total
 			if falta <= 0:
