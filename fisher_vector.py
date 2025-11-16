@@ -1,6 +1,7 @@
 from datetime import datetime
 import logging
 from time import time
+from codecarbon import EmissionsTracker
 from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.decomposition import PCA
@@ -53,6 +54,16 @@ def sift_desc_cv2(img_u8, sift):
 
 # ---------- Carrega CIFAR-10 ----------
 trainset = CIFAR10(root="./datasets", train=True,  download=False)
+testset  = CIFAR10(root="./datasets", train=False, download=False)
+
+tracker = EmissionsTracker(
+					project_name=f"fisher_vector",
+					output_dir="results/code_carbon",
+					output_file="emissions_ext_carac.csv",
+					log_level="error"
+				)
+
+tracker.start()
 
 inicio_treino = time()
 
@@ -108,8 +119,6 @@ logging.info(f"[FIM] Extração de características pelo fisher vector do conjun
 
 # ---------- 3) Fisher Vectors do TEST ----------
 
-testset  = CIFAR10(root="./datasets", train=False, download=False)
-
 inicio_teste = time()
 
 logging.info("[ÍNICIO] Extração de características pelo fisher vector do conjunto de teste")
@@ -130,7 +139,9 @@ y_test = np.array(y_test)
 fim_teste = time()
 
 tempo_total_teste = fim_teste - inicio_teste
-		
+
+tracker.stop()
+
 logging.info(f"[FIM] Extração de características pelo fisher vector do conjunto de teste concluido em {tempo_total_teste}")
 
 

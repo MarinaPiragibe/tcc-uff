@@ -1,6 +1,7 @@
 from datetime import datetime
 import logging
 from pathlib import Path
+from codecarbon import EmissionsTracker
 import torch
 from torchwnn.encoding import DistributiveThermometer
 import wisardpkg as wp
@@ -53,6 +54,12 @@ for arquivo in args['pasta_features'].iterdir():
 
 	for tamanho in args['tamanhos_tuplas']:
 		for i in range(args['num_exec']):
+			tracker = EmissionsTracker(
+                    project_name=f"{args['modelo_base']}_tupla{tamanho}",
+                    output_dir="results/code_carbon",
+					output_file=f"{args['modelo_base']}_emissions.csv",
+					log_level="error"
+                )
 			logging.info(f"[EXECUCAO {i+1}] [TUPLA {tamanho}] Iniciando wisard com {tecnica_ext_feat}")
 			modelo_wisard = wp.Wisard(tamanho)
 			
@@ -68,4 +75,6 @@ for arquivo in args['pasta_features'].iterdir():
 				args=args,
 			)
 
+			tracker.start()
 			modelo.executar_modelo(num_execucao=i+1, tecnica_ext_feat=tecnica_ext_feat)
+			tracker.stop()

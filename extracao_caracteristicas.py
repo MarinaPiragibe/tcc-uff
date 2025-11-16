@@ -2,6 +2,7 @@ from datetime import datetime
 import logging
 import random
 
+from codecarbon import EmissionsTracker
 import torch
 from utils.dataset_utils import DatasetUtils
 from utils.enums.datasets_name_enum import DatasetName
@@ -55,13 +56,31 @@ match(args['tipo_transformacao']):
 	case TiposDeTransformacao.STRIDE_HD:
 		pool_sizes = [2, 4, 8, 16]
 		for size in pool_sizes:
+			tracker = EmissionsTracker(
+					project_name=f"stride_{size}",
+					output_dir="results/code_carbon",
+					output_file="emissions_ext_carac.csv",
+					log_level="error"
+				)
+
+			tracker.start()
 			stride_hd = StrideHD(args, pool_size=(size,size), stride=size)
 			stride_hd.executar_e_salvar(train_loader, test_loader, args['dataset'])
+			tracker.stop()
 	
 	case TiposDeTransformacao.VLAD:
+		tracker = EmissionsTracker(
+					project_name=f"vlad",
+					output_dir="results/code_carbon",
+					output_file="emissions_ext_carac.csv",
+					log_level="error"
+				)
+
 		vlad = Vlad(
 			args=args
 		)
+		tracker.start()
 		vlad.executar_e_salvar()
+		tracker.stop()
 
 	

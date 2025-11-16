@@ -2,6 +2,7 @@ from datetime import datetime
 import gc
 import logging
 
+from codecarbon import EmissionsTracker
 import torch
 
 from cnn.cnn_utils import criar_modelo_cnn
@@ -22,7 +23,7 @@ args = {
     'tamanho_lote': 128,
     'qtd_classes': 10,
     "dataset": DatasetName.CIFAR10,
-    'debug': False,
+    'debug': True,
     "arq_ext_caract": "extracao_caracteristicas_resultados"     
 }
 args['data_execucao'] = datetime.now().strftime('%Y-%m-%d_%H_%M_%S')
@@ -52,10 +53,29 @@ for modelo_base in ModeloBase:
             modelo.iniciar_modelo(modelo_base=modelo_base)
 
             if args['extrair_caracteristicas']:
+
+                tracker = EmissionsTracker(
+                    project_name=f"{args['modelo_base']}",
+                    output_dir="results/code_carbon",
+					output_file="emissions_ext_carac.csv",
+					log_level="error"
+                )
+
+                tracker.start()
                 modelo.extrair_e_salvar_features_cnn(modelo_base=modelo_base)
+                tracker.stop()
                 break
             else:
+                tracker = EmissionsTracker(
+                    project_name=f"{args['modelo_base']}",
+                    output_dir="results/code_carbon",
+                    output_file=f"{args['modelo_base']}_emissions.csv",
+                    log_level="error"
+                )
+
+                tracker.start()
                 modelo.executar_modelo(num_execucao=execucao+1)
+                tracker.stop()
         
         except Exception as e:
             logging.error(f"Falha na execução do modelo {modelo_base.value}: {e}")

@@ -8,4 +8,5 @@ Objetivo: Desenvolver e analisar modelos de Inteligência Artificial Verde, como
 - pip install -r requirements.txt
 - pip install wisardpkg --no-build-isolation
 - pip install torchwnn --no-build-isolation
+- pip install git+https://github.com/tim-hilt/vlad.git
 

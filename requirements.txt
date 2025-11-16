@@ -7,3 +7,4 @@ torchaudio
 matplotlib
 pybind11
 opencv-python
+codecarbon
