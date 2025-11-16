@@ -14,15 +14,16 @@ from utils.logger import Logger
 
 
 args = {
-    'num_epocas': 3,
+    'num_epocas': 2,
     'num_execucoes': 2,
-    'extrair_caracteristicas': True,     
+    'extrair_caracteristicas': False,     
     'taxa_aprendizado': 1e-3,           
     'penalidade': 8e-4, 
     'tamanho_lote': 128,
     'qtd_classes': 10,
     "dataset": DatasetName.CIFAR10,
-    'debug': False     
+    'debug': False,
+    "arq_ext_caract": "extracao_caracteristicas_resultados"     
 }
 args['data_execucao'] = datetime.now().strftime('%Y-%m-%d_%H_%M_%S')
 

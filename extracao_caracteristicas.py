@@ -18,9 +18,10 @@ args = {
 	"tamanho_lote": 32,
 	"dataset": DatasetName.CIFAR10,
 	"download_dataset": False,
-	"tipo_transformacao": TiposDeTransformacao.VLAD,
+	"tipo_transformacao": TiposDeTransformacao.STRIDE_HD,
 	"debug": False,
-	"k": 32
+	"k": 32,
+	"arq_ext_caract": "extracao_caracteristicas_resultados"
 }
 args["data_execucao"] = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
@@ -54,7 +55,7 @@ match(args['tipo_transformacao']):
 	case TiposDeTransformacao.STRIDE_HD:
 		pool_sizes = [2, 4, 8, 16]
 		for size in pool_sizes:
-			stride_hd = StrideHD(pool_size=(size,size), stride=size)
+			stride_hd = StrideHD(args, pool_size=(size,size), stride=size)
 			stride_hd.executar_e_salvar(train_loader, test_loader, args['dataset'])
 	
 	case TiposDeTransformacao.VLAD:

@@ -87,7 +87,8 @@ class WisardModel():
 				"f1": metricas.f1,
 				"tempo_treino": tempo_total_treino,
 				"tempo_teste": tempo_total_teste,
-				"tempo_total": tempo_total_treino + tempo_total_teste
+				"tempo_total": tempo_total_treino + tempo_total_teste,
+				"tamanho": self.modelo.getsizeof()
 			}
 
 		ArquivoUtils.salvar_csv(self.args, dados_execucao)

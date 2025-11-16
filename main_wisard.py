@@ -53,7 +53,7 @@ for arquivo in args['pasta_features'].iterdir():
 
 	for tamanho in args['tamanhos_tuplas']:
 		for i in range(args['num_exec']):
-			logging.info(f"[EXECUCAO {i+1}] [TUPLA {tamanho}] Iniciando wisard")
+			logging.info(f"[EXECUCAO {i+1}] [TUPLA {tamanho}] Iniciando wisard com {tecnica_ext_feat}")
 			modelo_wisard = wp.Wisard(tamanho)
 			
 			logging.info(f"[EXECUCAO {i+1}] [TUPLA {tamanho}] Iniciando modelo da wisard")

@@ -11,9 +11,14 @@ import cv2
 
 from utils.arquivo_utils import ArquivoUtils
 from utils.enums.datasets_name_enum import DatasetName
+from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from utils.logger import Logger
 
 # ---------- Parâmetros ----------
+
+args = {
+    "arq_ext_caract": "extracao_caracteristicas_resultados"
+}
 MAX_DESC_PER_IMG = 200
 GMM_POOL_SIZE = 100_000
 K = 16
@@ -46,12 +51,12 @@ def sift_desc_cv2(img_u8, sift):
     return desc.astype(np.float32)
 # =======================================================
 
-inicio = time()
-
-logging.info("[ÍNICIO] Extração de características pelo fisher vector")
 # ---------- Carrega CIFAR-10 ----------
 trainset = CIFAR10(root="./datasets", train=True,  download=False)
-testset  = CIFAR10(root="./datasets", train=False, download=False)
+
+inicio_treino = time()
+
+logging.info("[ÍNICIO] Extração de características pelo fisher vector do conjunto de treino")
 
 # ---------- 1) GMM: coleta pool de descritores ----------
 sift = cv2.SIFT_create()
@@ -94,7 +99,21 @@ for i, (img_pil, y) in enumerate(trainset):
 train_fvs = np.vstack(train_fvs).astype(np.float32)
 y_train = np.array(y_train)
 
+fim_treino = time()
+
+tempo_total_treino = fim_treino - inicio_treino
+		
+logging.info(f"[FIM] Extração de características pelo fisher vector do conjunto de treino concluido em {tempo_total_treino}")
+
+
 # ---------- 3) Fisher Vectors do TEST ----------
+
+testset  = CIFAR10(root="./datasets", train=False, download=False)
+
+inicio_teste = time()
+
+logging.info("[ÍNICIO] Extração de características pelo fisher vector do conjunto de teste")
+
 test_fvs, y_test = [], []
 for i,(img_pil, y) in enumerate(testset):
     img_np = np.array(img_pil)
@@ -108,11 +127,16 @@ for i,(img_pil, y) in enumerate(testset):
 test_fvs = np.vstack(test_fvs).astype(np.float32)
 y_test = np.array(y_test)
 
-fim = time()
+fim_teste = time()
+
+tempo_total_teste = fim_teste - inicio_teste
+		
+logging.info(f"[FIM] Extração de características pelo fisher vector do conjunto de teste concluido em {tempo_total_teste}")
+
 
 logging.info("[FIM] Extração de características pelo fisher vector")
 logging.info("Dimensão do FV:", 2*K*D_FV + K)
-logging.info(f"Tempo total da execução do fisher vectors {fim - inicio}")
+logging.info(f"Tempo total da execução do fisher vectors {tempo_total_treino + tempo_total_teste}")
 
 ArquivoUtils.salvar_features_imagem(
     nome_tecnica_ext=f"fisher_vector_sift_k{K}_pca{PCA_DIM}",
@@ -122,3 +146,14 @@ ArquivoUtils.salvar_features_imagem(
     dados_teste=test_fvs,
     classes_teste=y_test
 )
+
+dados_execucao = {
+    "nome_tecnica": TiposDeTransformacao.FISHER_VECTOR.value,
+    "tempo_treino": tempo_total_treino,
+    "tempo_teste": tempo_total_teste,
+    "tempo_total": tempo_total_treino + tempo_total_teste,
+    "shape_treino": train_fvs.shape,
+    "shape_teste": test_fvs.shape,
+}
+
+ArquivoUtils.salvar_csv(args, dados_execucao, args['arq_ext_caract'])

@@ -41,11 +41,11 @@ class ArquivoUtils:
             return None
 
     @staticmethod
-    def salvar_csv(args, dados):
+    def salvar_csv(args, dados, nome_arquivo=None):
         try:
-            logging.info(f"Salvando informações da época no arquivo CSV")
-
-            caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(f"resultados_gerais_{args['modelo_base']}_{args['data_execucao']}", "results")
+            logging.info(f"Salvando informações no arquivo CSV")
+            
+            caminho_completo = ArquivoUtils.gerar_caminho_do_arquivo(nome_arquivo if nome_arquivo else f"resultados_gerais_{args['modelo_base']}_{args['data_execucao']}", "results")
 
             arquivo_existe = os.path.exists(caminho_completo)
             with open(caminho_completo, mode='a', newline='') as f:

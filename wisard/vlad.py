@@ -17,11 +17,13 @@ Como usar:
 """
 from __future__ import annotations
 import logging
+from time import time
 import numpy as np
 import torchvision
 
 from vlad import VLAD
 from utils.arquivo_utils import ArquivoUtils
+from utils.enums.tipos_transformacao_wisard import TiposDeTransformacao
 from wisard.sift import Sift
 
 logging.basicConfig(level=logging.INFO,
@@ -35,11 +37,13 @@ class Vlad:
 
 
 	def executar_e_salvar(self):
+
+		logging.info(f"[ÍNICIO] Executando StrideHD no conjunto de treino")
+
+		inicio_treino = time()
 		trainset = torchvision.datasets.CIFAR10(root='./datasets', train=True,  download=False, transform=None)
-		testset  = torchvision.datasets.CIFAR10(root='./datasets', train=False, download=False, transform=None)
 
 		classes_treino = np.array(list(trainset.targets))
-		classes_teste = np.array(list(testset.targets))
 
 		sift = Sift(trainset=trainset)
 
@@ -62,6 +66,17 @@ class Vlad:
 		)
 
 		classes_treino = np.array(classes_treino_validos, dtype=np.int64)
+		fim_treino = time()
+
+		tempo_total_treino = fim_treino - inicio_treino
+		
+		logging.info(f"[FIM] StrideHD concluído no conjunto de treino em {tempo_total_treino}")
+
+		logging.info(f"[ÍNICIO] Executando StrideHD no conjunto de teste")
+
+		inicio_teste = time()
+		testset  = torchvision.datasets.CIFAR10(root='./datasets', train=False, download=False, transform=None)
+		classes_teste = np.array(list(testset.targets))
 
 		descritores_teste = sift.extrair_descritores_dataset(testset)
 		descritores_teste_pca = sift.transformar_pca(descritores_teste)
@@ -76,6 +91,11 @@ class Vlad:
 		)
 
 		classes_teste = np.array(classes_teste_validos, dtype=np.int64)
+		fim_teste = time()
+
+		tempo_total_teste = fim_teste - inicio_teste
+		
+		logging.info(f"[FIM] StrideHD concluído no conjunto de treino em {tempo_total_teste}")
 
 		ArquivoUtils.salvar_features_imagem(
 			nome_tecnica_ext=f"vlad_k{self.args['k']}",
@@ -85,6 +105,18 @@ class Vlad:
 			dados_teste=dados_teste_np,
 			classes_teste=classes_teste
 		)
+
+		dados_execucao = {
+			"nome_tecnica": TiposDeTransformacao.VLAD.value,
+			"tempo_treino": tempo_total_treino,
+			"tempo_teste": tempo_total_teste,
+			"tempo_total": tempo_total_treino + tempo_total_teste,
+			"shape_treino": dados_treino_np.shape,
+			"shape_teste": dados_teste_np.shape,
+		}
+
+		ArquivoUtils.salvar_csv(self.args, dados_execucao, self.args['arq_ext_caract'])
+
 
 if __name__ == "__main__":
 	# === Exemplo de args no MESMO estilo do StrideHD ===
