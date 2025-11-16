@@ -127,6 +127,7 @@ class Modelo:
 	def extrair_features_npz(self, modelo_base, loader):
 		feature_extractor = self.get_feature_extractor(modelo_base)
 		self.model.eval()
+		feature_extractor.eval() 
 
 		all_features = []
 		all_labels = []
@@ -204,25 +205,35 @@ class Modelo:
 		
 		logging.info(f"[FIM] Extração de características do teste demorou {tempo_total_teste}")
 
-		if modelo_base == ModeloBase.VGG16:
-			ArquivoUtils.salvar_features_vgg16_h5(
-				nome_dataset=self.args['dataset'],
-				dados_treino=dados_treino,
-				classes_treino=classes_treino,
-				dados_teste=dados_teste,
-				classes_teste=classes_teste
-			)
+		# if modelo_base == ModeloBase.VGG16:
+		# 	ArquivoUtils.salvar_features_vgg16_h5(
+		# 		nome_dataset=self.args['dataset'],
+		# 		dados_treino=dados_treino,
+		# 		classes_treino=classes_treino,
+		# 		dados_teste=dados_teste,
+		# 		classes_teste=classes_teste
+		# 	)
 
-		else:
-			# Salva no formato .npz
-			ArquivoUtils.salvar_features_imagem(
-				nome_tecnica_ext=modelo_base.value,
-				nome_dataset=self.args['dataset'],
-				dados_treino=dados_treino,  
-				classes_treino=classes_treino,
-				dados_teste=dados_teste,  
-				classes_teste=classes_teste
-			)
+		# else:
+		ArquivoUtils.salvar_features_imagem(
+			nome_tecnica_ext=modelo_base.value,
+			nome_dataset=self.args['dataset'],
+			dados_treino=dados_treino,  
+			classes_treino=classes_treino,
+			dados_teste=dados_teste,  
+			classes_teste=classes_teste
+		)
+
+		dados_execucao = {
+			"nome_tecnica": modelo_base.value,
+			"shape_treino": dados_treino.shape,
+			"shape_teste": dados_teste.shape,
+			"tempo_treino": tempo_total_treino,
+			"tempo_teste": tempo_total_teste,
+			"tempo_total": tempo_total_treino + tempo_total_teste
+		}
+
+		ArquivoUtils.salvar_csv(self.args, dados_execucao, self.args['arq_ext_caract'])
 
 	def forward(self, lote, classes_preditas, classes_reais, erro_da_epoca):
 		dado, classe = lote
@@ -255,7 +266,6 @@ class Modelo:
 		self.optimizer.step()
 		
 	def treinar(self, epoca=None):
-		logging.info(f"[ÉPOCA {epoca+1}] Iniciando treinamento do modelo CNN")
 		start = time()
 
 		self.model.train()
@@ -278,52 +288,47 @@ class Modelo:
 		return erro_da_epoca_array.mean(), tempo_execucao
 	
 	def executar_modelo(self, num_execucao):
-		lista_erro_treino, lista_erro_teste = [], []
-		lista_tempo_execucao_treino, lista_tempo_execucao_teste = [], []
+		lista_erro_treino = []
+		lista_tempo_execucao_treino = []
+
 		for epoca in range(self.args['num_epocas']):
-			logging.info(f"[ÉPOCA {epoca+1}] Iniciando a execução do modelo (treino e teste)")
+			logging.info(f"[EXECUÇÃO {num_execucao}][ÉPOCA {epoca+1}] Iniciando o treinamento do modelo")
 
 			erro_do_treino, tempo_execucao_treino = self.treinar(epoca)
 			lista_erro_treino.append(erro_do_treino)
 			lista_tempo_execucao_treino.append(tempo_execucao_treino)
 
-			logging.info(f"[ÉPOCA {epoca+1}] Treinamento concluído em {tempo_execucao_treino}")
-			logging.info(f"[ÉPOCA {epoca+1}] Erro do treino: {erro_do_treino}")
+			logging.info(f"[EXECUÇÃO {num_execucao}][ÉPOCA {epoca+1}] Treinamento concluído em {tempo_execucao_treino}")
+			logging.info(f"[EXECUÇÃO {num_execucao}][ÉPOCA {epoca+1}] Erro do treino: {erro_do_treino}")
 
-			classes_reais, classes_preditas, erro_do_teste, tempo_execucao_teste = self.testar(epoca)
-			lista_erro_teste.append(erro_do_teste)
-			lista_tempo_execucao_teste.append(tempo_execucao_teste)
+		logging.info(f"[EXECUÇÃO {num_execucao}] Iniciando teste do modelo após todas as épocas")
 
-			logging.info(f"[ÉPOCA {epoca+1}] Teste concluído em {tempo_execucao_teste}")
-			logging.info(f"[ÉPOCA {epoca+1}] Erro do teste: {erro_do_teste}")
+		classes_reais, classes_preditas, erro_do_teste, tempo_execucao_teste = self.testar(num_execucao=num_execucao)
 
-			metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
-			logging.info(f"[ÉPOCA {epoca+1}] Calculando métricas de desempenho")
-			metricas.calcular_e_imprimir_metricas()
+		logging.info(f"[EXECUÇÃO {num_execucao}] Teste concluído em {tempo_execucao_teste}")
+		logging.info(f"[EXECUÇÃO {num_execucao}] Erro do teste: {erro_do_teste}")
 
-			dados_execucao = {
-				"execucao": num_execucao,
-				"modelo_base": self.args['modelo_base'],
-				"epoca": epoca+1,
-				"acuracia": metricas.acc,
-				"precisao": metricas.precisao,
-				"recall": metricas.recall,
-				"f1": metricas.f1,
-				"erro_treino": erro_do_treino,
-				"erro_teste": erro_do_teste,
-				"tempo_treino": tempo_execucao_treino,
-				"tempo_teste": tempo_execucao_teste,
-				"tempo_total": tempo_execucao_treino + tempo_execucao_teste
-			}
+		metricas = Metricas(classes_reais=classes_reais, classes_preditas=classes_preditas)
+		logging.info(f"[EXECUÇÃO {num_execucao}] Execução concluída em {sum(lista_tempo_execucao_treino) + tempo_execucao_teste}")
+		logging.info(f"[EXECUÇÃO {num_execucao}] Calculando métricas de desempenho")
+		metricas.calcular_e_imprimir_metricas()
 
-			ArquivoUtils.salvar_csv(self.args, dados_execucao)
-		
-		tempo_total_treino = sum(tempo for tempo in lista_tempo_execucao_treino)
-		tempo_total_teste = sum(tempo for tempo in lista_tempo_execucao_teste)
+		dados_execucao = {
+			"execucao": num_execucao,
+			"modelo_base": self.args['modelo_base'],
+			"acuracia": metricas.acc,
+			"precisao": metricas.precisao,
+			"recall": metricas.recall,
+			"f1": metricas.f1,
+			"erro_treino": lista_erro_treino[-1],
+			"media_erro_treino": np.mean(lista_erro_treino),
+			"erro_teste": erro_do_teste,
+			"tempo_treino": sum(lista_tempo_execucao_treino),
+			"tempo_teste": tempo_execucao_teste,
+			"tempo_total": sum(lista_tempo_execucao_treino) + tempo_execucao_teste
+		}
 
-		logging.info(f"Execução do modelo concluída em {tempo_total_treino + tempo_total_teste}")
-		logging.info(f"Tempo de execução do treino: {tempo_total_treino}")
-		logging.info(f"Tempo de execução do teste: {tempo_total_teste}")
+		ArquivoUtils.salvar_csv(self.args, dados_execucao)
 
 		ArquivoUtils.salvar_modelo(
 			args=self.args,
@@ -331,11 +336,12 @@ class Modelo:
 			estado_otimizador=self.optimizer.state_dict(),
 		)
 
+		logging.info(f"Execução do modelo concluída. Tempo total: {sum(lista_tempo_execucao_treino) + tempo_execucao_teste}")
 		return
 
 
-	def testar(self, epoca=None):
-		logging.info(f"[ÉPOCA {epoca+1}] Iniciando teste do modelo CNN")
+	def testar(self, num_execucao=None):
+		logging.info(f"[EXECUÇÃO {num_execucao}] Iniciando teste do modelo CNN")
 		start = time()
 
 		self.model.eval() 
