@@ -36,8 +36,8 @@ def criar_modelo_cnn(args, transform, num_execucao):
         train_set = Subset(train_set, train_indices)
         test_set = Subset(test_set, test_indices)
 
-    train_loader = DataLoader(train_set, batch_size=args['tamanho_lote'], shuffle=True)
-    test_loader = DataLoader(test_set, batch_size=args['tamanho_lote'], shuffle=False)
+    train_loader = DataLoader(train_set, batch_size=args['tamanho_lote'], shuffle=True, num_workers=8)
+    test_loader = DataLoader(test_set, batch_size=args['tamanho_lote'], shuffle=False, num_workers=8)
 
     logging.info(f"Tamanho do lote: {args['tamanho_lote']}")
     logging.info(f"Número de classes: {args['qtd_classes']}")
