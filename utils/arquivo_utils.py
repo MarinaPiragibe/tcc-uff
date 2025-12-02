@@ -135,10 +135,10 @@ class ArquivoUtils:
     @staticmethod
     def carregar_caracteristicas_salvas(caminho_npz: str):
         pack = np.load(caminho_npz, mmap_mode="r")
-        dados_treino = pack["dados_treino"].astype(np.float32)
-        classes_treino = pack["classes_treino"].astype(str)
-        dados_teste = pack["dados_teste"].astype(np.float32)
-        classes_teste = pack["classes_teste"].astype(str)
+        dados_treino = pack["dados_treino"]
+        classes_treino = pack["classes_treino"]
+        dados_teste = pack["dados_teste"]
+        classes_teste = pack["classes_teste"]
         
         return dados_treino, classes_treino, dados_teste, classes_teste
 
